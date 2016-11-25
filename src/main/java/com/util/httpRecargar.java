@@ -20,6 +20,7 @@ import org.json.JSONObject;
  * @author intercitydev
  */
 public class httpRecargar {
+    
      private String getHttpString(String accountid, String amount, String returnUrl, String details) {
         String resultado = null;
        
@@ -75,10 +76,15 @@ public class httpRecargar {
     }
 
     public String getRecargas(String accountid, String amount, String returnUrl, String details) {
+        
+        System.out.println("lo que llego del controlador "+accountid+amount+returnUrl+details);
 
         String resultado = this.getHttpString(accountid, amount, returnUrl, details);
         String url=null;
-        
+        //accountid ="29";
+       // amount="5";
+       //returnUrl="gmail.com";
+      //  details="hola k ase";
         try
         {
 

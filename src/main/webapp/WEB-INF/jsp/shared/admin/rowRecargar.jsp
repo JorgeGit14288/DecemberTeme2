@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <a href="recargar.htm?amount=5">
+            <a target="_blank"  href="recargar.htm?amount=5">
                 <div class="panel-footer">
                     <span class="pull-left">Recargar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <a href="recargar.htm?amount=10">
+            <a target="_blank"  href="recargar.htm?amount=10">
                 <div class="panel-footer">
                     <span class="pull-left">Recargar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-             <a href="recargar.htm?amount=15">
+             <a target="_blank"  href="recargar.htm?amount=15">
                 <div class="panel-footer">
                     <span class="pull-left">Recargar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <a href="recargar.htm?amount=20">
+            <a target="_blank"  href="recargar.htm?amount=20">
                 <div class="panel-footer">
                     <span class="pull-left">Recargar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -112,7 +112,7 @@
                     </div>
                 </div>
             </div>
-             <a href="recargar.htm?amount=25">
+             <a target="_blank"  href="recargar.htm?amount=25">
                 <div class="panel-footer">
                     <span class="pull-left">Recargar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
             </div>
-            <a href="recargar.htm?amount=30">
+            <a target="_blank"  href="recargar.htm?amount=30">
                 <div class="panel-footer">
                     <span class="pull-left">Recargar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
