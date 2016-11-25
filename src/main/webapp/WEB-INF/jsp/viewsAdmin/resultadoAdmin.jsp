@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -12,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>DashBoard</title>
+        <title>Recargar</title>
 
         <jsp:include page="../shared/admin/headDashboard.jsp" flush="true" />
 
@@ -27,7 +26,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">InterCity DashBoard</h1>
+                        <h3 class="page-header">Resultado de la transaccion </h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
