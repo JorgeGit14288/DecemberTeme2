@@ -43,8 +43,21 @@
                                 <i class="fa fa-info-circle fa-fw"></i> Informacion
                             </div>
                             <div class="panel-body">
+                                <div id="Error" class=" alert alert-info">
+                                    <Br>
+                                    <center>
+
+                                        <h5>
+                                            ${mensaje}
+                                            ${datoRecarga}
+                                        </h5>
+
+                                    </center>
+
+                                </div>
+
                                 <p>Bienvenido a InterCity, si necesita recargar saldo, pulse en monto de la recarga </p>
-                                 <jsp:include page="../shared/admin/rowRecargar.jsp" flush="true" />
+                                <jsp:include page="../shared/admin/rowRecargar.jsp" flush="true" />
                             </div>
                             <div class="panel-footer">
                                 InterCity WebApp
@@ -67,9 +80,9 @@
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
-                                     <br>
-                            
-                                  
+                                    <br>
+
+
                                 </div>
                                 <!-- /.panel-body -->
                             </div>
