@@ -7,7 +7,7 @@
     <div class="panel-body">
         
         
-         <button type="button" onclick="window.location.href = 'recargar.htm?amount=5'" target="_blank" class="btn btn-primary btn-circle btn-lg"><i class="">$5</i>
+         <button type="button" target="_blank" onclick="window.location.href = 'postRecargar.htm?amount=5'" target="_blank" class="btn btn-primary btn-circle btn-lg"><i class="">$5</i>
         </button>
         <button type="button" target="_blank" onclick="location.href = 'postRecargar.htm?amount=10' " class="btn btn-success btn-circle btn-lg"><i class="">$10</i>
         </button>

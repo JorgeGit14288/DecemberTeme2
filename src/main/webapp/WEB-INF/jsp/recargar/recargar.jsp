@@ -38,61 +38,82 @@
                     <!-- CONTENIDO DINAMICO -->
 
 
-                    <div class="col-lg-8">
-                       <div class="panel panel-info">
+                    div class="col-lg-8">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <i class="fa fa-info-circle fa-fw"></i> Informacion
                             </div>
                             <div class="panel-body">
-                                <p>Bienvenido a InterCity, en esta aplicacion web usted podra gestionar su cuenta de usuario </p>
+                                <div id="Error" class=" alert alert-danger">
+                                    <Br>
+                                    <center>
+
+                                        <h5>
+                                            ${mensaje}
+                                            ${resRecarga.getAmount()}
+                                        </h5>
+
+                                    </center>
+
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Resultado de la Recarga
+                                        </div>
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr> 
+                                                            <th>Detalle</th>
+                                                            <th>Informacion</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Token</td>
+                                                            <td>${resRecarga.getToken()}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Monto Recargado</td>
+                                                            <td>${resRecarga.getAmount()}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Fecha</td>
+                                                            <td>${resRecarga.getRs_datetime()}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Estado de la Recarga</td>
+                                                            <td>${resRecarga.getRs_status()}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Detalles</td>
+                                                            <td>${resRecarga.getDetails()}</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.table-responsive -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                                <!-- /.col-lg-6 -->
                             </div>
                             <div class="panel-footer">
                                 InterCity WebApp
                             </div>
                         </div>
                         <!-- /.panel -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Informacion de la cuenta
-                                <div class="pull-right">
-                                    <div class="btn-group">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-10">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-hover table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Date</th>
-                                                        <th>Time</th>
-                                                        <th>Amount</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>3326</td>
-                                                        <td>10/21/2013</td>
-                                                        <td>3:29 PM</td>
-                                                        <td>$321.33</td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- /.table-responsive -->
-                                    </div>
-
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
 
                     </div>
                     <!-- /.col-lg-8 -->

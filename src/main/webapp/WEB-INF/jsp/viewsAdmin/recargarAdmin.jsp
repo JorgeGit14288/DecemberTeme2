@@ -43,7 +43,7 @@
                                 <i class="fa fa-info-circle fa-fw"></i> Informacion
                             </div>
                             <div class="panel-body">
-                                <div id="Error" class=" alert alert-info">
+                                <div id="Error" class=" alert alert-danger">
                                     <Br>
                                     <center>
 
