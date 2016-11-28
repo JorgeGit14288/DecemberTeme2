@@ -39,12 +39,13 @@
 
 
                     <div class="col-lg-8">
-                       <div class="panel panel-info">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <i class="fa fa-info-circle fa-fw"></i> Informacion
                             </div>
                             <div class="panel-body">
-                                <p>Bienvenido a InterCity, en esta aplicacion web usted podra gestionar su cuenta de usuario </p>
+                                <p>Bienvenido a InterCity, si necesita recargar saldo, pulse en monto de la recarga </p>
+                                 <jsp:include page="../shared/user/rowRecargar.jsp" flush="true" />
                             </div>
                             <div class="panel-footer">
                                 InterCity WebApp
@@ -61,37 +62,7 @@
                                 </div>
                             </div>
                             <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-10">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-hover table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Date</th>
-                                                        <th>Time</th>
-                                                        <th>Amount</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>3326</td>
-                                                        <td>10/21/2013</td>
-                                                        <td>3:29 PM</td>
-                                                        <td>$321.33</td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!-- /.table-responsive -->
-                                    </div>
-
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.panel-body -->
+                            
                         </div>
 
                     </div>

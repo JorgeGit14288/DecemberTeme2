@@ -81,62 +81,62 @@ public class httpRecargas {
 
         String resultado = this.getHttpString(idAccount, page, max, startDate, endDate);
         List<Recarga> recargas = new ArrayList<Recarga>();
-        
-        try
-        {
 
-        if (resultado!=null) {
-            
+        try {
 
-            String jsonResult = resultado;
+            if (resultado != null) {
 
-            // System.out.println("\n\n--------------------OBTENEMOS OBJETO JSON NATIVO DE LA PAGINA, USAMOS EL ARRAY DATA---------------------------\n\n");
-            JSONObject objJason = new JSONObject(jsonResult);
-            // JSONArray dataJson = new JSONArray();
-            //  dataJson = objJason.getJSONArray("data");
-            String jdata = objJason.optString("data");
-            String mensaje = objJason.optString("message");
-            System.out.println("\n MENSAJE DEL SERVIDOR " + mensaje);
-           //  System.out.println(" el objeto jdata es " + jdata);
-            objJason = new JSONObject(jdata);
-            // System.out.println("objeto normal 1 " + objJason.toString());
+                String jsonResult = resultado;
+
+                // System.out.println("\n\n--------------------OBTENEMOS OBJETO JSON NATIVO DE LA PAGINA, USAMOS EL ARRAY DATA---------------------------\n\n");
+                JSONObject objJason = new JSONObject(jsonResult);
+                // JSONArray dataJson = new JSONArray();
+                //  dataJson = objJason.getJSONArray("data");
+                String jdata = objJason.optString("data");
+                String mensaje = objJason.optString("message");
+                System.out.println("\n MENSAJE DEL SERVIDOR " + mensaje);
+                String codigo = objJason.optString("code");
+                if (codigo.compareTo("200") == 0) {
+                    //  System.out.println(" el objeto jdata es " + jdata);
+                    objJason = new JSONObject(jdata);
+                    // System.out.println("objeto normal 1 " + objJason.toString());
 //
-            jdata = objJason.optString("items");
-           // System.out.println("\n\n el objeto jdata es " + jdata);
-            JSONArray jsonArray = new JSONArray();
-            Gson gson = new Gson();
-            //objJason = gson.t
-            jsonArray = objJason.getJSONArray("items");
- 
+                    jdata = objJason.optString("items");
+                    // System.out.println("\n\n el objeto jdata es " + jdata);
+                    JSONArray jsonArray = new JSONArray();
+                    Gson gson = new Gson();
+                    //objJason = gson.t
+                    jsonArray = objJason.getJSONArray("items");
 
-            for (int i = 0; i < jsonArray.length(); i++) {
-                Recarga recarga = new Recarga();
-                recarga.setNo(i+1);
-                recarga.setFecha(jsonArray.getJSONObject(i).getString("created_date"));
-                recarga.setDescripcion(jsonArray.getJSONObject(i).getString("description"));
-                recarga.setMonto(String.valueOf(jsonArray.getJSONObject(i).getInt("credit")));
-                recarga.setSaldoAnterior(jsonArray.getJSONObject(i).getString("before_balance"));
-                recarga.setSaldoPosterior(jsonArray.getJSONObject(i).getString("after_balance"));
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        Recarga recarga = new Recarga();
+                        recarga.setNo(i + 1);
+                        recarga.setFecha(jsonArray.getJSONObject(i).getString("created_date"));
+                        recarga.setDescripcion(jsonArray.getJSONObject(i).getString("description"));
+                        recarga.setMonto(String.valueOf(jsonArray.getJSONObject(i).getInt("credit")));
+                        recarga.setSaldoAnterior(jsonArray.getJSONObject(i).getString("before_balance"));
+                        recarga.setSaldoPosterior(jsonArray.getJSONObject(i).getString("after_balance"));
 
-                recargas.add(recarga);
+                        recargas.add(recarga);
+                    }
+
+                    for (int i = 0; i < recargas.size(); i++) {
+                        System.out.print("\n\nNo" + recargas.get(i).getNo());
+                        System.out.print("\nFecna " + recargas.get(i).getFecha());
+                        System.out.print("\nDescripcion " + recargas.get(i).getDescripcion());
+                        System.out.print("\nMonto " + recargas.get(i).getMonto());
+                        System.out.print("\nSaldo Anterior " + recargas.get(i).getSaldoAnterior());
+                        System.out.print("\nSaldo Posterior" + recargas.get(i).getSaldoPosterior());
+
+                    }
+                } else {
+                    System.out.println("El servidor no dio una respuesta correcta");
+                }
+
+            } else {
+                System.out.println("El servidor de las recargas no respondio correctamenteo");
             }
-
-            for (int i = 0; i < recargas.size(); i++) {
-                System.out.print("\n\nNo" + recargas.get(i).getNo());
-                System.out.print("\nFecna " + recargas.get(i).getFecha());
-                System.out.print("\nDescripcion " + recargas.get(i).getDescripcion());
-                System.out.print("\nMonto " + recargas.get(i).getMonto());
-                System.out.print("\nSaldo Anterior " + recargas.get(i).getSaldoAnterior());
-                System.out.print("\nSaldo Posterior" + recargas.get(i).getSaldoPosterior());
-
-            }
-            
-
-        } else {
-            System.out.println("El servidor de las recargas no respondio correctamenteo");
-        }
-        }catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("No se pudo traducir la respuesta del servidor");
             e.printStackTrace();
         }

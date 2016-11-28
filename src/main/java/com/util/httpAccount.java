@@ -44,11 +44,8 @@ public class httpAccount {
             String codigo = objJason.optString("code");
             System.out.println("el codigo devuelto del servidor es " + codigo);
 
-            if (codigo.compareTo("500") == 0) {
-                System.out.println("El servidor no responde" + codigo);
-
-            } else {
-
+            if (codigo.compareTo("200") == 0) {
+                
                 dataJson = objJason.getJSONArray("data");
                 String mensaje = objJason.optString("message");
 
@@ -82,6 +79,11 @@ public class httpAccount {
                 account.setLanguaje_id(objJson3.get("language_id").toString());
                 account.setId(objJson3.get("id").toString());
                 account.setBalance(objJson3.get("balance").toString());
+
+            } else {
+
+                                System.out.println("El servidor no responde" + codigo);
+
                
 
             }

@@ -75,7 +75,7 @@ public class httpRecargar {
         return resultado;
     }
 
-    public String getRecargas(String accountid, String amount, String returnUrl, String details) {
+    public String getRecargar(String accountid, String amount, String returnUrl, String details) {
 
         System.out.println("lo que llego del controlador " + accountid + amount + returnUrl + details);
 

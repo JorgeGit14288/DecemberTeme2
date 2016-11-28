@@ -101,10 +101,9 @@ public class httpHistorial {
                 String mensaje = objJason.optString("message");
                 String code = objJason.optString("code");
 
-                if (code.compareTo("500") == 0) {
-                    System.out.print("El servidor ha respondido "+mensaje+code);
-
-                } else {
+                if (code.compareTo("200") == 0) {
+                    
+                    
                    
                     String jdata = objJason.optString("data");
                     System.out.println("\n\n MENSAJE DEL SERVIDOR " + mensaje);
@@ -147,6 +146,10 @@ public class httpHistorial {
                         System.out.print("  costo por minuto " + llamadas.get(i).getCostoMinuto());
                         System.out.print("  costo por minuto " + llamadas.get(i).getDuracionMinutos());
                     }
+                   
+
+                } else {
+                     System.out.print("El servidor ha respondido "+mensaje+code);
                 }
 
             }

@@ -155,7 +155,7 @@ public class RecargarController {
             } else {
 
                 httpRecargar recargarHelper = new httpRecargar();
-                String redirect = recargarHelper.getRecargas(accountid, amount, returnUrl, details);
+                String redirect = recargarHelper.getRecargar(accountid, amount, returnUrl, details);
                 String urlRedirect = "redirect:" + redirect;
                 System.out.println(urlRedirect);
 
