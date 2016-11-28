@@ -14,7 +14,7 @@
 
         <title>Mensaje de Confirmacion</title>
 
-        <jsp:include page="../shared/headLogin.jsp" />
+        <jsp:include page="../shared/user/headLogin.jsp" />
     </head>
     <body>
         <div class="container">

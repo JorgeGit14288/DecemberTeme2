@@ -13,14 +13,14 @@
 
         <title>Perfil de Usuario</title>
 
-        <jsp:include page="../shared/headDashboard.jsp" flush="true" />
+        <jsp:include page="../shared/user/headDashboard.jsp" flush="true" />
 
     </head>
 
     <body>
         <div id="wrapper">
             <div>
-                <jsp:include page="../shared/headLeftMenu.jsp" flush="true" />
+                <jsp:include page="../shared/user/headLeftMenu.jsp" flush="true" />
             </div>
             <div id="page-wrapper">
 
@@ -112,7 +112,7 @@
 
                     <!-- CONTENIDO DINAMICO -->
                     <div class="col-lg-4">
-                        <jsp:include page="../shared/rightPanel.jsp" flush="true" />
+                        <jsp:include page="../shared/user/rightPanel.jsp" flush="true" />
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <i class="fa fa-info-circle fa-fw"></i> Informacion

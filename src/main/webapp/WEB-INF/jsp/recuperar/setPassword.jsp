@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Cambiar Password</title>
-        <jsp:include page="../shared/headLogin.jsp" />
+        <jsp:include page="../shared/user/headLogin.jsp" />
     </head>
     <body>
         <div class="container">

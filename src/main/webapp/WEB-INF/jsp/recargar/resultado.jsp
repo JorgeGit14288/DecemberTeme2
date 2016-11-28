@@ -14,14 +14,14 @@
 
         <title>DashBoard</title>
 
-        <jsp:include page="../shared/headDashboard.jsp" flush="true" />
+        <jsp:include page="../shared/user/headDashboard.jsp" flush="true" />
 
     </head>
 
     <body>
         <div id="wrapper">
             <div>
-                <jsp:include page="../shared/headLeftMenu.jsp" flush="true" />
+                <jsp:include page="../shared/user/headLeftMenu.jsp" flush="true" />
             </div>
             <div id="page-wrapper">
 
@@ -32,7 +32,7 @@
                     <!-- /.col-lg-12 -->
                 </div>
 
-                <jsp:include page="../shared/rowCenter1.jsp" flush="true" />
+                <jsp:include page="../shared/user/rowCenter1.jsp" flush="true" />
                 <div class="row">
 
                     <!-- CONTENIDO DINAMICO -->
@@ -99,7 +99,7 @@
 
                     <!-- CONTENIDO DINAMICO -->
                     <div class="col-lg-4">
-                        <jsp:include page="../shared/rightPanel.jsp" flush="true" />
+                        <jsp:include page="../shared/user/rightPanel.jsp" flush="true" />
                     </div>
                 </div>
             </div>

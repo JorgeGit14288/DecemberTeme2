@@ -16,7 +16,7 @@
 
         <title>LOGIN</title>
 
-        <jsp:include page="../shared/headLogin.jsp" />
+        <jsp:include page="../shared/user/headLogin.jsp" />
 
     </head>
 

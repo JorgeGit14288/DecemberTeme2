@@ -14,14 +14,14 @@
 
         <title>InterCity Dashboard</title>
 
-        <jsp:include page="../shared/headDashboard.jsp" flush="true" />
+        <jsp:include page="../shared/user/headDashboard.jsp" flush="true" />
 
     </head>
 
     <body>
         <div id="wrapper">
             <div>
-                <jsp:include page="../shared/headLeftMenu.jsp" flush="true" />
+                <jsp:include page="../shared/user/headLeftMenu.jsp" flush="true" />
             </div>
             <div id="page-wrapper">
 
@@ -72,6 +72,10 @@
                                             <div class="form-group">
                                                 <label for="ciudad" >Ciudad</label>
                                                 <input  class="form-control" type="text"  name="ciudad"  id="city" required placeholder="city" value="${account.getCity()}" /><br>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="ciudad" >Pais</label>
+                                                <input  class="form-control" type="text"  name="pais"  id="country" required placeholder="city" value="${account.getCity()}" /><br>
                                             </div>
                                             <div class="form-group">
                                                 <label for="codigo" >Codigo Postal</label>
@@ -124,7 +128,7 @@
 
                     <!-- CONTENIDO DINAMICO -->
                     <div class="col-lg-4">
-                        <jsp:include page="../shared/rightPanel.jsp" flush="true" />
+                        <jsp:include page="../shared/user/rightPanel.jsp" flush="true" />
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <i class="fa fa-info-circle fa-fw"></i> Informacion

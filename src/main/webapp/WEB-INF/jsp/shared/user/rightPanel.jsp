@@ -1,7 +1,28 @@
 
+<div class="panel panel-red">
+    <div class="panel-heading">
+        <i class="fa fa-money fa-fw"></i> Recargar Saldo
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        
+        
+         <button type="button" target="_blank" onclick="window.location.href = 'postRecargar.htm?amount=5'" target="_blank" class="btn btn-primary btn-circle btn-lg"><i class="">$5</i>
+        </button>
+        <button type="button" target="_blank" onclick="location.href = 'postRecargar.htm?amount=10' " class="btn btn-success btn-circle btn-lg"><i class="">$10</i>
+        </button>
+        <button type="button" target="_blank" onclick="location.href = 'postRecargar.htm?amount=15' " class="btn btn-info btn-circle btn-lg"><i class="">$15</i>
+        </button>
+        <button type="button" target="_blank" onclick="location.href = 'postRecargar.htm?amount=20' " class="btn btn-warning btn-circle btn-lg"><i class="">$20</i>
+        </button>
+        <button type="button" target="_blank" onclick="location.href = 'postRecargar.htm?amount=30' " class="btn btn-danger btn-circle btn-lg"><i class="">$30</i>
+        </button>
 
+        <!-- /.list-group -->
 
-
+    </div>
+    <!-- /.panel-body -->
+</div>
 <div class="panel panel-yellow">
     <div class="panel-heading">
         <i class="fa fa-bell fa-fw"></i> Detalles de la Cuenta

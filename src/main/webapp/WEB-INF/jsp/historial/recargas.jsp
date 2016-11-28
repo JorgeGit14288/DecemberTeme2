@@ -14,14 +14,14 @@
 
         <title>InterCity Dashboard</title>
 
-        <jsp:include page="../shared/headDashboard.jsp" flush="true" />
+        <jsp:include page="../shared/user/headDashboard.jsp" flush="true" />
 
     </head>
 
     <body>
         <div id="wrapper">
             <div>
-                <jsp:include page="../shared/headLeftMenu.jsp" flush="true" />
+                <jsp:include page="../shared/user/headLeftMenu.jsp" flush="true" />
             </div>
             <div id="page-wrapper">
                 <div class="row">

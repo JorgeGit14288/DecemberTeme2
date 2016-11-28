@@ -170,6 +170,7 @@ public class PerfilController {
             account.setNotifyEmail(notifyEmail);
             account.setPostalCode(codigoPostal);
             account.setLanguaje_id(lenguaje);
+            
 
             usuario = userDao.getUsuario(idUsuario);
 
