@@ -49,45 +49,70 @@
 
                                         <h5>
                                             ${mensaje}
-                                            ${datoRecarga}
+                                            ${resRecarga.getAmount()}
                                         </h5>
 
                                     </center>
 
                                 </div>
 
-                                <p>Bienvenido a InterCity, si necesita recargar saldo, pulse en monto de la recarga </p>
-                                <jsp:include page="../shared/admin/rowRecargar.jsp" flush="true" />
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Resultado de la Recarga
+                                        </div>
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr> 
+                                                            <th>Detalle</th>
+                                                            <th>Informacion</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Token</td>
+                                                            <td>${resRecarga.getToken()}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Monto Recargado</td>
+                                                            <td>${resRecarga.getAmount()}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Fecha</td>
+                                                            <td>${resRecarga.getRs_datetime()}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Estado de la Recarga</td>
+                                                            <td>${resRecarga.getRs_status()}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Detalles</td>
+                                                            <td>${resRecarga.getDetails()}</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.table-responsive -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                                <!-- /.col-lg-6 -->
                             </div>
                             <div class="panel-footer">
                                 InterCity WebApp
                             </div>
                         </div>
                         <!-- /.panel -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Informacion de la cuenta
-                                <div class="pull-right">
-                                    <div class="btn-group">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Circle Icon Buttons with Font Awesome Icons
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <br>
-
-
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
 
                     </div>
                     <!-- /.col-lg-8 -->
