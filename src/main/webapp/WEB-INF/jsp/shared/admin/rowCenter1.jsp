@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="panel.htm">
                 <div class="panel-footer">
                     <span class="pull-left">Ir a Recargar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

@@ -122,9 +122,7 @@ public class PerfilController {
                 } else {
                     mav.setViewName("panel/editarPerfil");
                 }
-
             }
-
         }
         return mav;
     }
@@ -157,19 +155,19 @@ public class PerfilController {
             if (request.getParameter("notifyFlag") != null) {
                 notifyFlag = true;
             }
-            AccountLight account = new AccountLight();
+           AccountLight accountL = new AccountLight();
             Usuarios usuario = new Usuarios();
             UsuariosDao userDao = new UsuariosDao();
 
-            account.setAddress(direccion);
-            account.setCity(ciudad);
-            account.setEmail(email);
-            account.setFirstName(nombres);
-            account.setLastName(apellidos);
-            account.setNotifyEmail(notifyEmail);
-            account.setNotifyEmail(notifyEmail);
-            account.setPostalCode(codigoPostal);
-            account.setLanguaje_id(lenguaje);
+            accountL.setAddress(direccion);
+            accountL.setCity(ciudad);
+            accountL.setEmail(email);
+            accountL.setFirstName(nombres);
+            accountL.setLastName(apellidos);
+            accountL.setNotifyEmail(notifyEmail);
+            accountL.setNotifyEmail(notifyEmail);
+            accountL.setPostalCode(codigoPostal);
+            accountL.setLanguaje_id(lenguaje);
             
 
             usuario = userDao.getUsuario(idUsuario);
@@ -193,7 +191,7 @@ public class PerfilController {
                     System.out.println("Se ha registrado el usuario con el servidor en linea ");
                 } else {
                     System.out.println("Se encontro el accountId del usuario ");
-                    accountHelper.setAccountObject(account, usuario.getIdAccount());
+                    accountHelper.setAccountObject(accountL, usuario.getIdAccount());
                     System.out.println("se ha actualizado el usuario al servidor ");
                 }
 

@@ -27,8 +27,8 @@ public class RecargarController {
     HttpSession sesion;
     String sesionUser;
     String mensaje;
-    static String returnUrl = "recargar.htm";
-    static String returnUrl2 = "recargarAdmin.htm";
+    static String returnUrl = "http://customer.intercitytm.com/recargar.htm";
+    static String returnUrl2 = "http://customer.intercitytm.com/recargar.htm";
 
     @RequestMapping(value = "recargar.htm", method = RequestMethod.GET)
     public ModelAndView getResultado(HttpServletRequest request) {

@@ -75,7 +75,7 @@
                                             </div>
                                              <div class="form-group">
                                                 <label for="ciudad" >Pais</label>
-                                                <input  class="form-control" type="text"  name="pais"  id="country" required placeholder="city" value="${account.getCity()}" /><br>
+                                                <input  class="form-control" type="text"  name="pais"  id="country" required placeholder="city" value="${user.getPais()}" /><br>
                                             </div>
                                             <div class="form-group">
                                                 <label for="codigo" >Codigo Postal</label>
