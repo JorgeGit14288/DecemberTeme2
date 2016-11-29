@@ -13,9 +13,7 @@ import com.jsonEntitys.Llamadas;
 import com.jsonEntitys.Recarga;
 import com.util.httpHistorial;
 import com.util.httpRecargas;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,7 +34,7 @@ public class HistorialController {
     String mensaje;
     String startDate;
     String endDate;
-    String destination;
+    String destination="";
     String idAccount;
     int pagenext;
     int pageprevius;
@@ -50,41 +48,103 @@ public class HistorialController {
         sesion = request.getSession();
         ModelAndView mav = new ModelAndView();
 
-        Date Datenow = new Date(System.currentTimeMillis());
-        SimpleDateFormat date = new SimpleDateFormat("dd-MM-yyyy");
-        SimpleDateFormat hour = new SimpleDateFormat("HH:mm:ss");
+        // Para obtener las fechas a mandar
+        Calendar c = Calendar.getInstance();
+        int dia = c.get(Calendar.DAY_OF_MONTH);
 
-        endDate = date.format(Datenow);
-        System.out.println(endDate);
-        //  System.out.println(hour.format(Datenow));
-        // System.out.println(Datenow);
+        int mes = c.get(Calendar.MONTH);
+        int year = c.get(Calendar.YEAR);
+        mes = mes + 1;
+        String fechaActual = year + "-" + mes + "-" + dia + " 23:59:00";
+        System.out.println("Fecha acual " + fechaActual);
 
-        if (sesion.getAttribute("usuario") == null) {
-            mensaje = "No esta logeado para obtener las vistas";
-            mav.addObject("mensaje", mensaje);
-            mav.setViewName("login/login");
+        int mesAnterior;
+        int yearAnterior;
 
+        if (mes == 1) {
+            mesAnterior = 12;
+            yearAnterior = year - 1;
         } else {
-            page = 1;
-            pagenext = page + 1;
-            pageprevius = page - 1;
+            mesAnterior = mes - 1;
+            yearAnterior = year;
+        }
+
+        String fechaAnterior = yearAnterior + "-" + mesAnterior + "-" + dia + " 00:00:00";
+        System.out.println("La fecha de un mes anterior es " + fechaAnterior);
+        startDate = fechaAnterior;
+        endDate = fechaActual;
+
+        //fin fechas
+          
+        try {
+            String telUser = sesion.getAttribute("usuario").toString();
+            Usuarios usuario = new Usuarios();
+            UsuariosDao userDao = new UsuariosDao();
+            Telefonos telefono = new Telefonos();
+            TelefonosDao telDao = new TelefonosDao();
+            telefono = telDao.getTelefono(telUser);
+            usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());
+            idAccount = usuario.getIdAccount();
+            
+            System.out.println(idAccount + " " + page + " " + max + " " + startDate + " " + endDate + " " + destination + " ");
+            this.llenarHistorial(idAccount, startDate, endDate, String.valueOf(page), String.valueOf(max),destination);
+            if (llamadas.isEmpty()) {
+                mensaje = "No se realizaron llamadas en los ultimos 30 dias";
+                mav.addObject("startDate", startDate);
+                mav.addObject("endDate", endDate);
+                mav.addObject("page", page);
+                mav.addObject("pagenext", pagenext);
+                mav.addObject("pageprevius", pageprevius);
+                mav.addObject("max", max);
+                mav.addObject("destination", destination);
+                mav.addObject("mensaje", mensaje);
+
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                    mav.setViewName("viewsAdmin/historialAdmin");
+                } else {
+                    mav.setViewName("historial/historial");
+                }
+
+            } else {
+                mensaje = "HISTORIAL DE LLAMADAS DE LOS ULTIMOS 30 DIAS ";
+                mav.addObject("startDate", startDate);
+                mav.addObject("endDate", endDate);
+                mav.addObject("pagenext", pagenext);
+                mav.addObject("pageprevius", pageprevius);
+                mav.addObject("page", page);
+                mav.addObject("max", max);
+                mav.addObject("destination", destination);
+                mav.addObject("llamadas", llamadas);
+                mav.addObject("mensaje", mensaje);
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                    mav.setViewName("viewsAdmin/historialAdmin");
+                } else {
+                    mav.setViewName("historial/historial");
+                }
+
+            }
+        } catch (Exception e) {
+
+            mensaje = "LO SENTIMOS, NO SE HA PODIO CONECTAR CON EL SERVIDOR";
+            mav.addObject("startDate", startDate);
+            mav.addObject("endDate", endDate);
+            mav.addObject("page", page);
             mav.addObject("pagenext", pagenext);
             mav.addObject("pageprevius", pageprevius);
-            mav.addObject("page", page);
             mav.addObject("max", max);
-            mav.addObject("endDate", endDate);
+            mav.addObject("destination", destination);
+            mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                 mav.setViewName("viewsAdmin/historialAdmin");
-                System.out.println("El usuario es administrador ");
             } else {
                 mav.setViewName("historial/historial");
             }
+            System.out.println("No se pudo obtener el historial de llamadas");
+            e.printStackTrace();
 
         }
-
         return mav;
-
     }
 
     @RequestMapping(value = "getHistorial.htm", method = RequestMethod.GET)
@@ -107,7 +167,7 @@ public class HistorialController {
             usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());
             idAccount = usuario.getIdAccount();
 
-           // String idAccount = "22";
+            // String idAccount = "22";
             String max2 = request.getParameter("max");
             String startDate2 = request.getParameter("startDate");
             String endDate2 = request.getParameter("endDate");
@@ -141,7 +201,7 @@ public class HistorialController {
             try {
                 this.llenarHistorial(idAccount, startDate, endDate, String.valueOf(page), String.valueOf(max), destination);
                 if (llamadas.isEmpty()) {
-                    mensaje = "No Existe historial de llamadas en las fechas comprendidas";
+                    mensaje = "No Existe registro de llamadas en las fechas comprendidas";
                     mav.addObject("startDate", startDate);
                     mav.addObject("endDate", endDate);
                     mav.addObject("page", page);
@@ -158,7 +218,7 @@ public class HistorialController {
                     }
 
                 } else {
-                     mensaje = "HISTORIAL DE LLAMADAS ";
+                    mensaje = "Llamadas Realizadas en las fechas comprendidas ";
                     mav.addObject("startDate", startDate);
                     mav.addObject("endDate", endDate);
                     mav.addObject("pagenext", pagenext);
@@ -167,7 +227,7 @@ public class HistorialController {
                     mav.addObject("max", max);
                     mav.addObject("destination", destination);
                     mav.addObject("llamadas", llamadas);
-                     mav.addObject("mensaje", mensaje);
+                    mav.addObject("mensaje", mensaje);
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                         mav.setViewName("viewsAdmin/historialAdmin");
                     } else {
@@ -228,6 +288,34 @@ public class HistorialController {
             mav.setViewName("login/login");
 
         } else {
+
+            // Para obtener las fechas a mandar
+            Calendar c = Calendar.getInstance();
+            int dia = c.get(Calendar.DAY_OF_MONTH);
+
+            int mes = c.get(Calendar.MONTH);
+            int year = c.get(Calendar.YEAR);
+            mes = mes + 1;
+            String fechaActual = year + "-" + mes + "-" + dia + " 23:59:00";
+            System.out.println("Fecha acual " + fechaActual);
+
+            int mesAnterior;
+            int yearAnterior;
+
+            if (mes == 1) {
+                mesAnterior = 12;
+                yearAnterior = year - 1;
+            } else {
+                mesAnterior = mes - 1;
+                yearAnterior = year;
+            }
+
+            String fechaAnterior = yearAnterior + "-" + mesAnterior + "-" + dia + " 00:00:00";
+            System.out.println("La fecha de un mes anterior es " + fechaAnterior);
+            startDate = fechaAnterior;
+            endDate = fechaActual;
+
+            //fin fechas
             page = 1;
             pagenext = page + 1;
             pageprevius = page - 1;
@@ -235,11 +323,67 @@ public class HistorialController {
             mav.addObject("pageprevius", pageprevius);
             mav.addObject("page", page);
             mav.addObject("max", max);
-            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                mav.setViewName("viewsAdmin/recargasAdmin");
-                System.out.println("el usuario es administrador");
-            } else {
-                mav.setViewName("historial/recargas");
+            System.out.println("account" + idAccount + " page  " + page + " max " + max + " startDate " + startDate + " endDate " + endDate);
+
+            try {
+                this.llenarRecargas(idAccount, startDate, endDate, String.valueOf(page), String.valueOf(max));
+
+                if (recargas.isEmpty()) {
+                    System.out.println("No se encontraron recargas en los ultimos 30 dias");
+                    mensaje = "No se encontraron recargas en los ultimos 30 dias";
+                    mav.addObject("startDate", startDate);
+                    mav.addObject("endDate", endDate);
+                    mav.addObject("page", page);
+                    mav.addObject("pagenext", pagenext);
+                    mav.addObject("pageprevius", pageprevius);
+                    mav.addObject("max", max);
+                    mav.addObject("mensaje", mensaje);
+                    mav.addObject("recargas", this.recargas);
+
+                    if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                        mav.setViewName("viewsAdmin/recargasAdmin");
+                        System.out.println("el usuario es administrador");
+                    } else {
+                        mav.setViewName("historial/recargas");
+                    }
+
+                } else {
+                    System.out.println("Recargas realizadas en los ultimos 30 dias");
+                    mensaje = "Recargas realizadas en los ultimos 30 dias";
+
+                    mav.addObject("startDate", startDate);
+                    mav.addObject("endDate", endDate);
+                    mav.addObject("pagenext", pagenext);
+                    mav.addObject("pageprevius", pageprevius);
+                    mav.addObject("page", page);
+                    mav.addObject("max", max);
+                    mav.addObject("recargas", this.recargas);
+                    mav.addObject("mensaje", mensaje);
+
+                    if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                        mav.setViewName("viewsAdmin/recargasAdmin");
+                    } else {
+                        mav.setViewName("historial/recargas");
+                    }
+                }
+
+            } catch (Exception e) {
+                mensaje = "LO SENTIMOS, NO SE HA PODIDO CONECTAR CON EL SERVIDOR";
+                mav.addObject("startDate", startDate);
+                mav.addObject("endDate", endDate);
+                mav.addObject("page", page);
+                mav.addObject("pagenext", pagenext);
+                mav.addObject("pageprevius", pageprevius);
+                mav.addObject("max", max);
+                mav.addObject("mensaje", mensaje);
+
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                    mav.setViewName("viewsAdmin/recargasAdmin");
+                    System.out.println("el usuario es administrador");
+                } else {
+                    mav.setViewName("historial/recargas");
+                }
+
             }
         }
 
@@ -302,7 +446,7 @@ public class HistorialController {
                 this.llenarRecargas(idAccount, startDate, endDate, String.valueOf(page), String.valueOf(max));
 
                 if (recargas.isEmpty()) {
-                    System.out.println("la lista de recargas esta en blanco");
+                    System.out.println("No se encontraron recargas en las fechas comprendidas");
                     mensaje = "No Existe historial de llamadas en las fechas comprendidas";
                     mav.addObject("startDate", startDate);
                     mav.addObject("endDate", endDate);
@@ -312,7 +456,6 @@ public class HistorialController {
                     mav.addObject("max", max);
                     mav.addObject("mensaje", mensaje);
                     mav.addObject("recargas", this.recargas);
-                    
 
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                         mav.setViewName("viewsAdmin/recargasAdmin");
@@ -322,8 +465,8 @@ public class HistorialController {
                     }
 
                 } else {
-                    System.out.println("se ha devuelto una lista de recargas");
-                    mensaje = "RECARGAS ENCONTRADAS";
+                    System.out.println("Recargas realizadas en las fechas comprendidas");
+                    mensaje = "Recargas realizadas en las fechas comprendidas";
 
                     mav.addObject("startDate", startDate);
                     mav.addObject("endDate", endDate);

@@ -60,11 +60,15 @@ public class RecargarController {
 
                     if (resRecarga.getCodeServer().compareTo("200") == 0) {
                         //cuenta.setSaldo(resRecarga.getAmount());
+                        
+                         account = accountHelper.getAccountObject(cuenta.getTelefono());
+                            cuenta.setSaldo(account.getBalance());
+                            sesion.setAttribute("cuenta", cuenta);
 
                         if (rsStatus.compareTo("COMPLETED") == 0) {
                             mensaje = "Transaccion Completa";
                             //cuenta.setSaldo(resRecarga.getAmount());
-                            account = accountHelper.getAccountObject(cuenta.getTelefono());
+                           
                         } else if (rsStatus.compareTo("REGISTERED") == 0) {
                             mensaje = "La Transacion aun esta en proceso";
                         } else if (rsStatus.compareTo("VERIFYING") == 0) {
