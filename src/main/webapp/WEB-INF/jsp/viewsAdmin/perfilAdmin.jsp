@@ -39,9 +39,9 @@
                     <div class="col-lg-8">
 
                         <!-- /.panel -->
-                        <div class="panel panel-primary">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> DATOS DE USUARIO
+                                <i class="fa fa-user fa-fw"></i> DATOS DE USUARIO
                                 <div class="pull-right">
 
                                 </div>

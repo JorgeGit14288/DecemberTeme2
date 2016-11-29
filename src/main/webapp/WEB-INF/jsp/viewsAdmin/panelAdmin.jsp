@@ -39,7 +39,7 @@
 
 
                     <div class="col-lg-8">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
                                 <i class="fa fa-info-circle fa-fw"></i> Informacion
                             </div>
@@ -52,30 +52,7 @@
                             </div>
                         </div>
                         <!-- /.panel -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Informacion de la cuenta
-                                <div class="pull-right">
-                                    <div class="btn-group">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Circle Icon Buttons with Font Awesome Icons
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                     <br>
-                            
-                                  
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
+                        
 
                     </div>
                     <!-- /.col-lg-8 -->

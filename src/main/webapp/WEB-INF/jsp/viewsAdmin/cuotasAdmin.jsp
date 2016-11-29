@@ -34,9 +34,9 @@
                     <!-- CONTENIDO DINAMICO -->
                     <div class="col-lg-8">
                         <!-- /.panel -->
-                        <div class="panel panel-default">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Cuotas InterCity
+                                <i class="fa fa-money fa-fw"></i> <label>Cuotas InterCity</label>
                                 <div class="pull-right">
                                     <div class="btn-group">
 
@@ -44,7 +44,6 @@
                                 </div>
                             </div>
                             <!-- /.panel-heading -->
-
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -78,9 +77,8 @@
                                                     <option value="5">5 Recargas</option> 
                                                     <option value="10">10 Recargas</option> 
                                                     <option value="15">15 Recargas</option> 
-                                                    <option value="20">20 Recargas</option> 
+                                                    <option value="20">25 Recargas</option> 
                                                     <option value="30">30 Recargas</option> 
-
                                                 </select>
                                             </div>
                                             <div class="col-xs-2">
@@ -90,11 +88,14 @@
                                             </div> 
                                         </form>
                                         <!-- /.consulta retornada por post -->
+                                    </div>
+                                    <div id="result">
+
+                                        ${resultado}
 
                                     </div>
-
                                 </div>
-
+                                <!-- /.row -->
                                 <div id="result">
                                     <div id="Error" class=" alert alert-success">
                                         <center>
@@ -102,13 +103,13 @@
                                         </center>
                                     </div>
 
-                                    ${resultado}
+                                  
 
                                 </div>
                             </div>
-                            <!-- /.row -->
+                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel-body -->
+
                     </div>
                     <div class="col-lg-4">
                         <jsp:include page="../shared/admin/rightPanel.jsp" flush="true" />

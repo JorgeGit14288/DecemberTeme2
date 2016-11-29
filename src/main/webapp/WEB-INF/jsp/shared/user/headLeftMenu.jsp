@@ -50,7 +50,7 @@
                     <a href="panel.htm"><i class="fa fa-dashboard fa-fw"></i> User Dashboard </a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-phone-square fa-fw"></i> History Call's<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-phone-square fa-fw"></i> Historiales<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="historial.htm">Historial de Llamadas</a>

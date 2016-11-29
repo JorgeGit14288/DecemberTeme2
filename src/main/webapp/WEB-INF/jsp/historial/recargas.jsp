@@ -52,7 +52,7 @@
                                             </div>            
                                             <div class="col-xs-2">
                                                 <label>Mostrar</label>
-                                                
+
                                                 <select name="max">
                                                     <option selected value="${max}"> ${max} Recargas</option>
 
@@ -73,65 +73,57 @@
 
                                             </div> 
                                     </div>
-
-
-                                    <div class="table-striped">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Fecha</th>
-                                                    <th>Monto</th>
-                                                    <th>Saldo Anterior</th>
-                                                    <th>Saldo Posterior</th>
-                                                    <th>Descripcion</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach items="${recargas}" var="recarga">
-                                                    <tr>
-                                                        <td><c:out value="${recarga.getNo()}" /></td>
-                                                        <td><c:out value="${recarga.getFecha()}" /></td>
-                                                        <td><c:out value="${recarga.getMonto()}" /></td>
-                                                        <td><c:out value="${recarga.getSaldoAnterior()}" /></td>
-                                                        <td><c:out value="${recarga.getSaldoPosterior() }" /></td>
-                                                        <td><c:out value="${recarga.getDescripcion() }" /></td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
-                                        <ul class="pager">
-
-                                            <li class="previous"><a href="getRecargas.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}">&larr; Anterior ${pageprevius}</a></li>
-                                            <li class="list-group-item-text">pagina ${page}</li>
-                                            <li class="next"><a href="getRecargas.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}">Siguiente ${pagenext} &rarr;</a></li>
-                                        </ul>
-                                        </form>
-                                        <div >
-                                            <div id="Error">
-                                                <Br>
-                                                <center>
-
-                                                    <h5>
-                                                        ${mensaje}
-                                                    </h5>
-
-                                                </center>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                </div><div id="Error" class=" alert alert-success">
+                                    <center>
+                                        <strong>${mensaje}</strong>
+                                    </center>
                                 </div>
-                                <!-- /.panel-body -->
-                            </div>
-                        </div>
-                        <!-- /.panel -->
 
+
+                                <div class="table-striped">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Fecha</th>
+                                                <th>Monto</th>
+                                                <th>Saldo Anterior</th>
+                                                <th>Saldo Posterior</th>
+                                                <th>Descripcion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${recargas}" var="recarga">
+                                                <tr>
+                                                    <td><c:out value="${recarga.getNo()}" /></td>
+                                                    <td><c:out value="${recarga.getFecha()}" /></td>
+                                                    <td><c:out value="${recarga.getMonto()}" /></td>
+                                                    <td><c:out value="${recarga.getSaldoAnterior()}" /></td>
+                                                    <td><c:out value="${recarga.getSaldoPosterior() }" /></td>
+                                                    <td><c:out value="${recarga.getDescripcion() }" /></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                    <ul class="pager">
+
+                                        <li class="previous"><a href="getRecargas.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}">&larr; Anterior ${pageprevius}</a></li>
+                                        <li class="list-group-item-text">pagina ${page}</li>
+                                        <li class="next"><a href="getRecargas.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}">Siguiente ${pagenext} &rarr;</a></li>
+                                    </ul>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
                     </div>
+                    <!-- /.panel -->
 
                 </div>
+
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

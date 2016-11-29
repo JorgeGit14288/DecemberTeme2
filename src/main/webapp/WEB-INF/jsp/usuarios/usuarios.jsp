@@ -37,9 +37,9 @@
 
                     <!-- CONTENIDO DINAMICO -->
                     <div class="col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
-                                DataTables Advanced Tables
+                                Lista de Usuarios InterCity
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">

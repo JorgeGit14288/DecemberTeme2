@@ -33,9 +33,9 @@
                     <!-- CONTENIDO DINAMICO -->
                     <div class="col-lg-8">
                         <!-- /.panel -->
-                        <div class="panel panel-default">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Cuotas InterCity
+                                <i class="fa fa-money fa-fw"></i> <label>Cuotas InterCity</label>
                                 <div class="pull-right">
                                     <div class="btn-group">
 

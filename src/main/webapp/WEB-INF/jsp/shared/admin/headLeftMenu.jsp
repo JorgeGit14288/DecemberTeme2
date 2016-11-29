@@ -79,9 +79,7 @@
                         <li>
                             <a href="usuarios.htm">Usuarios Registrados </a>
                         </li>
-                        <li>
-                            <a href="editarUsuarios.htm">Editar Datos</a>
-                        </li>
+                        
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
@@ -91,9 +89,7 @@
                         <li>
                             <a href="telefonos.htm">Telefonos Registrados</a>
                         </li>
-                        <li>
-                            <a href="editarTelefonos.htm">Editar Datos</a>
-                        </li>
+                        
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>

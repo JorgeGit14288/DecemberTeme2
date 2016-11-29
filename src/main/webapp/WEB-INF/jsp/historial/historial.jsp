@@ -76,70 +76,62 @@
 
                                             </div> 
                                     </div>
-
-
-                                    <div class="table-striped">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Fecha/Hora</th>
-                                                    <th>Destino</th>
-                                                    <th>Pais-Operador</th>
-                                                    
-                                                    <th>Minutos</th>
-                                                    <th>Costo-minuto</th>
-                                                    <th>Costo-Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach items="${llamadas}" var="llamada">
-                                                    <tr class="odd gradeX">
-                                                        <td><c:out value="${llamada.getNo()}" /></td>
-                                                        <td><c:out value="${llamada.getInicioLLamada()}" /></td>
-                                                        <td><c:out value="${llamada.getNumero()}" /></td>
-                                                        <td><c:out value="${llamada.getPais_operador()}" /></td>
-                                                        <td><c:out value="${llamada.getDuracionMinutos() }" /></td>
-                                                        <td><c:out value="${llamada.getCostoMinuto()}" /></td>
-                                                        <td><c:out value="${llamada.getCostoTotal()}" /></td>
-
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
-                                        <ul class="pager">
-
-                                            <li class="previous"><a href="getHistorial.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">&larr; Anterior ${pageprevius}</a></li>
-                                            <li class="list-group-item-text">pagina ${page}</li>
-                                            <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}"">Siguiente ${pagenext} &rarr;</a></li>
-                                        </ul>
-                                        </form>
-                                        <div >
-                                            <div id="Error" class=" alert alert-info">
-                                                <Br>
-                                                <center>
-
-                                                    <h5>
-                                                        ${mensaje}
-                                                    </h5>
-
-                                                </center>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                </div><div id="Error" class=" alert alert-success">
+                                    <center>
+                                        <strong>${mensaje}</strong>
+                                    </center>
                                 </div>
-                                <!-- /.panel-body -->
-                            </div>
-                        </div>
-                        <!-- /.panel -->
 
+
+                                <div class="table-striped">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Fecha/Hora</th>
+                                                <th>Destino</th>
+                                                <th>Pais-Operador</th>
+
+                                                <th>Minutos</th>
+                                                <th>Costo-minuto</th>
+                                                <th>Costo-Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${llamadas}" var="llamada">
+                                                <tr class="odd gradeX">
+                                                    <td><c:out value="${llamada.getNo()}" /></td>
+                                                    <td><c:out value="${llamada.getInicioLLamada()}" /></td>
+                                                    <td><c:out value="${llamada.getNumero()}" /></td>
+                                                    <td><c:out value="${llamada.getPais_operador()}" /></td>
+                                                    <td><c:out value="${llamada.getDuracionMinutos() }" /></td>
+                                                    <td><c:out value="${llamada.getCostoMinuto()}" /></td>
+                                                    <td><c:out value="${llamada.getCostoTotal()}" /></td>
+
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                    <ul class="pager">
+
+                                        <li class="previous"><a href="getHistorial.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">&larr; Anterior ${pageprevius}</a></li>
+                                        <li class="list-group-item-text">pagina ${page}</li>
+                                        <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}"">Siguiente ${pagenext} &rarr;</a></li>
+                                    </ul>
+                                    
+                                    
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
                     </div>
+                    <!-- /.panel -->
 
                 </div>
+
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

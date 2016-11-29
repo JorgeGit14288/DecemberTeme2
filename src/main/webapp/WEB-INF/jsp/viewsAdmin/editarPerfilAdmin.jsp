@@ -40,9 +40,9 @@
 
                     <div class="col-lg-8">
                         <div class="col-lg-8">
-                            <div class="panel panel-default">
+                            <div class="panel panel-green">
                                 <div class="panel-heading">
-                                    <i class=""></i> <center><label>EDITAR PERFIL DE USUARIO</label></center>
+                                    <i class="fa fa-user fa-fw"></i> <label>EDITAR PERFIL DE USUARIO</label>
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">

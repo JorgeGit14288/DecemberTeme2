@@ -117,11 +117,11 @@
 
                                         <li class="previous"><a href="getHistorial.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">&larr; Anterior ${pageprevius}</a></li>
                                         <li class="list-group-item-text">pagina ${page}</li>
-                                        <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}"">Siguiente ${pagenext} &rarr;</a></li>
+                                        <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">Siguiente ${pagenext} &rarr;</a></li>
                                     </ul>
-                                    </form>
+
                                     <div >
-                                        
+
 
                                     </div>
                                 </div>
