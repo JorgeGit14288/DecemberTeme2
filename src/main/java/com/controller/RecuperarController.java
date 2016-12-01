@@ -179,6 +179,7 @@ public class RecuperarController {
                     sesion.invalidate();
                     mav.setViewName("logout");
                     mensaje = "Ingrese sus nuevos datos para ingresar al sistema";
+                    this.createCodigo();
                 } else {
                     mensaje = "se encontro un error en el servidor";
                     mav.addObject("mensaje", mensaje);

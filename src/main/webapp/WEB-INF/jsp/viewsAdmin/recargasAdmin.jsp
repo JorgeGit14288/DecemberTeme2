@@ -44,11 +44,11 @@
                                         <form name="form1" method="GET" action="getRecargas.htm" role="form">
                                             <div class="col-xs-3">
                                                 <label>Fecha de inicio</label>
-                                                <input type="date" min="2016-10-01" name="startDate" value="${startDate}" placeholder="startDate" required>
+                                                <input type="date" min="2016-10-01" name="startDate" value="${startDate}" placeholder="example 2016-12-31"  required>
                                             </div>
                                             <div class="col-xs-3">
                                                 <label>Fecha de fin</label>
-                                                <input type="date" name="endDate" min="2016-10-02" value="${endDate}"  placeholder="endDate" required>
+                                                <input type="date" name="endDate" min="2016-10-02" value="${endDate}" placeholder="example 2016-12-31"  required>
                                             </div>            
                                             <div class="col-xs-2">
                                                 <label>Mostrar</label>

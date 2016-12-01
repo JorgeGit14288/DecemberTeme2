@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <div class="login-panel panel panel-default">
+                    <div class="login-panel panel panel-yellow">
                         <div class="panel-heading">
                             <center>  <h3 class="panel-title">Codigo de Confirmacion</h3></center> 
                         </div>
@@ -30,8 +30,17 @@
                                     <label>Ingrese el codigo enviado a su telefono <c:out value="${codigo}" /></label><br>
                                     <input type="number" class="form-control" name="codigo" placeholder="Codigo" required="" >
                                     <br>
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit"  >Envar Codigo</button>
+                                    <button class="btn btn-lg btn-warning btn-block" type="submit"  >Envar Codigo</button>
                                 </form>
+                                <div>
+                                    <center>
+
+                                        <br>
+                                        <a href="login.htm">Regresar al Login</a>
+
+                                        <br>
+                                    </center>
+                                </div>
                             </center>
                         </div> <!-- /container -->
                         <div id="Error">

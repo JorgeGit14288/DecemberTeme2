@@ -1,4 +1,3 @@
-<%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -17,31 +16,21 @@
 
         <jsp:include page="../shared/user/headLogin.jsp" />
         <script>
-            $("#formRegistro").validate({
-                rules: {
-                    password: {
-                        required: true,
-                        minlength: 6,
-                        maxlength: 25,
-
-                    },
-
-                    confirmPassword: {
-                        equalTo: "#password",
-                        minlength: 6,
-                        maxlength: 25
-                    }
-
-
-                },
-                messages: {
-                    password: {
-                        required: "the password is required"
-
-                    }
+            function validar() {
+                if (document.form.password.value != document.form.confirmPassword.value)
+                {
+                    alert('¡Debe escribir el mismo password');
+                    document.form.password.focus();
+                    return false;
+                   
+                } else
+                {
+                    /* Si todo está OK se prosigue con lo que sea: */
+                    alert('¡registrando usuario!');
+                    document.form.action;
+                    return true;
                 }
-
-            });
+            }
         </script>
 
     </head>
@@ -56,7 +45,7 @@
                             <center> <h3 class="panel-title">REGISTRO DE USUARIOS</h3></center> 
                         </div>
                         <div class="panel-body">
-                            <form name="formRegistro" class="form-Registro" method="POST" action="validarRegistro.htm" >
+                            <form name="form" class="form-Registro" method="POST" onSubmit="return validar()" action="validarRegistro.htm" >
                                 <center>      <label>  <h4 class="form-signin-heading">INGRESE SUS DATOS </h4> </label>    </center>     
                                 <label for="codigoArea" >Codigo de Area</label>
                                 <select name="codigo"  required  >
@@ -90,7 +79,7 @@
                                         <input type="checkbox" value="remember-me"> Remember me
                                     </label>
                                 </div>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="comprobarClave()"   >Crear Cuenta</button>
+                                <input type="submit"  name="btnenvio"value="Aceptar" >
                             </form>
                             <div>
                                 <center>

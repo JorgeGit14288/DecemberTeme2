@@ -20,7 +20,7 @@
             <ul class="dropdown-menu dropdown-user">
                 <li><a href="editarPerfil.htm"><i class="fa fa-user fa-fw"></i>Perfil de Usuario</a>
                 </li>
-                <li><a href="settings.htm"><i class="fa fa-gear fa-fw"></i> Configuracion</a>
+                <li><a href="recuperarPhone.htm"><i class="fa fa-gear fa-fw"></i>Cambiar Password</a>
                 </li>
                 <li class="divider"></li>
                 <li><a href="logout.htm"><i class="fa fa-sign-out fa-fw"></i>Salir</a>

@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <a target="_blank"  href="posrRecargar.htm?amount=20">
+            <a target="_blank"  href="postRecargar.htm?amount=20">
                 <div class="panel-footer">
                     <span class="pull-left">Recargar</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

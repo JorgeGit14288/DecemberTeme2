@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <div class="login-panel panel panel-default">
+                    <div class="login-panel panel panel-primary">
                         <div class="panel-heading">
                             <center> <h2 class="panel-title">LOGIN</h2></center> 
                         </div>

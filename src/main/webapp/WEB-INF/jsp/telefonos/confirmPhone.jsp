@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <div class="login-panel panel panel-default">
+                    <div class="login-panel panel panel-green">
                         <div class="panel-heading">
                             <center>    <h3 class="panel-title">Confirmar Numero Telefonico</h3></center>
                         </div>
@@ -33,11 +33,20 @@
                             <form method="POST" action="validarPhone.htm">
                                 <center> 
                                     <label>Ingrese el codigo enviado a su telefono <br> <c:out value="${codigo}" /></label>
-                                    </center>
-                                    <input class="form-control" type="number" name="codigo" placeholder="codigo de confirmacion" required="" >
+                                </center>
+                                <input class="form-control" type="number" name="codigo" placeholder="codigo de confirmacion" required="" >
                                 <br>
-                               <button class="btn btn-lg btn-primary btn-block" type="submit">Confirmar</button>
+                                <button class="btn btn-lg btn-success btn-block" type="submit">Confirmar</button>
                             </form>
+                            <div>
+                                <center>
+
+                                    <br>
+                                    <a href="login.htm">Regresar al Login</a>
+
+                                    <br>
+                                </center>
+                            </div>
 
                             <div id="Error">
                                 <Br>
@@ -47,7 +56,7 @@
                                     </h4>
                                     <br>
                                 </center>
-                               
+
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <div class="login-panel panel panel-default">
+                    <div class="login-panel panel panel-yellow">
                         <div class="panel-heading">
                           <center>  <h3 class="panel-title">Recuperar Cuenta</h3> </center>
                         </div>
@@ -43,8 +43,17 @@
                                 </select>
                                 <label for="Telefono" class="sr-only">Telefono</label>
                                 <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="Numero de telefono" required autofocus>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit">Recuperar</button>
+                                <button class="btn btn-lg btn-warning btn-block" type="submit">Recuperar</button>
                             </form>
+                             <div>
+                                <center>
+
+                                    <br>
+                                    <a href="login.htm">Regresar al Login</a>
+
+                                    <br>
+                                </center>
+                            </div>
                         </div> <!-- /container -->
                         <div id="Error">
                             <Br>
