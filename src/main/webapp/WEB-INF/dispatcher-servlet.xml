@@ -37,8 +37,13 @@
                 
             </props>
         </property>
+        <property name="interceptors">
+            <list>
+                <ref bean="localeChangeInterceptor"/>
+            </list>
+        </property>
     </bean>
-
+    
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
@@ -59,6 +64,7 @@
     <bean name="adminController" class="com.controller.AdminController"/>
     <bean name="cuotasController" class="com.controller.CuotasController"/>
     <bean name="recargarController" class="com.controller.RecargarController"/>
+    <bean name="lenguajeController" class="com.controller.LenguajeController"/>
    
     
     
@@ -67,10 +73,24 @@
           p:viewName="index" />
     
     <mvc:annotation-driven />
-    <mvc:annotation-driven />
     <mvc:default-servlet-handler />
     <mvc:resources mapping="/resources/**" location="/resources/" />
     
-   
-          
+    
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="lenguaje/message"/>
+    </bean>
+    
+    <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName">
+            <value>siteLanguage</value>
+        </property>
+    </bean>
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <!--<property name="defaultLocale" value="es" />-->
+    </bean>
+    
+    
+         
 </beans>

@@ -1,15 +1,7 @@
-<%-- 
-    Document   : head
-    Created on : 7/11/2016, 07:14:28 AM
-    Author     : jorge
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       <%-- any content can be specified here e.g.: --%>
+
+
+<%-- any content can be specified here e.g.: --%>
 
 <!-- Bootstrap Core CSS -->
 <link href="${pageContext.request.contextPath}/resources/theme1/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,15 +28,14 @@
 
 <script src="${pageContext.request.contextPath}/resources/theme1/vendor/jquery/jquery.min.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="${pageContext.request.contextPath}/resources/theme1/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/theme1/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="${pageContext.request.contextPath}/resources/theme1/vendor/metisMenu/metisMenu.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/theme1/vendor/metisMenu/metisMenu.min.js"></script>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="${pageContext.request.contextPath}/resources/theme1/dist/js/sb-admin-2.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="${pageContext.request.contextPath}/resources/theme1/dist/js/sb-admin-2.js"></script>
 
-    </head>
-     
-</html>
+
+
