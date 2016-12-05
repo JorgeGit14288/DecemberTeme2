@@ -42,5 +42,38 @@ public class LenguajeController {
         mav.setViewName("panel/panel2");
         return mav;
     }
+     @RequestMapping(value="cambiarLenguajeEscritorio.htm",method = RequestMethod.GET)
+    public ModelAndView setLenguajeEscritorio(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView mav = new ModelAndView();
+        String lenguaje = request.getParameter("lenguaje");
+        sesion = request.getSession();
+        System.out.println("Se desea cambiar a lenguaje "+lenguaje);
+        try{
+        
+        RequestContextUtils.getLocaleResolver(request).setLocale(request, response, new Locale(request.getParameter("lenguaje")));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("No se pudo cargar el lenguaje");
+        }
+        
+        if (sesion.getAttribute("usuario") == null) {
+            mav.setViewName("login/login");
+
+        } else {
+            sesionUser = sesion.getAttribute("usuario").toString();
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("viewsAdmin/panelAdmin");
+                System.out.println("el usuario es administrador");
+            } else {
+                mav.setViewName("panel/panel");
+            }
+        }
+        return mav;
+
+        
+        
+    }
     
 }

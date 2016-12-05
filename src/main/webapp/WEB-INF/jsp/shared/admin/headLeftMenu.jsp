@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
@@ -18,13 +19,29 @@
                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="editarPerfil.htm"><i class="fa fa-user fa-fw"></i>Perfil de Usuario</a>
+                <li><a href="editarPerfil.htm"><i class="fa fa-user fa-fw"></i><fmt:message key="msg.PerfilUsuario" /></a>
                 </li>
-                <li><a href="recuperarPhone.htm"><i class="fa fa-gear fa-fw"></i>Cambiar Password</a>
+                <li><a href="recuperarPhone.htm"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.CambiarPassword" /></a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="logout.htm"><i class="fa fa-sign-out fa-fw"></i>Salir</a>
+                <li><a href="logout.htm"><i class="fa fa-sign-out fa-fw"></i><fmt:message key="msg.Salir" /></a>
                 </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+                <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-flag-checkered fa-fw"> </i><fmt:message key="msg.Lenguaje" /> <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="cambiarLenguajeEscritorio.htm?lenguaje=es"><i class="fa fa-user fa-fw"></i><fmt:message key="msg.Es" /></a>
+                </li>
+                <li><a href="cambiarLenguajeEscritorio.htm?lenguaje=en"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.En" /></a>
+                </li>
+                
             </ul>
             <!-- /.dropdown-user -->
         </li>
@@ -50,54 +67,54 @@
                     <a href="panelAdmin.htm"><i class="fa fa-dashboard fa-fw"></i> ${sessionScope.tipoUsuario} Dashboard</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-phone-square fa-fw"></i> Historial de Llamadas<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-phone-square fa-fw"></i> <fmt:message key="msg.Historial" /><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="historial.htm">Historial de Llamadas</a>
+                            <a href="historial.htm"><fmt:message key="msg.HistorialLlamadas" /> </a>
                         </li>
                         <li>
-                            <a href="recargas.htm">Hisorial de Recargas</a>
+                            <a href="recargas.htm"><fmt:message key="msg.HistorialRecargas" /></a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-user fa-fw"></i> Perfil de Usuario<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-user fa-fw"></i><fmt:message key="msg.PerfilUsuario" /><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="perfil.htm">Perfil </a>
+                            <a href="perfil.htm"><fmt:message key="msg.Perfil" /> </a>
                         </li>
                         <li>
-                            <a href="editarPerfil.htm">Editar Perfil</a>
+                            <a href="editarPerfil.htm"><fmt:message key="msg.EditarPerfil" /></a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-user fa-fw"></i>Gestion de Usuarios<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-user fa-fw"></i><fmt:message key="msg.GestionUsuarios" /><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="usuarios.htm">Usuarios Registrados </a>
+                            <a href="usuarios.htm"><fmt:message key="msg.UsuariosRegistrados" /></a>
                         </li>
                         
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-phone fa-fw"></i>Gestion de Numeros Tel.<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-phone fa-fw"></i><fmt:message key="msg.GestionTelefonos" />.<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="telefonos.htm">Telefonos Registrados</a>
+                            <a href="telefonos.htm"><fmt:message key="msg.TelefonosRegistrados" /></a>
                         </li>
                         
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="cuotas.htm"><i class="fa fa-money fa-fw"></i> Ver Cuotas</a>
+                    <a href="cuotas.htm"><i class="fa fa-money fa-fw"></i> <fmt:message key="msg.VerCuotas" /></a>
                 </li>
                 <li>
-                    <a href="logout.htm"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesion</a>
+                    <a href="logout.htm"><i class="fa fa-sign-out fa-fw"></i> <fmt:message key="msg.Salir" /></a>
                 </li>
             </ul>
         </div>
