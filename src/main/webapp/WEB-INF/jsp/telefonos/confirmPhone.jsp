@@ -1,8 +1,7 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>LOGIN</title>
+        <title><fmt:message key="msg.TituloPaginaConfirmarTelefono" /></title>
 
         <jsp:include page="../shared/user/headLogin.jsp" />
 
@@ -27,22 +26,22 @@
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-panel panel panel-green">
                         <div class="panel-heading">
-                            <center>    <h3 class="panel-title">Confirmar Numero Telefonico</h3></center>
+                            <center>    <h3 class="panel-title"><fmt:message key="msg.PanelNombreConfirmarTel" /></h3></center>
                         </div>
                         <div class="panel-body">
                             <form method="POST" action="validarPhone.htm">
                                 <center> 
-                                    <label>Ingrese el codigo enviado a su telefono <br> <c:out value="${codigo}" /></label>
+                                    <label><fmt:message key="msg.IngreseCodigo" /><br> <c:out value="${codigo}" /></label>
                                 </center>
-                                <input class="form-control" type="number" name="codigo" placeholder="codigo de confirmacion" required="" >
+                                <input class="form-control" type="number" name="codigo" placeholder="<fmt:message key="msg.CodigoEjemplo" />" required="" >
                                 <br>
-                                <button class="btn btn-lg btn-success btn-block" type="submit">Confirmar</button>
+                                <button class="btn btn-lg btn-success btn-block" type="submit"><fmt:message key="msg.BotonConfirmar" /></button>
                             </form>
                             <div>
                                 <center>
 
                                     <br>
-                                    <a href="login.htm">Regresar al Login</a>
+                                    <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a>
 
                                     <br>
                                 </center>

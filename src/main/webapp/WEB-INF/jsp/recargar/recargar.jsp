@@ -28,7 +28,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">InterCity DashBoard</h1>
+                        <h1 class="page-header"><fmt:message key="msg.Informacion" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

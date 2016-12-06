@@ -76,6 +76,7 @@
                                                 <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
 
                                             </div> 
+                                        </form>
                                     </div>
                                 </div><div id="Error" class=" alert alert-success">
                                     <center>

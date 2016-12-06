@@ -1,8 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
     <head>
 
@@ -12,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Mensaje de Confirmacion</title>
+        <title><fmt:message key="msg.TituloPaginaRecuperar" /></title>
 
         <jsp:include page="../shared/user/headLogin.jsp" />
     </head>
@@ -22,21 +23,21 @@
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-panel panel panel-yellow">
                         <div class="panel-heading">
-                            <center>  <h3 class="panel-title">Codigo de Confirmacion</h3></center> 
+                            <center>  <h3 class="panel-title"><fmt:message key="msg.PanelNombreValidarTelefono" /></h3></center> 
                         </div>
                         <div class="panel-body">
                             <center>
                                 <form class="form-Registro"  method="POST" action="validarRecuperarPhone.htm">
-                                    <label>Ingrese el codigo enviado a su telefono <c:out value="${codigo}" /></label><br>
-                                    <input type="number" class="form-control" name="codigo" placeholder="Codigo" required="" >
+                                    <label><fmt:message key="msg.InforPanelConfimarTelefono" /><c:out value="${codigo}" /></label><br>
+                                    <input type="number" class="form-control" name="codigo" placeholder="<fmt:message key="msg.CodigoEjemplo" />" required="" >
                                     <br>
-                                    <button class="btn btn-lg btn-warning btn-block" type="submit"  >Envar Codigo</button>
+                                    <button class="btn btn-lg btn-warning btn-block" type="submit"  ><fmt:message key="msg.BotonEnviarCodigo" /></button>
                                 </form>
                                 <div>
                                     <center>
 
                                         <br>
-                                        <a href="login.htm">Regresar al Login</a>
+                                        <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a>
 
                                         <br>
                                     </center>

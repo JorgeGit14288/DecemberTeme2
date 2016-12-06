@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,10 +42,10 @@
                     <div class="col-lg-8">
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <i class="fa fa-info-circle fa-fw"></i> Informacion
+                                <i class="fa fa-info-circle fa-fw"></i> <fmt:message key="msg.Informacion" />
                             </div>
                             <div class="panel-body">
-                                <p>Bienvenido a InterCity, si necesita recargar saldo, pulse en monto de la recarga </p>
+                                <p><fmt:message key="msg.DescripcionRecargar" /></p>
                                  <jsp:include page="../shared/admin/rowRecargar.jsp" flush="true" />
                             </div>
                             <div class="panel-footer">

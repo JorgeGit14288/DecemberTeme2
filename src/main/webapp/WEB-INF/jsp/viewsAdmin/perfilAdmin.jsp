@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Perfil de Usuario</title>
+        <title><fmt:message key="msg.TituloPaginaPerfil" /></title>
 
         <jsp:include page="../shared/admin/headDashboard.jsp" flush="true" />
 
@@ -26,7 +26,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Perfil de Usuario</h1>
+                        <h1 class="page-header"><fmt:message key="msg.NombrePanelPerfil1" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -41,7 +41,7 @@
                         <!-- /.panel -->
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <i class="fa fa-user fa-fw"></i> DATOS DE USUARIO
+                                <i class="fa fa-user fa-fw"></i><fmt:message key="msg.Informacion" />
                                 <div class="pull-right">
 
                                 </div>
@@ -54,46 +54,45 @@
                                             <table class="table table-bordered table-hover table-striped">
                                                 <tbody>
                                                     <tr>
-                                                        <td>First Name:  </td>
+                                                        <td><fmt:message key="msg.Nombres" />:  </td>
                                                         <td>${account.getFirst_name()}</td>
 
                                                     </tr>
                                                     <tr>
-                                                        <td>Last Name: </td>
+                                                        <td><fmt:message key="msg.Apellidos" />: </td>
                                                         <td>${account.getLast_name()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Address: </td>
+                                                        <td><fmt:message key="msg.Direccion" />: </td>
                                                         <td>${account.getAddress1()}</td>
 
                                                     </tr>
                                                     <tr>
-                                                        <td>City: </td>
+                                                        <td><fmt:message key="msg.Ciudad" />: </td>
                                                         <td>${account.getCity()}</td>
 
                                                     </tr>
                                                     <tr>
-                                                        <td>Postal Code: </td>
+                                                        <td><fmt:message key="msg.CodigoPostal" />: </td>
                                                         <td>${account.getPostal_code()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Email: </td>
+                                                        <td><fmt:message key="msg.Correo" />: </td>
                                                         <td>${account.getEmail()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Languaje</td>
+                                                        <td><fmt:message key="msg.Lenguaje" /></td>
                                                         <td>${account.getLanguaje_id()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Notify Email: </td>
+                                                        <td><fmt:message key="msg.NotificacionesCorreo" />: </td>
                                                         <td>${account.getNotify_email()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Notity Flag: </td>
+                                                        <td><fmt:message key="msg.NotificacionesBandera" />: </td>
                                                         <td>${account.getNotify_flag()}</td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
                                         </div>
                                         <!-- /.table-responsive -->
                                         <div>

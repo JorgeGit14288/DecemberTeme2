@@ -36,7 +36,7 @@
                     <!-- CONTENIDO DINAMICO -->
                     <div class="col-lg-8">
                         <div class="col-lg-8">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-green">
                                 <div class="panel-heading">
                                     <i class=""></i> <center><label><fmt:message key="msg.TituloPanelEditarPerfil" /></label></center>
                                 </div>

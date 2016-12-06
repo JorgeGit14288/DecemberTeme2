@@ -55,7 +55,7 @@
                                                 <label><fmt:message key="msg.Mostrar" /></label>
 
                                                 <select name="max">
-                                                    <option selected value="${max}"> ${max} Recargas</option>
+                                                    <option selected value="${max}"> ${max} <fmt:message key="msg.Recargas" /></option>
 
                                                     <option value="1">1 <fmt:message key="msg.Recarga" /></option> 
                                                     <option value="5">5 <fmt:message key="msg.Recargas" /></option> 
