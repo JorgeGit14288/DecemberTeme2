@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,7 +24,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">InterCity DashBoard</h1>
+                        <h1 class="page-header"><fmt:message key="msg.PanelNombreCuotas" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -35,7 +36,7 @@
                         <!-- /.panel -->
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <i class="fa fa-money fa-fw"></i> <label>Cuotas InterCity</label>
+                                <i class="fa fa-money fa-fw"></i> <label><fmt:message key="msg.PanelNombreCuotas" /></label>
                                 <div class="pull-right">
                                     <div class="btn-group">
 
@@ -48,9 +49,9 @@
                                     <div class="col-lg-12">
                                         <form name="form" method="POST" action="postCuotas.htm" role="form">
                                             <div class="col-xs-4">
-                                                <label>Pais</label>
+                                                <label><fmt:message key="msg.Pais" /></label>
                                                 <select name="country"  required  ><br>
-                                                    <option value="${country}">Pais Actual ${country}  </option> 
+                                                    <option value="${country}"> <fmt:message key="msg.PaisActual" /> ${country}  </option> 
                                                     <option value="Estados Unidos">Estados Unidos </option> 
                                                     <option value="Canada">Canada</option> 
                                                     <option value="Puesto Rico">Puerto Rico</option> 
@@ -69,20 +70,20 @@
                                             </div>
 
                                             <div class="col-xs-4">
-                                                <label>Monto de la recarga</label>
+                                                <label><fmt:message key="msg.MontoDeRecarga" /></label>
 
                                                 <select name="amount" id="amount">
-                                                    <option selected value="${amount}">  Recarga de ${amount} </option>
-                                                    <option value="5">5 Recargas</option> 
-                                                    <option value="10">10 Recargas</option> 
-                                                    <option value="15">15 Recargas</option> 
-                                                    <option value="20">25 Recargas</option> 
-                                                    <option value="30">30 Recargas</option> 
+                                                    <option selected value="${amount}"> <fmt:message key="msg.RecargaDe" /> $ ${amount} </option>
+                                                    <option value="5">$5</option> 
+                                                    <option value="10">$10</option> 
+                                                    <option value="15">15 </option> 
+                                                    <option value="20">$25</option> 
+                                                    <option value="30">$30</option> 
                                                 </select>
                                             </div>
                                             <div class="col-xs-2">
                                                 <label></label>
-                                                <button  type="submit" id = "btncuotas" name="btncuotas" onclick="" class="btn btn-success">Ver Cuotas </button>
+                                                <button  type="submit" id = "btncuotas" name="btncuotas" onclick="" class="btn btn-success"><fmt:message key="msg.VerCuotas" /> </button>
 
                                             </div> 
                                         </form>

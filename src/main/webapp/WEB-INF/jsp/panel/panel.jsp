@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,10 +42,10 @@
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa fa-info-circle fa-fw"></i> Informacion
+                                <i class="fa fa-info-circle fa-fw"></i> <fmt:message key="msg.Informacion" />
                             </div>
                             <div class="panel-body">
-                                <p>Bienvenido a InterCity, si necesita recargar saldo, pulse en monto de la recarga </p>
+                                <p><fmt:message key="msg.DescripcionRecargar" /></p>
                                  <jsp:include page="../shared/user/rowRecargar.jsp" flush="true" />
                             </div>
                             <div class="panel-footer">
@@ -52,18 +53,7 @@
                             </div>
                         </div>
                         <!-- /.panel -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Informacion de la cuenta
-                                <div class="pull-right">
-                                    <div class="btn-group">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.panel-heading -->
-                            
-                        </div>
+                        
 
                     </div>
                     <!-- /.col-lg-8 -->

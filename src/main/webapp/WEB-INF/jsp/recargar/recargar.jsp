@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +42,7 @@
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa fa-info-circle fa-fw"></i> Informacion
+                                <i class="fa fa-info-circle fa-fw"></i> <fmt:message key="msg.Informacion" />
                             </div>
                             <div class="panel-body">
                                 <div id="Error" class=" alert alert-danger">
@@ -60,7 +61,7 @@
                                 <div class="col-lg-12">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Resultado de la Recarga
+                                            <fmt:message key="msg.TituloPanelRecargar" />
                                         </div>
                                         <!-- /.panel-heading -->
                                         <div class="panel-body">
@@ -68,33 +69,33 @@
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr> 
-                                                            <th>Detalle</th>
-                                                            <th>Informacion</th>
+                                                            <th> <fmt:message key="msg.Detalle" /></th>
+                                                            <th> <fmt:message key="msg.Informacion" /></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td>Token</td>
+                                                            <td> <fmt:message key="msg.Token" /></td>
                                                             <td>${resRecarga.getToken()}</td>
 
                                                         </tr>
                                                         <tr>
-                                                            <td>Monto Recargado</td>
+                                                            <td> <fmt:message key="msg.MontoRecarga" /></td>
                                                             <td>${resRecarga.getAmount()}</td>
 
                                                         </tr>
                                                         <tr>
-                                                            <td>Fecha</td>
+                                                            <td> <fmt:message key="msg.Fecha" /></td>
                                                             <td>${resRecarga.getRs_datetime()}</td>
 
                                                         </tr>
                                                         <tr>
-                                                            <td>Estado de la Recarga</td>
+                                                            <td> <fmt:message key="msg.EstadoRecarga" /></td>
                                                             <td>${resRecarga.getRs_status()}</td>
 
                                                         </tr>
                                                         <tr>
-                                                            <td>Detalles</td>
+                                                            <td> <fmt:message key="msg.Detalles" /></td>
                                                             <td>${resRecarga.getDetails()}</td>
 
                                                         </tr>

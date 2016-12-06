@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Perfil de Usuario</title>
+        <title><fmt:message key="msg.TituloPaginaPerfil" /></title>
 
         <jsp:include page="../shared/user/headDashboard.jsp" flush="true" />
 
@@ -26,7 +27,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Perfil de Usuario</h1>
+                        <h1 class="page-header"><fmt:message key="msg.NombrePanelPerfil1" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -41,7 +42,7 @@
                         <!-- /.panel -->
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> DATOS DE USUARIO
+                                <i class="fa fa-bar-chart-o fa-fw"></i> <fmt:message key="msg.Informacion" />
                                 <div class="pull-right">
 
                                 </div>
@@ -54,42 +55,42 @@
                                             <table class="table table-bordered table-hover table-striped">
                                                 <tbody>
                                                     <tr>
-                                                        <td>Nombres:  </td>
+                                                        <td><fmt:message key="msg.Nombres" />:  </td>
                                                         <td>${account.getFirst_name()}</td>
 
                                                     </tr>
                                                     <tr>
-                                                        <td>Apellidos: </td>
+                                                        <td><fmt:message key="msg.Apellidos" />: </td>
                                                         <td>${account.getLast_name()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Direccion: </td>
+                                                        <td><fmt:message key="msg.Direccion" />: </td>
                                                         <td>${account.getAddress1()}</td>
 
                                                     </tr>
                                                     <tr>
-                                                        <td>Ciudad: </td>
+                                                        <td><fmt:message key="msg.Ciudad" />: </td>
                                                         <td>${account.getCity()}</td>
 
                                                     </tr>
                                                     <tr>
-                                                        <td>Codigo Postal: </td>
+                                                        <td><fmt:message key="msg.CodigoPostal" />: </td>
                                                         <td>${account.getPostal_code()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Email: </td>
+                                                        <td><fmt:message key="msg.Correo" />: </td>
                                                         <td>${account.getEmail()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Lenguaje</td>
+                                                        <td><fmt:message key="msg.Lenguaje" /></td>
                                                         <td>${account.getLanguaje_id()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Notificar Emai: </td>
+                                                        <td><fmt:message key="msg.NotificacionesCorreo" />: </td>
                                                         <td>${account.getNotify_email()}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Notificar Flag: </td>
+                                                        <td><fmt:message key="msg.NotificacionesBandera" />: </td>
                                                         <td>${account.getNotify_flag()}</td>
                                                     </tr>
                                                 </tbody>
