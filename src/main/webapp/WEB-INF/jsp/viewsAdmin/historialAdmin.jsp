@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,7 @@
 
         <title>InterCity Dashboard</title>
 
-        <jsp:include page="../shared/admin/headDashboard.jsp" flush="true" />
+        <jsp:include page="../shared/user/headDashboard.jsp" flush="true" />
 
     </head>
 
@@ -26,7 +27,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                         <h1 class="page-header"><fmt:message key="msg.NombrePaginaHistorial" /></h1>
+                        <h1 class="page-header"><fmt:message key="msg.NombrePaginaHistorial" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

@@ -12,7 +12,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title><fmt:message key="msg.TituloPaginaRegistro" /></title>
+        <title><fmt:message key="msg.TituloPaginaRegistrar" /></title>
 
         <jsp:include page="../shared/user/headLogin.jsp" />
         <script>
@@ -36,6 +36,7 @@
     </head>
 
     <body>
+        <jsp:include page="../shared/user/topMenu.jsp" />
 
         <div class="container">
             <div class="row">

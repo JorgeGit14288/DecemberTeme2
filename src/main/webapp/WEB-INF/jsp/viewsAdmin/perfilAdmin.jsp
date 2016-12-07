@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,9 +40,9 @@
                     <div class="col-lg-8">
 
                         <!-- /.panel -->
-                        <div class="panel panel-green">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa fa-user fa-fw"></i><fmt:message key="msg.Informacion" />
+                                <i class="fa fa-bar-chart-o fa-fw"></i> <fmt:message key="msg.Informacion" />
                                 <div class="pull-right">
 
                                 </div>
@@ -93,6 +94,7 @@
                                                         <td>${account.getNotify_flag()}</td>
                                                     </tr>
                                                 </tbody>
+                                            </table>
                                         </div>
                                         <!-- /.table-responsive -->
                                         <div>
@@ -117,7 +119,7 @@
                                 <i class="fa fa-info-circle fa-fw"></i> Informacion
                             </div>
                             <div class="panel-body">
-                                <p>Vienvenido a InterCity, en esta aplicacion web usted podra gestionar su cuenta de usuario </p>
+                                <p>Bienvenido a InterCity, en esta aplicacion web usted podra gestionar su cuenta de usuario </p>
                             </div>
                             <div class="panel-footer">
                                 InterCity WebApp

@@ -13,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>InterCity Dashboard</title>
+        <title><fmt:message key="msg.TituloPaginaRecargas" /></title>
 
         <jsp:include page="../shared/admin/headDashboard.jsp" flush="true" />
 

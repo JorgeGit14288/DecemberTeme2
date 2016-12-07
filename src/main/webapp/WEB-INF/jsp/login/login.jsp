@@ -1,26 +1,20 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
-        <title>LOGIN</title>
-
+        <title><fmt:message key="msg.TituloPaginaLogin" /></title>
         <jsp:include page="../shared/user/headLogin.jsp" />
-
     </head>
-
     <body>
+        <jsp:include page="../shared/user/topMenu.jsp" />
 
         <div class="container">
             <div class="row">
@@ -72,10 +66,7 @@
 
                                     <br>
                                     <a href="registrar.htm"><fmt:message key="msg.Registrarse" /></a>
-                                    <br><br>
-                                    <a href="cambiarLenguaje.htm?lenguaje=en">Ingles</a>
                                     
-                                    <a href="cambiarLenguaje.htm?lenguaje=es">Español</a>
                                 </center>
                             </div>
                             <div id="Error">
@@ -84,18 +75,12 @@
                                     <h4>
                                         <label> ${mensaje}</label>
                                     </h4>
-
                                 </center>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
     </body>
-
 </html>

@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="panelAdmin.htm">  <strong>  InterCity WebApp         <small class="text text-primary"> ${sessionScope.usuario}</small> </strong>  </a>
-     
+
     </div>
     <!-- /.navbar-header -->
 
@@ -31,17 +31,16 @@
         </li>
         <!-- /.dropdown -->
     </ul>
-                <ul class="nav navbar-top-links navbar-right">
+    <ul class="nav navbar-top-links navbar-right">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-flag-checkered fa-fw"> </i><fmt:message key="msg.Lenguaje" /> <i class="fa fa-caret-down"></i>
+                <i class="fa fa-flag-checkered"> </i>     <fmt:message key="msg.Lenguaje" />     ${idioma}   <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="cambiarLenguajeEscritorio.htm?lenguaje=es"><i class="fa fa-user fa-fw"></i><fmt:message key="msg.Es" /></a>
+                <li><a href="cambiarLenguajeEscritorio.htm?lenguaje=es"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.Es" /></a>
                 </li>
-                <li><a href="cambiarLenguajeEscritorio.htm?lenguaje=en"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.En" /></a>
+                <li><a href="cambiarLenguajeEscritorio.htm?lenguaje=en"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.En" /></a>
                 </li>
-                
             </ul>
             <!-- /.dropdown-user -->
         </li>
@@ -96,7 +95,7 @@
                         <li>
                             <a href="usuarios.htm"><fmt:message key="msg.UsuariosRegistrados" /></a>
                         </li>
-                        
+
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
@@ -106,7 +105,7 @@
                         <li>
                             <a href="telefonos.htm"><fmt:message key="msg.TelefonosRegistrados" /></a>
                         </li>
-                        
+
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>

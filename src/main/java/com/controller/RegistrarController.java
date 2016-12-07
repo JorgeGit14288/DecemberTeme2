@@ -17,6 +17,7 @@ import com.entitys.Usuarios;
 import com.util.Cifrar;
 import com.util.GeneradorCodigos;
 import com.util.httpAccount;
+import com.util.httpSendMsg;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -101,6 +102,10 @@ public class RegistrarController {
             this.setTelP(telefono);
             this.setUserP(usuario);
             this.createCodigo();
+            String telArea = telefono.getCodigoArea()+telefono.getTelefono();
+            String mensajeCodigo = "Ingrese este codigo para validar su nuemero telefonico "+ this.getCodigo();
+            httpSendMsg msgHelper = new httpSendMsg();
+            String resultmsg = msgHelper.sendMsg(telArea, mensajeCodigo );
             mav.setViewName("telefonos/confirmPhone");
 
         } catch (Exception e) {
@@ -127,6 +132,8 @@ public class RegistrarController {
         ModelAndView mav = new ModelAndView();
         String mensaje = null;
         mensaje = "Ingrese el codigo que recibio en su telefono " + this.getCodigo();
+        
+        
         mav.addObject("mensaje", mensaje);
         mav.setViewName("telefonos/confirmPhone");
         return mav;

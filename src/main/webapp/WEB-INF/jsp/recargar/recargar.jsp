@@ -13,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>DashBoard</title>
+        <title><fmt:message key="msg.TituloPaginaRecargar" /></title>
 
         <jsp:include page="../shared/user/headDashboard.jsp" flush="true" />
 

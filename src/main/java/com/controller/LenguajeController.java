@@ -27,11 +27,12 @@ public class LenguajeController {
      @RequestMapping(value="cambiarLenguaje.htm",method = RequestMethod.GET)
     public ModelAndView setLenguaje(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView();
-        String lenguaje = request.getParameter("lenguaje");
-        System.out.println("Se desea cambiar a lenguaje "+lenguaje);
+        String idioma = request.getParameter("lenguaje");
+        System.out.println("Se desea cambiar a lenguaje "+idioma);
         try{
         
         RequestContextUtils.getLocaleResolver(request).setLocale(request, response, new Locale(request.getParameter("lenguaje")));
+        mav.addObject("idioma", idioma);
         }
         catch(Exception e)
         {
@@ -39,17 +40,18 @@ public class LenguajeController {
             System.out.println("No se pudo cargar el lenguaje");
         }
 
-        mav.setViewName("panel/panel2");
+        mav.setViewName("login/login");
         return mav;
     }
      @RequestMapping(value="cambiarLenguajeEscritorio.htm",method = RequestMethod.GET)
     public ModelAndView setLenguajeEscritorio(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView();
         String lenguaje = request.getParameter("lenguaje");
+        String idioma = request.getParameter("lenguaje");
         sesion = request.getSession();
         System.out.println("Se desea cambiar a lenguaje "+lenguaje);
         try{
-        
+        mav.addObject("idioma", idioma);
         RequestContextUtils.getLocaleResolver(request).setLocale(request, response, new Locale(request.getParameter("lenguaje")));
         }
         catch(Exception e)
@@ -63,6 +65,7 @@ public class LenguajeController {
 
         } else {
             sesionUser = sesion.getAttribute("usuario").toString();
+            mav.addObject("idioma", idioma);
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                 mav.setViewName("viewsAdmin/panelAdmin");
                 System.out.println("el usuario es administrador");

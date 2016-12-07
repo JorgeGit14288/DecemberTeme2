@@ -20,6 +20,7 @@
     </head>
 
     <body>
+        <jsp:include page="../shared/user/topMenu.jsp" />
 
         <div class="container">
             <div class="row">

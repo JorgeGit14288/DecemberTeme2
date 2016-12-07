@@ -34,7 +34,7 @@
                     <!-- /.col-lg-12 -->
                 </div>
 
-                <jsp:include page="../shared/admin/rowCenter1.jsp" flush="true" />
+               
                 <div class="row">
 
                     <!-- CONTENIDO DINAMICO -->

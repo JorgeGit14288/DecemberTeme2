@@ -13,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>DashBoard</title>
+        <title><fmt:message key="msg.TituloPaginaEscritorio" /></title>
 
         <jsp:include page="../shared/admin/headDashboard.jsp" flush="true" />
 
@@ -33,14 +33,14 @@
                     <!-- /.col-lg-12 -->
                 </div>
 
-                <jsp:include page="../shared/admin/rowCenter1.jsp" flush="true" />
+                <jsp:include page="../shared/user/rowCenter1.jsp" flush="true" />
                 <div class="row">
 
                     <!-- CONTENIDO DINAMICO -->
 
 
                     <div class="col-lg-8">
-                        <div class="panel panel-green">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <i class="fa fa-info-circle fa-fw"></i> <fmt:message key="msg.Informacion" />
                             </div>
