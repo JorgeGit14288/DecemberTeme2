@@ -1,5 +1,5 @@
 package com.entitys;
-// Generated 23/11/2016 03:48:00 PM by Hibernate Tools 4.3.1
+// Generated 8/12/2016 11:12:48 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -20,6 +20,7 @@ public class Usuarios  implements java.io.Serializable {
      private String status;
      private String tipoUsuario;
      private String idAccount;
+     private String idioma;
      private Set telefonoses = new HashSet(0);
 
     public Usuarios() {
@@ -30,7 +31,7 @@ public class Usuarios  implements java.io.Serializable {
         this.idUsuario = idUsuario;
         this.password = password;
     }
-    public Usuarios(String idUsuario, String password, String nombres, String apellidos, String pais, String email, String status, String tipoUsuario, String idAccount, Set telefonoses) {
+    public Usuarios(String idUsuario, String password, String nombres, String apellidos, String pais, String email, String status, String tipoUsuario, String idAccount, String idioma, Set telefonoses) {
        this.idUsuario = idUsuario;
        this.password = password;
        this.nombres = nombres;
@@ -40,6 +41,7 @@ public class Usuarios  implements java.io.Serializable {
        this.status = status;
        this.tipoUsuario = tipoUsuario;
        this.idAccount = idAccount;
+       this.idioma = idioma;
        this.telefonoses = telefonoses;
     }
    
@@ -105,6 +107,13 @@ public class Usuarios  implements java.io.Serializable {
     
     public void setIdAccount(String idAccount) {
         this.idAccount = idAccount;
+    }
+    public String getIdioma() {
+        return this.idioma;
+    }
+    
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
     }
     public Set getTelefonoses() {
         return this.telefonoses;

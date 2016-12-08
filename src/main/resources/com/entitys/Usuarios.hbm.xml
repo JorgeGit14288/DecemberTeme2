@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 23/11/2016 03:48:01 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 8/12/2016 11:12:49 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="com.entitys.Usuarios" table="usuarios" catalog="customerappDb" optimistic-lock="version">
+    <class name="com.entitys.Usuarios" table="usuarios" catalog="customerappDb2" optimistic-lock="version">
         <id name="idUsuario" type="string">
-            <column name="idUsuario" length="25" />
+            <column name="idUsuario" length="45" />
             <generator class="assigned" />
         </id>
         <property name="password" type="string">
-            <column name="password" length="125" not-null="true" />
+            <column name="password" length="150" not-null="true" />
         </property>
         <property name="nombres" type="string">
             <column name="nombres" length="60" />
@@ -18,23 +18,26 @@
             <column name="apellidos" length="60" />
         </property>
         <property name="pais" type="string">
-            <column name="pais" length="30" />
+            <column name="pais" length="45" />
         </property>
         <property name="email" type="string">
-            <column name="email" length="35" />
+            <column name="email" length="45" />
         </property>
         <property name="status" type="string">
-            <column name="status" length="25" />
+            <column name="status" length="45" />
         </property>
         <property name="tipoUsuario" type="string">
-            <column name="tipoUsuario" length="25" />
+            <column name="tipoUsuario" length="45" />
         </property>
         <property name="idAccount" type="string">
-            <column name="idAccount" length="10" />
+            <column name="idAccount" length="45" />
+        </property>
+        <property name="idioma" type="string">
+            <column name="idioma" length="45" />
         </property>
         <set name="telefonoses" table="telefonos" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="idUsuario" length="25" not-null="true" />
+                <column name="idUsuario" length="45" />
             </key>
             <one-to-many class="com.entitys.Telefonos" />
         </set>

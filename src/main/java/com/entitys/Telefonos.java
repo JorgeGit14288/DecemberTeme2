@@ -1,5 +1,5 @@
 package com.entitys;
-// Generated 23/11/2016 03:48:00 PM by Hibernate Tools 4.3.1
+// Generated 8/12/2016 11:12:48 AM by Hibernate Tools 4.3.1
 
 
 
@@ -20,9 +20,8 @@ public class Telefonos  implements java.io.Serializable {
     }
 
 	
-    public Telefonos(String telefonoArea, Usuarios usuarios, String telefono, String codigoArea) {
+    public Telefonos(String telefonoArea, String telefono, String codigoArea) {
         this.telefonoArea = telefonoArea;
-        this.usuarios = usuarios;
         this.telefono = telefono;
         this.codigoArea = codigoArea;
     }

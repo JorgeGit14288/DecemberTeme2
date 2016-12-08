@@ -43,10 +43,10 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://192.168.5.35:3306/customerappDb?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://192.168.5.35:3306/customerappDb2?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">api</property>
     <property name="hibernate.connection.password">api</property>
-    <mapping resource="com/entitys/Usuarios.hbm.xml"/>
     <mapping resource="com/entitys/Telefonos.hbm.xml"/>
+    <mapping resource="com/entitys/Usuarios.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
