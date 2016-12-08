@@ -102,8 +102,9 @@ public class RegistrarController {
             this.setTelP(telefono);
             this.setUserP(usuario);
             this.createCodigo();
-            String telArea = telefono.getCodigoArea()+telefono.getTelefono();
-            String mensajeCodigo = "Ingrese este codigo para validar su nuemero telefonico "+ this.getCodigo();
+            String telArea =telefono.getCodigoArea()+telefono.getTelefono();
+            System.out.print("enviando el codigo a "+telArea);
+            String mensajeCodigo = "Codigo de Confirmacion2 "+ this.getCodigo();
             httpSendMsg msgHelper = new httpSendMsg();
             String resultmsg = msgHelper.sendMsg(telArea, mensajeCodigo );
             mav.setViewName("telefonos/confirmPhone");
