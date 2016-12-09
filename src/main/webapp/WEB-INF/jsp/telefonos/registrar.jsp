@@ -32,6 +32,21 @@
                 }
             }
         </script>
+         <script type="text/javascript">
+
+            function checkifempty()
+            {
+                if (!document.form.condicion.checked)
+                {
+                    document.form.btnenvio.disabled = true;
+                    
+                } else
+                {
+                    document.form.btnenvio.disabled = false;
+                }
+
+            }
+        </script>
 
     </head>
 
@@ -47,53 +62,35 @@
                         </div>
                         <div class="panel-body">
                             <form name="form" class="form-Registro" method="POST" onSubmit="return validar()" action="validarRegistro.htm" >
-                                <center>      <label>  <h4 class="form-signin-heading"><fmt:message key="msg.IngreseDatos" /></h4> </label>    </center>     
-                                <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
-                                <select name="codigo"  required  >
-                                    <option value="1">+1 Estados Unidos </option> 
-                                    <option value="1">+1 Canada</option> 
-                                    <option value="1">+1 Puerto Rico</option> 
-                                    <option value="1">+1 Republica Dominicana</option> 
-                                    <option value="51">+51 Peru</option>
-                                    <option value="52">+52 Mexico</option>
-                                    <option value="53">+53 Cuba</option>
-                                    <option value="56">+56 Chile</option>
-                                    <option value="502">+502 Guatemala</option>
-                                    <option value="503">+503 El Salvador</option>
-                                    <option value="504">+504 Honduras</option>
-                                    <option value="505">+505 Nicaragua</option>
-                                    <option value="506">+506 Costa Rica</option>
-                                    <option value="507">+507 Panama</option>
-                                </select>
+                                    
+                                 <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
+                                <input name="codigo" list="listapaises">
+                                <datalist id="listapaises">
+                                     <option value="1"> United States </option> 
+                                        <option value="1"> Canada</option> 
+                                        <option value="1"> Puerto Rico</option> 
+                                        <option value="1"> Republica Dominicana</option> 
+                                        
+                                </datalist>
                                 <label for="Telefono" class="sr-only"><fmt:message key="msg.Telefono" /></label>
                                 <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="<fmt:message key="msg.EjemploTelefono" />" required autofocus>
                                 <label for="inputPassword" class="sr-only"><fmt:message key="msg.Password" /></label>
                                 <input type="password" name="password"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.Password" />" required >
                                 <label for="confirmPassword" class="sr-only"><fmt:message key="msg.ConfirmarPassword" /></label>
                                 <input type="password" name="confirmPassword" id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.ConfirmarPassword" />" required>
-
-
-
-                                <div class="checkbox">
-
-                                    <label>
-                                        <input type="checkbox" value="remember-me"> <fmt:message key="msg.Recuerdame" />
-                                    </label>
-                                </div>
-                                <input class="btn btn-lg btn-success btn-block" type="submit" name="btnenvio"value="<fmt:message key="msg.BotonAceptar" />" >
+                                <label for="nombres" class="sr-only"><fmt:message key="msg.ConfirmarPassword" /></label>
+                                <input type="text" name="nombres" id="nombres" class="form-control" placeholder="<fmt:message key="msg.Nombres" />" required>
+                                <label for="nombres"class="sr-only"><fmt:message key="msg.ConfirmarPassword" /></label>
+                                <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="<fmt:message key="msg.Apellidos" />" required>
+                                 <div class="checkbox">
+                                        <label>
+                                             <input type="checkbox" name="condicion" id="condicion" onclick="checkifempty()"/> <fmt:message key="msg.YoAcepto" />   <a target="_blank"  href="politicas.htm"><fmt:message key="msg.TerminosYCondiciones" /> </a>
+                                        </label>
+                                    </div>
+         
+                                             <input class="btn btn-lg btn-success btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.BotonRegistrar" />" >
                             </form>
-                            <div>
-                                <center>
-
-                                    <br>
-                                    <a href="recuperar.htm"><fmt:message key="msg.RecuperarCuenta" /></a>
-
-                                    <br>
-                                    <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a>
-
-                                    <br>
-                                </center>
-                            </div>
+   \
 
                             <div id="Error">
                                 <Br>
@@ -110,9 +107,6 @@
                     </div>
                 </div>
             </div>
-
-
-
 
     </body>
 

@@ -24,9 +24,19 @@
                             <center> <h2 class="panel-title"><fmt:message key="msg.Login" /></h2></center> 
                         </div>
                         <div class="panel-body">
-                            <form role="form" method="POST" action="validarLogin.htm">
+                            <form role="form" method="POST" action="validarLogin.htm">  
+                                <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
+                                <input  name="codigo" list="listapaises">
+                                <datalist id="listapaises">
+                                     <option value="1"> United States </option> 
+                                        <option value="1"> Canada</option> 
+                                        <option value="1"> Puerto Rico</option> 
+                                        <option value="1"> Republica Dominicana</option> 
+                                        
+                                </datalist>
+   <!--
                                 <fieldset>
-                                   <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
+                                    <label for="codigoArea" /label>
                                     <select name="codigo"  required  ><br>
                                         <option value="1">(+1) United States </option> 
                                         <option value="1">(+1) Canada</option> 
@@ -43,8 +53,9 @@
                                         <option value="506">(+506) Costa Rica</option>
                                         <option value="507">(+507) Panama</option>
                                     </select>
+   -->
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="<fmt:message key="msg.NumeroTelefonico" />" name="telefono" required type="text" autofocus >
+                                        <input class="form-control"  placeholder="<fmt:message key="msg.NumeroTelefonico" />" name="telefono" required type="tel" autocomplete="on" autofocus >
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="<fmt:message key="msg.Password" />" name="password" type="password" value="" required>
@@ -66,7 +77,7 @@
 
                                     <br>
                                     <a href="registrar.htm"><fmt:message key="msg.Registrarse" /></a>
-                                    
+
                                 </center>
                             </div>
                             <div id="Error">

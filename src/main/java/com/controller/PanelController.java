@@ -51,6 +51,27 @@ public class PanelController {
         return mav;
 
     }
+     @RequestMapping("politicas.htm")
+    public ModelAndView getPoliticas(HttpServletRequest request) {
+        sesion = request.getSession();
+        ModelAndView mav = new ModelAndView();
+        String mensaje = null;
+
+        if (sesion.getAttribute("usuario") == null) {
+            mav.setViewName("politicas/politicas");
+
+        } else {
+            sesionUser = sesion.getAttribute("usuario").toString();
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("viewsAdmin/politicas");
+                System.out.println("el usuario es administrador");
+            } else {
+              mav.setViewName("politicas/politicas");
+            }
+        }
+        return mav;
+
+    }
 
     @RequestMapping("panel2.htm")
     public ModelAndView getPanel2() {
