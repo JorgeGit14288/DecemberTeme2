@@ -1,62 +1,61 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <div class="row">
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-3 col-xs-6">    
         <!-- small box -->
-        <div class="small-box bg-aqua">
+        <a  href="perfil.htm" class="small-box bg-aqua">
             <div class="inner">
-                <h3>150</h3>
 
-                <p>New Orders</p>
+                <h2><fmt:message key="msg.PerfilUsuario" /></h2>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fa fa-user"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
+            <div  class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></div>
+        </a>
+    </div>
+
+    <div class="col-lg-3 col-xs-6">    
+        <!-- small box -->
+        <a  href="historial.htm" class="small-box bg-green">
+            <div class="inner">
+
+                <h2><fmt:message key="msg.HistorialLlamadas" /></h2>
+            </div>
+            <div class="icon">
+                <i class="fa fa-phone"></i>
+            </div>
+            <div  class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></div>
+        </a>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-3 col-xs-6">    
         <!-- small box -->
-        <div class="small-box bg-green">
+        <a  href="Recargas.htm." class="small-box bg-yellow">
             <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
+                <h2><fmt:message key="msg.HistorialRecargas" /></h2>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fa fa-money"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
+            <div  class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></div>
+        </a>
     </div>
+   
     <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    
+    <div class="col-lg-3 col-xs-6">    
         <!-- small box -->
-        <div class="small-box bg-yellow">
+        <a  href="Recargar.htm." class="small-box bg-red">
             <div class="inner">
-                <h3>44</h3>
 
-                <p>User Registrations</p>
+                <h2><fmt:message key="msg.RecargarSaldo" /></h2>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fa fa-credit-card"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-red">
-            <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
+            <div  class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></div>
+        </a>
     </div>
     <!-- ./col -->
 </div>

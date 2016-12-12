@@ -1,174 +1,164 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
-  
-   <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
- 
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>InterCity| <fmt:message key="msg.TituloPaginaEscritorio" /></title>
 
-  <jsp:include page="../shared/theme2/user/topMenu.jsp" />
-  <!-- Left side column. contains the logo and sidebar -->
-  <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
+        <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-   <jsp:include page="../shared/theme2/user/topMenu2.jsp" />
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
 
-    <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-    <jsp:include page="../shared/theme2/user/rowCenter1.jsp" />
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
-        
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        
-        <!-- right col -->
-      </div>
-      <!-- /.row (main row) -->
+            <jsp:include page="../shared/theme2/user/topMenu.jsp" />
+            <!-- Left side column. contains the logo and sidebar -->
+            <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-      <jsp:include page="../shared/theme2/user/footer.jsp" />
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <jsp:include page="../shared/theme2/user/topMenu2.jsp" />
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Small boxes (Stat box) -->
+                    <jsp:include page="../shared/theme2/user/rowCenter1.jsp" />
+                    <!-- /.row -->
+                    <!-- Main row -->
+                    <div id="wrapper">
 
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                        <div id="page-wrapper">
+                            <div class="row">
+                                <!-- /.col -->
+                                <div class="col-md-12">
+                                    <div class="box box-success box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title"><fmt:message key="msg.NombrePanelHistorial1" /></h3>
 
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
 
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+                                            <!-- /.panel-heading -->
 
-                <p>New phone +1(800)555-1234</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+                                            <div class="col-lg-8">
+                                                <form name="form1" method="GET" action="getHistorial.htm" role="form">
+                                                    <div class="col-xs-4">
+                                                        <label><fmt:message key="msg.FechaInicio" /></label>
+                                                        <input type="date" min="2016-10-01" name="startDate" required value="${startDate}" placeholder="<fmt:message key="msg.DateExample"/>" >
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <label><fmt:message key="msg.FechaFin" /></label>
+                                                        <input type="date" name="endDate" min="2016-10-02" value="${endDate}"   placeholder="<fmt:message key="msg.DateExample"/>" required>
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <label><fmt:message key="msg.NumeroDestino" /></label>
+                                                        <input type="number" name="destination" min="1" value="${destination}" class="form-control" placeholder="<fmt:message key="msg.NumeroDestinoEjemplo" />">
+                                                    </div> 
+                                                    <div class="col-xs-4">
 
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+                                                        <select name="max">
+                                                            <option selected value="${max}"><fmt:message key="msg.Mostrar" /> ${max}</option>
 
-                <p>nora@example.com</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
+                                                            <option value="1">1 <fmt:message key="msg.Llamada" /></option> 
+                                                            <option value="5">5 <fmt:message key="msg.Llamadas" /></option> 
+                                                            <option value="10">10 <fmt:message key="msg.Llamadas" /></option> 
+                                                            <option value="15">15 <fmt:message key="msg.Llamadas" /></option> 
+                                                            <option value="25">25 <fmt:message key="msg.Llamadas" /></option> 
+                                                            <option value="50">50 <fmt:message key="msg.Llamadas" /></option> 
+                                                            <option value="100">100 <fmt:message key="msg.Llamadas" /></option> 
 
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+                                                        </select>
+                                                    </div>
 
-                <p>Execution time 5 seconds</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
+                                                    <div class="col-xs-3">
+                                                        <label><br></label>
+                                                        <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
 
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="label label-danger pull-right">70%</span>
-              </h4>
+                                                    </div> 
+                                                </form>
+                                            </div>
+                                        </div><div id="Error" class=" alert alert-success">
+                                            <center>
+                                                <strong>${mensaje}</strong>
+                                            </center>
+                                        </div>
 
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Update Resume
-                <span class="label label-success pull-right">95%</span>
-              </h4>
 
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Laravel Integration
-                <span class="label label-warning pull-right">50%</span>
-              </h4>
+                                        <div class="table-striped">
+                                            <table class="table table-bordered table-hover table-striped">
+                                                <thead>
 
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Back End Framework
-                <span class="label label-primary pull-right">68%</span>
-              </h4>
+                                                    <tr>
+                                                        <th><fmt:message key="msg.No" /></th>
+                                                        <th><fmt:message key="msg.FechaHora" /></th>
+                                                        <th><fmt:message key="msg.Destino" /></th>
+                                                        <th><fmt:message key="msg.PaisOperador" /></th>
 
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
+                                                        <th><fmt:message key="msg.Minutos" /></th>
+                                                        <th><fmt:message key="msg.CostoMinuto" /></th>
+                                                        <th><fmt:message key="msg.CostoTotal" /></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach items="${llamadas}" var="llamada">
+                                                        <tr class="odd gradeX">
+                                                            <td><c:out value="${llamada.getNo()}" /></td>
+                                                            <td><c:out value="${llamada.getInicioLLamada()}" /></td>
+                                                            <td><c:out value="${llamada.getNumero()}" /></td>
+                                                            <td><c:out value="${llamada.getPais_operador()}" /></td>
+                                                            <td><c:out value="${llamada.getDuracionMinutos() }" /></td>
+                                                            <td><c:out value="${llamada.getCostoMinuto()}" /></td>
+                                                            <td><c:out value="${llamada.getCostoTotal()}" /></td>
 
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      
-      <!-- /.tab-pane -->
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                            <ul class="pager">
+
+                                                <li class="previous"><a href="getHistorial.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">&larr; <fmt:message key="msg.Anterior" /> ${pageprevius}</a></li>
+                                                <li class="list-group-item-text"><fmt:message key="msg.Pagina" />${page}</li>
+                                                <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}"><fmt:message key="msg.Siguiente" /> ${pagenext} &rarr;</a></li>
+                                            </ul>
+
+
+                                        </div>
+
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+
+                            </div>
+                            <!-- /.row -->
+
+                        </div>
+                        <!-- /.row -->
+
+                        <!-- =========================================================== -->
+                    </div>
+                    <!-- /#page-wrapper -->
+            </div>
+            <!-- /.row (main row) -->
+
+        </section>
+        <!-- /.content -->
+
+        <!-- /.content-wrapper -->
+        <jsp:include page="../shared/theme2/user/footer.jsp" />
+
+
+        <div class="control-sidebar-bg"></div>
     </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
 </body>
 </html>

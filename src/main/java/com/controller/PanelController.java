@@ -6,6 +6,7 @@
 package com.controller;
 
 import com.entitys.Detalles;
+import com.util.httpCuotas;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -29,18 +30,38 @@ public class PanelController {
 
     HttpSession sesion;
     String sesionUser;
+    String mensaje;
 
     @RequestMapping("panel.htm")
     public ModelAndView getPanel(HttpServletRequest request) {
         sesion = request.getSession();
         ModelAndView mav = new ModelAndView();
-        String mensaje = null;
+        mensaje = null;
+
+        Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
+
+        String country = detalle.getCiudad();
+        
+        if (country ==null)
+        {
+            country = "Guatemala";
+        }
+        
+        String amount = "5";
+        httpCuotas cuotasHelper = new httpCuotas();
+        String resultado = cuotasHelper.getCuotas(country, amount);
 
         if (sesion.getAttribute("usuario") == null) {
             mav.setViewName("login/login");
 
         } else {
             sesionUser = sesion.getAttribute("usuario").toString();
+            mav.addObject("country", detalle.getCiudad());
+            mav.addObject("resultado", resultado);
+            mensaje = "Lista de Cuotas";
+            mav.addObject("mensaje", mensaje);
+            mav.addObject("amount", amount);
+            mav.addObject("country", country);
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                 mav.setViewName("viewsAdmin/panelAdmin");
                 System.out.println("el usuario es administrador");
@@ -51,7 +72,46 @@ public class PanelController {
         return mav;
 
     }
-     @RequestMapping("politicas.htm")
+     @RequestMapping(value = "postPanel.htm", method = RequestMethod.POST)
+    public ModelAndView postCuotas(HttpServletRequest request) {
+
+        sesion = request.getSession();
+        String country = request.getParameter("country");
+        String amount = request.getParameter("amount");
+
+        Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
+        System.out.print(detalle.getCiudad());
+
+        ModelAndView mav = new ModelAndView();
+        if (sesion.getAttribute("usuario") == null) {
+
+            mav.setViewName("login/login");
+
+        } else {
+            httpCuotas cuotasHelper = new httpCuotas();
+            String resultado =  cuotasHelper.getCuotas(country, amount);
+            sesionUser = sesion.getAttribute("usuario").toString();
+            //Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
+            mav.addObject("country", detalle.getCiudad());
+            mav.addObject("resultado", resultado);
+            mensaje = "Lista de Cuotas";
+            mav.addObject("mensaje", mensaje);
+            mav.addObject("amount", amount);
+            mav.addObject("country", country);
+
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("viewsAdmin/panelAdmin");
+                System.out.println("el usuario es administrador");
+            } else {
+                mav.setViewName("panel/panel");
+            }
+           
+        }
+        return mav;
+
+    }
+
+    @RequestMapping("politicas.htm")
     public ModelAndView getPoliticas(HttpServletRequest request) {
         sesion = request.getSession();
         ModelAndView mav = new ModelAndView();
@@ -66,7 +126,7 @@ public class PanelController {
                 mav.setViewName("viewsAdmin/politicas");
                 System.out.println("el usuario es administrador");
             } else {
-              mav.setViewName("politicas/politicas");
+                mav.setViewName("politicas/politicas");
             }
         }
         return mav;
@@ -81,7 +141,5 @@ public class PanelController {
         return mav;
 
     }
-
-   
 
 }
