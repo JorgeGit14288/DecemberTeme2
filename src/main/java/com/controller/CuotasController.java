@@ -40,6 +40,10 @@ public class CuotasController {
         Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
 
         String country = detalle.getCiudad();
+        if (country ==null)
+        {
+            country = "Guatemala";
+        }
         String amount = "5";
         httpCuotas cuotasHelper = new httpCuotas();
         String resultado = cuotasHelper.getCuotas(country, amount);

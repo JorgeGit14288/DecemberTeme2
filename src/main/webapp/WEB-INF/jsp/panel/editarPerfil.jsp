@@ -37,7 +37,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-success box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.TituloPanelEditarPerfil" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.TituloPaginaEditarPerfil" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -47,10 +47,7 @@
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
-
-                                            <!-- /.panel-heading -->
-
-                                            <div class="col-lg-10">
+                                            <div class="col-xs-6">
                                                 <table>
                                                     <form class="form-Registro" method="POST" action="validarEditarPerfil.htm" >
 
@@ -130,29 +127,33 @@
 
                                                 <!-- /.box-body -->
                                             </div>
-                                            <!-- /.box -->
+
                                         </div>
 
+                                        <!-- /.box-body -->
                                     </div>
-                                    <!-- /.row -->
-
+                                    <!-- /.box -->
                                 </div>
-                                <!-- /.row -->
+
                             </div>
-                            <!-- =========================================================== -->
+                            <!-- /.row -->
+
                         </div>
-                        <!-- /#page-wrapper -->
+                        <!-- /.row -->
+
+                        <!-- =========================================================== -->
                     </div>
-                    <!-- /.row (main row) -->
-
-                </section>
-                <!-- /.content -->
-
-                <!-- /.content-wrapper -->
-                <jsp:include page="../shared/theme2/user/footer.jsp" />
-
-
-                <div class="control-sidebar-bg"></div>
+                    <!-- /#page-wrapper -->
             </div>
-    </body>
+            <!-- /.row (main row) -->
+
+        </section>
+        <!-- /.content -->
+        <jsp:include page="../shared/theme2/user/footer.jsp" />
+
+    </div>
+    <!-- /.content-wrapper -->
+    <div class="control-sidebar-bg"></div>
+</div>
+</body>
 </html>

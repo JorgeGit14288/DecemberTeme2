@@ -47,118 +47,92 @@
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
-
-                                            <!-- /.panel-heading -->
-
-                                            <div class="col-lg-8">
-                                                <form name="form1" method="GET" action="getHistorial.htm" role="form">
+                                            <div class="col-lg-12">
+                                                <form name="form" method="POST" action="postCuotas.htm" role="form">
                                                     <div class="col-xs-4">
-                                                        <label><fmt:message key="msg.FechaInicio" /></label>
-                                                        <input type="date" min="2016-10-01" name="startDate" required value="${startDate}" placeholder="<fmt:message key="msg.DateExample"/>" >
-                                                    </div>
-                                                    <div class="col-xs-4">
-                                                        <label><fmt:message key="msg.FechaFin" /></label>
-                                                        <input type="date" name="endDate" min="2016-10-02" value="${endDate}"   placeholder="<fmt:message key="msg.DateExample"/>" required>
-                                                    </div>
-                                                    <div class="col-xs-4">
-                                                        <label><fmt:message key="msg.NumeroDestino" /></label>
-                                                        <input type="number" name="destination" min="1" value="${destination}" class="form-control" placeholder="<fmt:message key="msg.NumeroDestinoEjemplo" />">
-                                                    </div> 
-                                                    <div class="col-xs-4">
-
-                                                        <select name="max">
-                                                            <option selected value="${max}"><fmt:message key="msg.Mostrar" /> ${max}</option>
-
-                                                            <option value="1">1 <fmt:message key="msg.Llamada" /></option> 
-                                                            <option value="5">5 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="10">10 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="15">15 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="25">25 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="50">50 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="100">100 <fmt:message key="msg.Llamadas" /></option> 
-
+                                                        <label><fmt:message key="msg.Pais" /></label>
+                                                        <select name="country"  required  ><br>
+                                                            <option value="${country}"> <fmt:message key="msg.PaisActual" /> ${country}  </option> 
+                                                            <option value="Estados Unidos">Estados Unidos </option> 
+                                                            <option value="Canada">Canada</option> 
+                                                            <option value="Puesto Rico">Puerto Rico</option> 
+                                                            <option value="Republica Dominicana">Republica Dominicana</option> 
+                                                            <option value="Peru">Peru</option>
+                                                            <option value="Mexico">Mexico</option>
+                                                            <option value="Cuba">Cuba</option>
+                                                            <option value="Chile">Chile</option>
+                                                            <option value="Guatemala">Guatemala</option>
+                                                            <option value="El Salvador">El Salvador</option>
+                                                            <option value="Honduras">Honduras</option>
+                                                            <option value="Nicaragua">Nicaragua</option>
+                                                            <option value="Costa Rica">Costa Rica</option>
+                                                            <option value="Panama">Panama</option>
                                                         </select>
                                                     </div>
 
-                                                    <div class="col-xs-3">
-                                                        <label><br></label>
-                                                        <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+                                                    <div class="col-xs-4">
+                                                        <label><fmt:message key="msg.MontoDeRecarga" /></label>
+
+                                                        <select name="amount" id="amount">
+                                                            <option selected value="${amount}"> <fmt:message key="msg.RecargaDe" /> $ ${amount} </option>
+                                                            <option value="5">$5</option> 
+                                                            <option value="10">$10</option> 
+                                                            <option value="15">15 </option> 
+                                                            <option value="20">$25</option> 
+                                                            <option value="30">$30</option> 
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-xs-2">
+                                                        <label></label>
+                                                        <button  type="submit" id = "btncuotas" name="btncuotas" onclick="" class="btn btn-success"><fmt:message key="msg.VerCuotas" /> </button>
 
                                                     </div> 
                                                 </form>
+                                                <!-- /.consulta retornada por post -->
                                             </div>
-                                        </div><div id="Error" class=" alert alert-success">
-                                            <center>
-                                                <strong>${mensaje}</strong>
-                                            </center>
+                                            <div id="result">
+
+                                                ${resultado}
+
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                        <div id="result">
+                                            <div id="Error" class=" alert alert-success">
+                                                <center>
+                                                    <strong>${mensaje}</strong>
+                                                </center>
+                                            </div>
+
+                                            <!-- /.box-body -->
                                         </div>
 
-
-                                        <div class="table-striped">
-                                            <table class="table table-bordered table-hover table-striped">
-                                                <thead>
-
-                                                    <tr>
-                                                        <th><fmt:message key="msg.No" /></th>
-                                                        <th><fmt:message key="msg.FechaHora" /></th>
-                                                        <th><fmt:message key="msg.Destino" /></th>
-                                                        <th><fmt:message key="msg.PaisOperador" /></th>
-
-                                                        <th><fmt:message key="msg.Minutos" /></th>
-                                                        <th><fmt:message key="msg.CostoMinuto" /></th>
-                                                        <th><fmt:message key="msg.CostoTotal" /></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <c:forEach items="${llamadas}" var="llamada">
-                                                        <tr class="odd gradeX">
-                                                            <td><c:out value="${llamada.getNo()}" /></td>
-                                                            <td><c:out value="${llamada.getInicioLLamada()}" /></td>
-                                                            <td><c:out value="${llamada.getNumero()}" /></td>
-                                                            <td><c:out value="${llamada.getPais_operador()}" /></td>
-                                                            <td><c:out value="${llamada.getDuracionMinutos() }" /></td>
-                                                            <td><c:out value="${llamada.getCostoMinuto()}" /></td>
-                                                            <td><c:out value="${llamada.getCostoTotal()}" /></td>
-
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>
-                                            <ul class="pager">
-
-                                                <li class="previous"><a href="getHistorial.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">&larr; <fmt:message key="msg.Anterior" /> ${pageprevius}</a></li>
-                                                <li class="list-group-item-text"><fmt:message key="msg.Pagina" />${page}</li>
-                                                <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}"><fmt:message key="msg.Siguiente" /> ${pagenext} &rarr;</a></li>
-                                            </ul>
-
-
-                                        </div>
-
-                                        <!-- /.box-body -->
                                     </div>
-                                    <!-- /.box -->
-                                </div>
 
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
                             </div>
-                            <!-- /.row -->
 
                         </div>
                         <!-- /.row -->
 
-                        <!-- =========================================================== -->
                     </div>
-                    <!-- /#page-wrapper -->
+                    <!-- /.row -->
+
+                    <!-- =========================================================== -->
             </div>
-            <!-- /.row (main row) -->
+            <!-- /#page-wrapper -->
+        </div>
+        <!-- /.row (main row) -->
 
-        </section>
-        <!-- /.content -->
+    </section>
+    <!-- /.content -->
+    <jsp:include page="../shared/theme2/user/footer.jsp" />
 
-        <!-- /.content-wrapper -->
-        <jsp:include page="../shared/theme2/user/footer.jsp" />
-
-
-        <div class="control-sidebar-bg"></div>
-    </div>
+</div>
+<!-- /.content-wrapper -->
+<div class="control-sidebar-bg"></div>
+</div>
 </body>
 </html>
