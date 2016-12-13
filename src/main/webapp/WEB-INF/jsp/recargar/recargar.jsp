@@ -1,133 +1,132 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <title>InterCity| <fmt:message key="msg.TituloPaginaEscritorio" /></title>
 
-        <title><fmt:message key="msg.TituloPaginaRecargar" /></title>
-
-        <jsp:include page="../shared/user/headDashboard.jsp" flush="true" />
+        <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
     </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
 
-    <body>
-        <div id="wrapper">
-            <div>
-                <jsp:include page="../shared/user/headLeftMenu.jsp" flush="true" />
-            </div>
-            <div id="page-wrapper">
+            <jsp:include page="../shared/theme2/user/topMenu.jsp" />
+            <!-- Left side column. contains the logo and sidebar -->
+            <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header"><fmt:message key="msg.Informacion" /></h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <jsp:include page="../shared/theme2/user/topMenu2.jsp" />
 
-                <jsp:include page="../shared/user/rowCenter1.jsp" flush="true" />
-                <div class="row">
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Small boxes (Stat box) -->
+                    <jsp:include page="../shared/theme2/user/rowCenter1.jsp" />
+                    <!-- /.row -->
+                    <!-- Main row -->
+                    <div id="wrapper">
 
-                    <!-- CONTENIDO DINAMICO -->
+                        <div id="page-wrapper">
+                            <div class="row">
+                                <!-- /.col -->
+                                <div class="col-md-12">
+                                    <div class="box box-success box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title"><fmt:message key="msg.TituloPanelRecargar" /></h3>
 
-
-                    <div class="col-lg-8">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <i class="fa fa-info-circle fa-fw"></i> <fmt:message key="msg.Informacion" />
-                            </div>
-                            <div class="panel-body">
-                                <div id="Error" class=" alert alert-danger">
-                                    <Br>
-                                    <center>
-
-                                        <h5>
-                                            ${mensaje}
-                                            ${resRecarga.getAmount()}
-                                        </h5>
-
-                                    </center>
-
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <fmt:message key="msg.TituloPanelRecargar" />
-                                        </div>
-                                        <!-- /.panel-heading -->
-                                        <div class="panel-body">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                        <tr> 
-                                                            <th> <fmt:message key="msg.Detalle" /></th>
-                                                            <th> <fmt:message key="msg.Informacion" /></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td> <fmt:message key="msg.Token" /></td>
-                                                            <td>${resRecarga.getToken()}</td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td> <fmt:message key="msg.MontoRecarga" /></td>
-                                                            <td>${resRecarga.getAmount()}</td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td> <fmt:message key="msg.Fecha" /></td>
-                                                            <td>${resRecarga.getRs_datetime()}</td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td> <fmt:message key="msg.EstadoRecarga" /></td>
-                                                            <td>${resRecarga.getRs_status()}</td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td> <fmt:message key="msg.Detalles" /></td>
-                                                            <td>${resRecarga.getDetails()}</td>
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                </button>
                                             </div>
-                                            <!-- /.table-responsive -->
+                                            <!-- /.box-tools -->
                                         </div>
-                                        <!-- /.panel-body -->
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <div class="col-lg-12">
+
+
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr> 
+                                                                <th> <fmt:message key="msg.Detalle" /></th>
+                                                                <th> <fmt:message key="msg.Informacion" /></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.Token" /></td>
+                                                                <td>${resRecarga.getToken()}</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.MontoRecarga" /></td>
+                                                                <td>${resRecarga.getAmount()}</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.Fecha" /></td>
+                                                                <td>${resRecarga.getRs_datetime()}</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.EstadoRecarga" /></td>
+                                                                <td>${resRecarga.getRs_status()}</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.Detalles" /></td>
+                                                                <td>${resRecarga.getDetails()}</td>
+
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.consulta retornada por post -->
+                                            </div>
+                                            <div id="result">
+
+                                                ${resultado}
+
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                        <div id="result">
+                                            <div id="Error" class=" alert alert-success">
+                                                <center>
+                                                    <strong>${mensaje}</strong>
+                                                </center>
+                                            </div>
+
+                                            <!-- /.box-body -->
+                                        </div>
+
                                     </div>
-                                    <!-- /.panel -->
+
+                                    <!-- /.box-body -->
                                 </div>
-                                <!-- /.col-lg-6 -->
+                                <!-- /.box -->
                             </div>
-                            <div class="panel-footer">
-                                InterCity WebApp
-                            </div>
+
+
+                            <!-- =========================================================== -->
                         </div>
-                        <!-- /.panel -->
-
+                        <!-- /#page-wrapper -->
                     </div>
-                    <!-- /.col-lg-8 -->
+                    <!-- /.row (main row) -->
 
-                    <!-- CONTENIDO DINAMICO -->
-                    <div class="col-lg-4">
-                        <jsp:include page="../shared/user/rightPanel.jsp" flush="true" />
-                    </div>
-                </div>
+                </section>
+                <!-- /.content -->
+                <jsp:include page="../shared/theme2/user/footer.jsp" />
+
             </div>
-            <!-- /#page-wrapper -->
+            <!-- /.content-wrapper -->
+            <div class="control-sidebar-bg"></div>
         </div>
-
     </body>
-
 </html>

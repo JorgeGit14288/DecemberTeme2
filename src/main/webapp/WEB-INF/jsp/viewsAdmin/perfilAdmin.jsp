@@ -3,54 +3,54 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <title>InterCity| <fmt:message key="msg.TituloPaginaEscritorio" /></title>
 
-        <title><fmt:message key="msg.TituloPaginaPerfil" /></title>
-
-        <jsp:include page="../shared/admin/headDashboard.jsp" flush="true" />
+        <jsp:include page="../shared/theme2/admin/headDashboard.jsp" />
 
     </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
 
-    <body>
-        <div id="wrapper">
-            <div>
-                <jsp:include page="../shared/admin/headLeftMenu.jsp" flush="true" />
-            </div>
-            <div id="page-wrapper">
+            <jsp:include page="../shared/theme2/admin/topMenu.jsp" />
+            <!-- Left side column. contains the logo and sidebar -->
+            <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header"><fmt:message key="msg.NombrePanelPerfil1" /></h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <jsp:include page="../shared/theme2/admin/topMenu2.jsp" />
 
-                <div class="row">
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Small boxes (Stat box) -->
+                    <jsp:include page="../shared/theme2/admin/rowCenter1.jsp" />
+                    <!-- /.row -->
+                    <!-- Main row -->
+                    <div id="wrapper">
 
-                    <!-- CONTENIDO DINAMICO -->
+                        <div id="page-wrapper">
+                            <div class="row">
+                                <!-- /.col -->
+                                <div class="col-md-12">
+                                    <div class="box box-success box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title"><fmt:message key="msg.NombrePanelPerfil1"/></h3>
 
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
 
-                    <div class="col-lg-8">
+                                            <!-- /.panel-heading -->
 
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> <fmt:message key="msg.Informacion" />
-                                <div class="pull-right">
-
-                                </div>
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-10">
+                                            <div class="col-lg-10">
                                         <div class="table-responsive">
                                             <table class="table table-bordered table-hover table-striped">
                                                 <tbody>
@@ -101,33 +101,37 @@
 
                                         </div>
                                     </div>
+                                        </div><div id="Error" class=" alert alert-success">
+                                            <center>
+                                                <strong>${mensaje}</strong>
+                                            </center>
+                                        </div>
 
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
                                 </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
 
-                    </div>
-                    <!-- /.col-lg-8 -->
+                            </div>
+                            <!-- /.row -->
 
-                    <!-- CONTENIDO DINAMICO -->
-                    <div class="col-lg-4">
-                        <jsp:include page="../shared/admin/rightPanel.jsp" flush="true" />
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <i class="fa fa-info-circle fa-fw"></i> Informacion
-                            </div>
-                            <div class="panel-body">
-                                <p>Bienvenido a InterCity, en esta aplicacion web usted podra gestionar su cuenta de usuario </p>
-                            </div>
-                            <div class="panel-footer">
-                                InterCity WebApp
-                            </div>
                         </div>
+                        <!-- /.row -->
+
+                        <!-- =========================================================== -->
                     </div>
-                </div>
+                    <!-- /#page-wrapper -->
             </div>
-        </div>
-    </body>
+            <!-- /.row (main row) -->
+
+        </section>
+        <!-- /.content -->
+  
+    <!-- /.content-wrapper -->
+    <jsp:include page="../shared/theme2/admin/footer.jsp" />
+
+
+    <div class="control-sidebar-bg"></div>
+</div>
+</body>
 </html>

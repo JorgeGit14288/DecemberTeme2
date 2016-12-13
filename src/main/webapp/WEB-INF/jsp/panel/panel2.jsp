@@ -37,7 +37,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-success box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.NombrePanelHistorial1" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.TituloPanelRecargar" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -48,46 +48,45 @@
                                         <!-- /.box-header -->
                                         <div class="box-body">
                                             <div class="col-lg-12">
-                                                <form name="form" method="POST" action="postCuotas.htm" role="form">
-                                                    <div class="col-xs-4">
-                                                        <label><fmt:message key="msg.Pais" /></label>
-                                                        <select name="country"  required  ><br>
-                                                            <option value="${country}"> <fmt:message key="msg.PaisActual" /> ${country}  </option> 
-                                                            <option value="Estados Unidos">Estados Unidos </option> 
-                                                            <option value="Canada">Canada</option> 
-                                                            <option value="Puesto Rico">Puerto Rico</option> 
-                                                            <option value="Republica Dominicana">Republica Dominicana</option> 
-                                                            <option value="Peru">Peru</option>
-                                                            <option value="Mexico">Mexico</option>
-                                                            <option value="Cuba">Cuba</option>
-                                                            <option value="Chile">Chile</option>
-                                                            <option value="Guatemala">Guatemala</option>
-                                                            <option value="El Salvador">El Salvador</option>
-                                                            <option value="Honduras">Honduras</option>
-                                                            <option value="Nicaragua">Nicaragua</option>
-                                                            <option value="Costa Rica">Costa Rica</option>
-                                                            <option value="Panama">Panama</option>
-                                                        </select>
-                                                    </div>
 
-                                                    <div class="col-xs-4">
-                                                        <label><fmt:message key="msg.MontoDeRecarga" /></label>
 
-                                                        <select name="amount" id="amount">
-                                                            <option selected value="${amount}"> <fmt:message key="msg.RecargaDe" /> $ ${amount} </option>
-                                                            <option value="5">$5</option> 
-                                                            <option value="10">$10</option> 
-                                                            <option value="15">15 </option> 
-                                                            <option value="20">$25</option> 
-                                                            <option value="30">$30</option> 
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-xs-2">
-                                                        <label></label>
-                                                        <button  type="submit" id = "btncuotas" name="btncuotas" onclick="" class="btn btn-success"><fmt:message key="msg.VerCuotas" /> </button>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr> 
+                                                                <th> <fmt:message key="msg.Detalle" /></th>
+                                                                <th> <fmt:message key="msg.Informacion" /></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.Token" /></td>
+                                                                <td>${resRecarga.getToken()}</td>
 
-                                                    </div> 
-                                                </form>
+                                                            </tr>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.MontoRecarga" /></td>
+                                                                <td>${resRecarga.getAmount()}</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.Fecha" /></td>
+                                                                <td>${resRecarga.getRs_datetime()}</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.EstadoRecarga" /></td>
+                                                                <td>${resRecarga.getRs_status()}</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td> <fmt:message key="msg.Detalles" /></td>
+                                                                <td>${resRecarga.getDetails()}</td>
+
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                                 <!-- /.consulta retornada por post -->
                                             </div>
                                             <div id="result">
@@ -114,25 +113,20 @@
                                 <!-- /.box -->
                             </div>
 
+
+                            <!-- =========================================================== -->
                         </div>
-                        <!-- /.row -->
-
+                        <!-- /#page-wrapper -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.row (main row) -->
 
-                    <!-- =========================================================== -->
+                </section>
+                <!-- /.content -->
+                <jsp:include page="../shared/theme2/user/footer.jsp" />
+
             </div>
-            <!-- /#page-wrapper -->
+            <!-- /.content-wrapper -->
+            <div class="control-sidebar-bg"></div>
         </div>
-        <!-- /.row (main row) -->
-
-    </section>
-    <!-- /.content -->
-    <jsp:include page="../shared/theme2/user/footer.jsp" />
-
-</div>
-<!-- /.content-wrapper -->
-<div class="control-sidebar-bg"></div>
-</div>
-</body>
+    </body>
 </html>
