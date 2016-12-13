@@ -1,106 +1,124 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        
+        <title>Phones </title>
 
-        <title><fmt:message key="msg.TituloPaginaTelefonos" /></title>
-
-        <jsp:include page="../shared/admin/headDashboard.jsp" flush="true" />
+        <jsp:include page="../shared/theme2/admin/headDashboard.jsp" />
 
     </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
 
-    <body>
-        <div id="wrapper">
-            <div>
-                <jsp:include page="../shared/admin/headLeftMenu.jsp" flush="true" />
-            </div>
-            <div id="page-wrapper">
+            <jsp:include page="../shared/theme2/admin/topMenu.jsp" />
+            <!-- Left side column. contains the logo and sidebar -->
+            <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Admin Dashboard</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <jsp:include page="../shared/theme2/admin/topMenu2.jsp" />
+
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Small boxes (Stat box) -->
+                    <jsp:include page="../shared/theme2/admin/rowCenter1.jsp" />
+                    <!-- /.row -->
+                    <!-- Main row -->
+                    <div id="wrapper">
+
+                        <div id="page-wrapper">
+                            <div class="row">
+                                <!-- /.col -->
+                                <div class="col-md-12">
+                                    <div class="box box-primary box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title"><fmt:message key="msg.Recargar" /></h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+
+                                            <table width="100%" class="table table-striped table-bordered table-hover" id="example1">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No. Telefono</th>
+                                                        <th>Id Usuario</th>
+                                                        <th>Codigo</th>
+                                                        <th>Status</th>                                            
+                                                        <th>Acciones</th>
 
 
-                <div class="row">
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach items="${listaTelefonos}" var="telefono">
+                                                        <tr>
+                                                            <td><c:out value="${telefono.getTelefonoArea()}" /></td>
+                                                            <td><c:out value="${telefono.getUsuarios().getIdUsuario()}" /></td>
+                                                            <td><c:out value="${telefono.getCodigoConfirm()}" /></td>
 
-                    <!-- CONTENIDO DINAMICO -->
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                               Numeros Telefonicos Registrados 
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>No. Telefono</th>
-                                            <th>Id Usuario</th>
-                                            <th>Codigo</th>
-                                            <th>Status</th>                                            
-                                            <th>Acciones</th>
+                                                            <td><c:out value="${telefono.getStatus()}" /></td>
+
+                                                            <td><a href="editarTelefonos.htm?idTelefono=${telefono.getTelefonoArea()}">editar</a></td>         
+                                                        </tr>
+                                                    </c:forEach>
+
+                                                </tbody>
+                                            </table>
+                                            <!-- /.table-responsive -->
+
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
 
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${listaTelefonos}" var="telefono">
-                                            <tr>
-                                                <td><c:out value="${telefono.getTelefonoArea()}" /></td>
-                                                <td><c:out value="${telefono.getUsuarios().getIdUsuario()}" /></td>
-                                                <td><c:out value="${telefono.getCodigoConfirm()}" /></td>
-                                                
-                                                <td><c:out value="${telefono.getStatus()}" /></td>
-                                              
-                                                <td><a href="editarTelefonos.htm?idTelefono=${telefono.getTelefonoArea()}">editar</a></td>         
-                                            </tr>
-                                        </c:forEach>
-
-                                    </tbody>
-                                </table>
-                                <!-- /.table-responsive -->
-                                <!-- /.table-responsive -->
-                                <div class="well">
-                                    <h4>DataTables Usage Information</h4>
-                                    <p>DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a specialized version of DataTables built for Bootstrap 3. We have also customized the table headings to use Font Awesome icons in place of images. For complete documentation on DataTables, visit their website at <a target="_blank" href="https://datatables.net/">https://datatables.net/</a>.</p>
-                                    <a class="btn btn-default btn-lg btn-block" target="_blank" href="https://datatables.net/">View DataTables Documentation</a>
                                 </div>
+                                <!-- /.col -->
+
+
                             </div>
-                            <!-- /.panel-body -->
+                            <!-- /.row -->
+
+
+                            <!-- =========================================================== -->
                         </div>
-                        <!-- /.panel -->
-
+                        <!-- /#page-wrapper -->
                     </div>
-                    <!-- /.col-lg-8 -->
+                    <!-- /.row (main row) -->
 
-                    <!-- CONTENIDO DINAMICO -->
-
-                </div>
+                </section>
+                <!-- /.content -->
             </div>
-            <script>
-                $(document).ready(function () {
-                    $('#dataTables-example').DataTable({
-                        responsive: true
-                    });
-                });
-            </script>
+            <!-- /.content-wrapper -->
+            <jsp:include page="../shared/theme2/admin/footer.jsp" />
 
 
+            <div class="control-sidebar-bg"></div>
         </div>
 
-    </body>
 
+        <script>
+            $(function () {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
+                });
+            });
+        </script>
+    </body>
 </html>

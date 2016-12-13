@@ -6,27 +6,27 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>InterCity| <fmt:message key="msg.TituloPaginaEscritorio" /></title>
+        <title> <fmt:message key="msg.TituloPaginaEscritorio" /></title>
 
-        <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
+        <jsp:include page="../shared/theme2/admin/headDashboard.jsp" />
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
 
-            <jsp:include page="../shared/theme2/user/topMenu.jsp" />
+            <jsp:include page="../shared/theme2/admin/topMenu.jsp" />
             <!-- Left side column. contains the logo and sidebar -->
-            <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
+            <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/user/topMenu2.jsp" />
+                <jsp:include page="../shared/theme2/admin/topMenu2.jsp" />
 
                 <!-- Main content -->
                 <section class="content">
                     <!-- Small boxes (Stat box) -->
-                    <jsp:include page="../shared/theme2/user/rowCenter1.jsp" />
+                    <jsp:include page="../shared/theme2/admin/rowCenter1.jsp" />
                     <!-- /.row -->
                     <!-- Main row -->
                     <div id="wrapper">
@@ -35,9 +35,9 @@
                             <div class="row">
                                 <!-- /.col -->
                                 <div class="col-md-12">
-                                    <div class="box box-success box-solid">
+                                    <div class="box box-primary box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.TituloPanelRecargar" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.Recargar" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -47,72 +47,85 @@
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
-                                            <div class="col-lg-12">
-
-
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped">
-                                                        <thead>
-                                                            <tr> 
-                                                                <th> <fmt:message key="msg.Detalle" /></th>
-                                                                <th> <fmt:message key="msg.Informacion" /></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td> <fmt:message key="msg.Token" /></td>
-                                                                <td>${resRecarga.getToken()}</td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td> <fmt:message key="msg.MontoRecarga" /></td>
-                                                                <td>${resRecarga.getAmount()}</td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td> <fmt:message key="msg.Fecha" /></td>
-                                                                <td>${resRecarga.getRs_datetime()}</td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td> <fmt:message key="msg.EstadoRecarga" /></td>
-                                                                <td>${resRecarga.getRs_status()}</td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td> <fmt:message key="msg.Detalles" /></td>
-                                                                <td>${resRecarga.getDetails()}</td>
-
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!-- /.consulta retornada por post -->
-                                            </div>
-                                            <div id="result">
-
-                                                ${resultado}
-
-                                            </div>
+                                            <p><fmt:message key="msg.DescripcionRecargar" /></p>
+                                            <jsp:include page="../shared/theme2/user/rowRecargar.jsp" flush="true" />
                                         </div>
-                                        <!-- /.row -->
-                                        <div id="result">
-                                            <div id="Error" class=" alert alert-success">
-                                                <center>
-                                                    <strong>${mensaje}</strong>
-                                                </center>
-                                            </div>
-
-                                            <!-- /.box-body -->
-                                        </div>
-
+                                        <!-- /.box-body -->
                                     </div>
-
-                                    <!-- /.box-body -->
+                                    <!-- /.box -->
                                 </div>
-                                <!-- /.box -->
-                            </div>
+                                <!-- /.col -->
 
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                            <div class="row">
+                                <!-- /.col -->
+                                <div class="col-md-12">
+                                    <div class="box box-warning box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title"><fmt:message key="msg.PanelNombreCuotas" /></h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+
+                                           <form class="form-Registro" method="POST" action="validarEditarTelefono.htm" >
+                                        <div class="form-group col-xs-6">
+
+                                            <label for="idUsuario" >Id Uusario</label>
+                                            <input class="form form-control" type="text" readonly name="idUsuario" value ="${usuario.getIdUsuario()}" id="idUsuario" /> 
+
+                                            <label for="Telefono" >Telefono:</label>
+                                            <input class="form form-control" type="text" readonly name="idTelefono" value ="${telefono.getTelefonoArea()}" id="idUsuario" /> 
+                                            <label for="nombres" >Nombre</label>
+                                            <input type="text" class="form form-control" readonly  name="nombres"  id="nombre"  placeholder="first name" value ="${usuario.getNombres() }" /> <br>
+                                            <label for="apellidos" >Confirmacion No.</label>
+                                            <input type="text" class="form form-control" readonly  name="apellidos"  id="apellidos"  placeholder="last name" value ="${telefono.getCodigoConfirm()}" /><br>
+                                            <label for="direccion" >Pais</label>
+                                            <input type="text" class="form form-control" readonly  name="direccion"  id="direccion"  placeholder="pais" value ="${usuario.getPais()}"  /><br>
+
+                                            <label for="status"  >Status</label>
+                                            <select name="status"  required class="form form-control"  >
+                                                <option value="${telefono.getStatus()}">Actual: ${telefono.getStatus()} </option> 
+                                                <option value="Activo">Activo </option> 
+                                                <option value="Suspendido">Suspendido</option> 
+                                                <option value="Deshabilitado">Deshabilitado</option> 
+                                            </select><br>
+
+                                            <button  type="submit"class="btn btn-primary form-control" >Confirmar</button>
+
+                                        </div>
+
+                                    </form>
+
+                                            <div id="Error">
+                                                <Br>
+                                                <center>
+
+                                                    <h5>
+                                                        ${mensaje}
+                                                    </h5>
+
+                                                </center>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                                <!-- /.col -->
+
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
 
                             <!-- =========================================================== -->
                         </div>
@@ -122,10 +135,11 @@
 
                 </section>
                 <!-- /.content -->
-                <jsp:include page="../shared/theme2/user/footer.jsp" />
-
             </div>
             <!-- /.content-wrapper -->
+            <jsp:include page="../shared/theme2/admin/footer.jsp" />
+
+
             <div class="control-sidebar-bg"></div>
         </div>
     </body>

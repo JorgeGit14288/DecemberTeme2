@@ -68,7 +68,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="Usuarios.htm"><i class="fa fa-users"></i> <fmt:message key="msg.UsuariosRegistrados" /></a></li>
+                    <li><a href="usuarios.htm"><i class="fa fa-users"></i> <fmt:message key="msg.UsuariosRegistrados" /></a></li>
                     <li><a href="telefonos.htm"><i class="fa fa-phone-square"></i><fmt:message key="msg.TelefonosRegistrados" /></a></li>
 
                 </ul>
