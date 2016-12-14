@@ -65,6 +65,7 @@
     <bean name="cuotasController" class="com.controller.CuotasController"/>
     <bean name="recargarController" class="com.controller.RecargarController"/>
     <bean name="lenguajeController" class="com.controller.LenguajeController"/>
+    <bean name="ayudaController" class="com.controller.AyudaController"/>
    
     
     

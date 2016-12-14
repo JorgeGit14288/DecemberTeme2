@@ -1,146 +1,113 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title> <fmt:message key="msg.TituloPaginaEscritorio" /></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title><fmt:message key="msg.TituloPaginaRegistrar" /></title>
+        <jsp:include page="../shared/theme3/user/headLogin.jsp" />
 
-        <jsp:include page="../shared/theme2/admin/headDashboard.jsp" />
+        <script>
+            function validar() {
+                if (document.form.password.value != document.form.confirmPassword.value)
+                {
+                    alert('¡Debe escribir el mismo password');
+                    document.form.password.focus();
+                    return false;
+                    // 
+                } else
+                {
+                    /* Si todo está OK se prosigue con lo que sea: */
+                    alert('¡registrando usuario!');
+                    document.form.submit;
+                    return true;
+                }
+            }
+        </script>
+        <script type="text/javascript">
 
+            function checkifempty()
+            {
+                if (!document.form.condicion.checked)
+                {
+                    document.form.btnenvio.disabled = true;
+
+                } else
+                {
+                    document.form.btnenvio.disabled = false;
+                }
+
+            }
+        </script>
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-        <div class="wrapper">
 
-            <jsp:include page="../shared/theme2/admin/topMenu.jsp" />
-            <!-- Left side column. contains the logo and sidebar -->
-            <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
+    <body class="login-img3-body">
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/admin/topMenu2.jsp" />
+        <div class="container">
 
-                <!-- Main content -->
-                <section class="content">
-                    <!-- Small boxes (Stat box) -->
-                    <jsp:include page="../shared/theme2/admin/rowCenter1.jsp" />
-                    <!-- /.row -->
-                    <!-- Main row -->
-                    <div id="wrapper">
+            <form name="form" class="login-form" method="POST" onSubmit="return validar()" action="validarRegistro.htm">        
+                <div class="login-wrap">
+                    <center> <h3 class="panel-primary"><fmt:message key="msg.TituloPanelRegistro" /></h3></center> 
+                    <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
+                    <input name="codigo" list="listapaises" placeholder="<fmt:message key="msg.CodigoArea" />">
+                    <datalist id="listapaises">
+                        <option value="1"> United States </option> 
+                        <option value="1"> Canada</option> 
+                        <option value="1"> Puerto Rico</option> 
+                        <option value="1"> Republica Dominicana</option> 
 
-                        <div id="page-wrapper">
-                            <div class="row">
-                                <!-- /.col -->
-                                <div class="col-md-12">
-                                    <div class="box box-primary box-solid">
-                                        <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.Recargar" /></h3>
-
-                                            <div class="box-tools pull-right">
-                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                                </button>
-                                            </div>
-                                            <!-- /.box-tools -->
-                                        </div>
-                                        <!-- /.box-header -->
-                                        <div class="box-body">
-                                            <p><fmt:message key="msg.DescripcionRecargar" /></p>
-                                            <jsp:include page="../shared/theme2/user/rowRecargar.jsp" flush="true" />
-                                        </div>
-                                        <!-- /.box-body -->
-                                    </div>
-                                    <!-- /.box -->
-                                </div>
-                                <!-- /.col -->
-
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.row -->
-                            <div class="row">
-                                <!-- /.col -->
-                                <div class="col-md-12">
-                                    <div class="box box-warning box-solid">
-                                        <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.PanelNombreCuotas" /></h3>
-
-                                            <div class="box-tools pull-right">
-                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                                </button>
-                                            </div>
-                                            <!-- /.box-tools -->
-                                        </div>
-                                        <!-- /.box-header -->
-                                        <div class="box-body">
-
-                                           <form class="form-Registro" method="POST" action="validarEditarTelefono.htm" >
-                                        <div class="form-group col-xs-6">
-
-                                            <label for="idUsuario" >Id Uusario</label>
-                                            <input class="form form-control" type="text" readonly name="idUsuario" value ="${usuario.getIdUsuario()}" id="idUsuario" /> 
-
-                                            <label for="Telefono" >Telefono:</label>
-                                            <input class="form form-control" type="text" readonly name="idTelefono" value ="${telefono.getTelefonoArea()}" id="idUsuario" /> 
-                                            <label for="nombres" >Nombre</label>
-                                            <input type="text" class="form form-control" readonly  name="nombres"  id="nombre"  placeholder="first name" value ="${usuario.getNombres() }" /> <br>
-                                            <label for="apellidos" >Confirmacion No.</label>
-                                            <input type="text" class="form form-control" readonly  name="apellidos"  id="apellidos"  placeholder="last name" value ="${telefono.getCodigoConfirm()}" /><br>
-                                            <label for="direccion" >Pais</label>
-                                            <input type="text" class="form form-control" readonly  name="direccion"  id="direccion"  placeholder="pais" value ="${usuario.getPais()}"  /><br>
-
-                                            <label for="status"  >Status</label>
-                                            <select name="status"  required class="form form-control"  >
-                                                <option value="${telefono.getStatus()}">Actual: ${telefono.getStatus()} </option> 
-                                                <option value="Activo">Activo </option> 
-                                                <option value="Suspendido">Suspendido</option> 
-                                                <option value="Deshabilitado">Deshabilitado</option> 
-                                            </select><br>
-
-                                            <button  type="submit"class="btn btn-primary form-control" >Confirmar</button>
-
-                                        </div>
-
-                                    </form>
-
-                                            <div id="Error">
-                                                <Br>
-                                                <center>
-
-                                                    <h5>
-                                                        ${mensaje}
-                                                    </h5>
-
-                                                </center>
-
-                                            </div>
-
-                                        </div>
-                                        <!-- /.box-body -->
-                                    </div>
-                                    <!-- /.box -->
-                                </div>
-                                <!-- /.col -->
-
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.row -->
-
-                            <!-- =========================================================== -->
-                        </div>
-                        <!-- /#page-wrapper -->
+                    </datalist>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon_phone"></i></span>
+                        <label for="Telefono" class="sr-only"><fmt:message key="msg.Telefono" /></label>
+                        <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="<fmt:message key="msg.Telefono" />" required autofocus>
                     </div>
-                    <!-- /.row (main row) -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                        <label for="inputPassword" class="sr-only"><fmt:message key="msg.Password" /></label>
+                        <input type="password" name="password"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.Password" />" required >
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                        <label for="confirmPassword" class="sr-only"><fmt:message key="msg.ConfirmarPassword" /></label>
+                        <input type="password" name="confirmPassword" id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.ConfirmarPassword" />" required>
+                    </div>
 
-                </section>
-                <!-- /.content -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon_contacts"></i></span>
+                        <label for="nombres" class="sr-only"><fmt:message key="msg.ConfirmarPassword" /></label>
+                        <input type="text" name="nombres" id="nombres" class="form-control" placeholder="<fmt:message key="msg.Nombres" />" required>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon_contacts"></i></span>
+                        <label for="nombres"class="sr-only"><fmt:message key="msg.ConfirmarPassword" /></label>
+                        <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="<fmt:message key="msg.Apellidos" />" required>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="condicion" id="condicion" onclick="checkifempty()"/> <fmt:message key="msg.YoAcepto" />   <a target="_blank"  href="politicas.htm"><fmt:message key="msg.TerminosYCondiciones" /> </a>
+                        </label>
+                    </div>
+                    
+                    <input  class="btn btn-primary btn-lg btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.BotonRegistrar" />" >                    
+                </div>
+            </form>
+            <div id="Error">
+                <Br>
+                <center>
+                    <h4>
+                        <label> ${mensaje}</label>
+                    </h4>
+                </center>
             </div>
-            <!-- /.content-wrapper -->
-            <jsp:include page="../shared/theme2/admin/footer.jsp" />
 
-
-            <div class="control-sidebar-bg"></div>
         </div>
     </body>
 </html>

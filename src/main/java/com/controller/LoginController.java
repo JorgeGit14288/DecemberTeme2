@@ -20,6 +20,7 @@ import com.util.Cifrar;
 import com.util.httpAccount;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
  *
@@ -89,7 +90,8 @@ public class LoginController {
                     cuenta.setApellidos(user.getApellidos());
                     cuenta.setCiudad(user.getPais());
                     cuenta.setEmail(user.getEmail());
-
+                    cuenta.setIdiomaActual(RequestContextUtils.getLocale(request).getLanguage());
+                    System.out.println("El lenguaje actual es  " + cuenta.getIdiomaActual());
                     try {
                         account = accountHelper.getAccountObject(userSesion);
                         if (account.getId() != null) {
@@ -103,7 +105,6 @@ public class LoginController {
 
                         } else {
                             System.out.print("no pudo llenarse por completo el objeto");
-                           
 
                         }
 

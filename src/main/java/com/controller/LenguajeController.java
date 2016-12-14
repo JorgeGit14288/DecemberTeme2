@@ -21,21 +21,30 @@ import org.springframework.web.servlet.support.RequestContextUtils;
  */
 @Controller
 public class LenguajeController {
+
     HttpSession sesion;
     String sesionUser;
-    
-     @RequestMapping(value="cambiarLenguaje.htm",method = RequestMethod.GET)
+    String lenguaje;
+
+    public String getLenguaje() {
+        return lenguaje;
+    }
+
+    public void setLenguaje(String lenguaje) {
+        this.lenguaje = lenguaje;
+    }
+
+    @RequestMapping(value = "cambiarLenguaje.htm", method = RequestMethod.GET)
     public ModelAndView setLenguaje(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView();
         String idioma = request.getParameter("lenguaje");
-        System.out.println("Se desea cambiar a lenguaje "+idioma);
-        try{
-        
-        RequestContextUtils.getLocaleResolver(request).setLocale(request, response, new Locale(request.getParameter("lenguaje")));
-        mav.addObject("idioma", idioma);
-        }
-        catch(Exception e)
-        {
+        System.out.println("Se desea cambiar a lenguaje " + idioma);
+        try {
+            lenguaje = RequestContextUtils.getLocale(request).getLanguage();
+            System.out.println("El lenguaje actual es  " + lenguaje);
+            RequestContextUtils.getLocaleResolver(request).setLocale(request, response, new Locale(request.getParameter("lenguaje")));
+            mav.addObject("idioma", idioma);
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("No se pudo cargar el lenguaje");
         }
@@ -43,23 +52,26 @@ public class LenguajeController {
         mav.setViewName("login/login");
         return mav;
     }
-     @RequestMapping(value="cambiarLenguajeEscritorio.htm",method = RequestMethod.GET)
+
+    @RequestMapping(value = "cambiarLenguajeEscritorio.htm", method = RequestMethod.GET)
     public ModelAndView setLenguajeEscritorio(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView();
         String lenguaje = request.getParameter("lenguaje");
         String idioma = request.getParameter("lenguaje");
+        String languaje =  request.getParameter("languaje");
         sesion = request.getSession();
-        System.out.println("Se desea cambiar a lenguaje "+lenguaje);
-        try{
-        mav.addObject("idioma", idioma);
-        RequestContextUtils.getLocaleResolver(request).setLocale(request, response, new Locale(request.getParameter("lenguaje")));
-        }
-        catch(Exception e)
-        {
+        System.out.println("Se desea cambiar a lenguaje " + lenguaje);
+        try {
+
+            lenguaje = RequestContextUtils.getLocale(request).getLanguage();
+            System.out.println("El lenguaje actual es  " + lenguaje);
+            mav.addObject("idioma", idioma);
+            RequestContextUtils.getLocaleResolver(request).setLocale(request, response, new Locale(request.getParameter("lenguaje")));
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("No se pudo cargar el lenguaje");
         }
-        
+
         if (sesion.getAttribute("usuario") == null) {
             mav.setViewName("login/login");
 
@@ -74,9 +86,6 @@ public class LenguajeController {
             }
         }
         return mav;
-
-        
-        
     }
-    
+
 }

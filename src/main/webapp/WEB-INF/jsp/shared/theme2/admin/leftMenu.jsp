@@ -55,6 +55,21 @@
                 </ul>
             </li>
             <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span> <fmt:message key="msg.Ayuda" /></span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="dids.htm"><i class="fa fa-user-plus"></i><fmt:message key="msg.Dids" /></a></li>             
+                    <li><a href="servicioCliente.htm"><i class="fa fa-phone"></i><fmt:message key="msg.ServicioCliente" /></a></li>
+                     <li><a href="ayuda.htm"><i class="fa fa-circle"></i> <fmt:message key="msg.Ayuda" /></a></li>
+
+                </ul>
+            </li>
+            <li class="treeview">
                 <a href="cuotas.htm">
                     <i class="fa fa-money"></i> <span><fmt:message key="msg.VerCuotas" /></span>  
                 </a>

@@ -32,14 +32,14 @@
                 }
             }
         </script>
-         <script type="text/javascript">
+        <script type="text/javascript">
 
             function checkifempty()
             {
                 if (!document.form.condicion.checked)
                 {
                     document.form.btnenvio.disabled = true;
-                    
+
                 } else
                 {
                     document.form.btnenvio.disabled = false;
@@ -62,15 +62,15 @@
                         </div>
                         <div class="panel-body">
                             <form name="form" class="form-Registro" method="POST" onSubmit="return validar()" action="validarRegistro.htm" >
-                                    
-                                 <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
+
+                                <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
                                 <input name="codigo" list="listapaises">
                                 <datalist id="listapaises">
-                                     <option value="1"> United States </option> 
-                                        <option value="1"> Canada</option> 
-                                        <option value="1"> Puerto Rico</option> 
-                                        <option value="1"> Republica Dominicana</option> 
-                                        
+                                    <option value="1"> United States </option> 
+                                    <option value="1"> Canada</option> 
+                                    <option value="1"> Puerto Rico</option> 
+                                    <option value="1"> Republica Dominicana</option> 
+
                                 </datalist>
                                 <label for="Telefono" class="sr-only"><fmt:message key="msg.Telefono" /></label>
                                 <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="<fmt:message key="msg.EjemploTelefono" />" required autofocus>
@@ -82,15 +82,15 @@
                                 <input type="text" name="nombres" id="nombres" class="form-control" placeholder="<fmt:message key="msg.Nombres" />" required>
                                 <label for="nombres"class="sr-only"><fmt:message key="msg.ConfirmarPassword" /></label>
                                 <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="<fmt:message key="msg.Apellidos" />" required>
-                                 <div class="checkbox">
-                                        <label>
-                                             <input type="checkbox" name="condicion" id="condicion" onclick="checkifempty()"/> <fmt:message key="msg.YoAcepto" />   <a target="_blank"  href="politicas.htm"><fmt:message key="msg.TerminosYCondiciones" /> </a>
-                                        </label>
-                                    </div>
-         
-                                             <input class="btn btn-lg btn-success btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.BotonRegistrar" />" >
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="condicion" id="condicion" onclick="checkifempty()"/> <fmt:message key="msg.YoAcepto" />   <a target="_blank"  href="politicas.htm"><fmt:message key="msg.TerminosYCondiciones" /> </a>
+                                    </label>
+                                </div>
+
+                                <input class="btn btn-lg btn-success btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.BotonRegistrar" />" >
                             </form>
-   \
+                            \
 
                             <div id="Error">
                                 <Br>

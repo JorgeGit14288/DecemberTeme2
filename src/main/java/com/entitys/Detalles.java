@@ -24,6 +24,17 @@ public class Detalles implements java.io.Serializable {
     private String lenguaje;
     private String accountId;
     private String saldo;
+    private String idiomaActual;
+
+    public String getIdiomaActual() {
+        return idiomaActual;
+    }
+
+    public void setIdiomaActual(String idiomaActual) {
+        this.idiomaActual = idiomaActual;
+    }
+    
+    
     
     
     

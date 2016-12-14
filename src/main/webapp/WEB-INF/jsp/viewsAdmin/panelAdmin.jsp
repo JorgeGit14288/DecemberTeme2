@@ -14,7 +14,7 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
 
-            <jsp:include page="../shared/theme2/admin/topMenu.jsp" />
+            <jsp:include page="../shared/theme2/user/topMenu.jsp" />
             <!-- Left side column. contains the logo and sidebar -->
             <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
 
