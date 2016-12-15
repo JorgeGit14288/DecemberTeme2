@@ -4,7 +4,7 @@
 <meta name="author" content="GeeksLabs">
 <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/theme3/NiceAdmin/img/favicon.png">
-
+ <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/image/favicon.ico" />
 
 
 <!-- Bootstrap CSS -->    

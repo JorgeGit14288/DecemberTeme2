@@ -97,6 +97,8 @@ public class RegistrarController {
             String id = "icu0" + idi;
             usuario.setIdUsuario(id);
             usuario.setPassword(pass);
+            usuario.setNombres(request.getParameter("nombres"));
+            usuario.setApellidos(request.getParameter("apellidos"));
             usuario.setStatus("Activo");
             usuario.setTipoUsuario("Estandar");
             this.setTelP(telefono);

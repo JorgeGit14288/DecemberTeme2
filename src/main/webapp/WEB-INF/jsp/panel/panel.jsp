@@ -7,6 +7,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title> <fmt:message key="msg.TituloPaginaEscritorio" /></title>
+       
+        
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
