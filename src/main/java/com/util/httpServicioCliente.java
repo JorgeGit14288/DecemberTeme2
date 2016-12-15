@@ -22,7 +22,7 @@ public class httpServicioCliente {
         
         System.out.println("OBTENER SOLO UN ARRAY DE CADENA JSON");
         //String myURL = "http://192.168.5.44/app_dev.php/cus/getaccount/50241109321.json";
-        String myURL = "http://192.168.5.44/app_dev.php/public/howto/" +lenguaje;
+        String myURL = "http://192.168.5.44/app_dev.php/public/callcenter/" +lenguaje;
         System.out.println("Requested URL:" + myURL);
         StringBuilder sb = new StringBuilder();
         URLConnection urlConn = null;

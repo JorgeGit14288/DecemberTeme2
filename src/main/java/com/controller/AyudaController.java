@@ -92,7 +92,7 @@ public class AyudaController {
             httpServicioCliente help = new httpServicioCliente();
             String resultado = help.getServicioCliente(idioma);
             mav.addObject("resultado", resultado);
-            mensaje = "Ayuda";
+            mensaje = "Servicio al Cliente";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {

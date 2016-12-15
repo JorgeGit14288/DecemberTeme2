@@ -10,27 +10,28 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
         <!-- Sidebar toggle button-->
-        
-         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
 
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+
+        </a>
 
         <div class="navbar-custom-menu">
 
-
             <ul class="nav navbar-nav">
-                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                           <fmt:message key="msg.SaldoActual" />  ${sessionScope.cuenta.getSaldo()}
+                        <fmt:message key="msg.SaldoActual" />  ${sessionScope.cuenta.getSaldo()}
                     </a>
-                    
+
                     <!-- /.dropdown-user -->
                 </li>
-                <!-- /.dropdown -->
-                
-                 <li class="dropdown">
+
+                <li><a href="servicioCliente.htm"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.ServicioCliente" /></a>
+                <li><a href="ayuda.htm"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.Ayuda" /></a>
+
+
+                <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-flag-checkered"> </i>     <fmt:message key="msg.Lenguaje" />     ${idioma}   <i class="fa fa-caret-down"></i>
                     </a>
@@ -43,7 +44,7 @@
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
-                
+
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -62,7 +63,7 @@
                 </li>
                 <!-- /.dropdown -->
 
-               
+
 
 
             </ul>
