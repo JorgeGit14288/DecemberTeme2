@@ -53,7 +53,7 @@
 
             <form name="form" class="login-form" method="POST" onSubmit="return validar()" action="validarRegistro.htm">        
                 <div class="login-wrap">
-                    <center> <h3 class="panel-primary"><fmt:message key="msg.TituloPanelRegistro" /></h3></center> 
+                    <center> <h3 class="panel-primary"><fmt:message key="msg.TituloVentanaRegistrar" /></h3></center> 
                     <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
                     <input name="codigo" list="listapaises" placeholder="<fmt:message key="msg.CodigoArea" />">
                     <datalist id="listapaises">
@@ -96,7 +96,7 @@
                         </label>
                     </div>
 
-                    <input  class="btn btn-primary btn-lg btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.BotonRegistrar" />" >                    
+                    <input  class="btn btn-primary btn-lg btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.Registrar" />" >                    
                 </div>
                 <div id="Error">
                   

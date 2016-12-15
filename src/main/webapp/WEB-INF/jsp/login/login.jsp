@@ -41,9 +41,9 @@
                     </div>
                     <label class="checkbox">
                         <input name="remember" type="checkbox" value="Remember Me"><fmt:message key="msg.Recuerdame" />
-                        <span class="pull-right"> <a href="recuperar.htm"> <fmt:message key="msg.Recuperar" /></a></span>
+                        <span class="pull-right"> <a href="recuperar.htm"> <fmt:message key="msg.OlvidoSuPassword" /></a></span>
                     </label>
-                    <button class="btn btn-primary btn-lg btn-block" type="submit"><fmt:message key="msg.Logear" /></button>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit"><fmt:message key="msg.Ingresar" /></button>
                     <center> <h3> <a href="registrar.htm"><fmt:message key="msg.Registrarse" /></a></h3> </center>
                 </div>
                 <div id="Error">

@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title><fmt:message key="msg.TituloPaginaRegistrar" /></title>
+        <title><fmt:message key="msg.TituloPaginaConfirmarCodigo" /></title>
         <jsp:include page="../shared/theme3/user/headLogin.jsp" />
 
     </head>
@@ -32,7 +32,7 @@
                         <label for="Codigo" class="sr-only"><fmt:message key="msg.Codigo" /></label>
                         <input class="form-control" type="number" name="codigo" placeholder="<fmt:message key="msg.CodigoEjemplo" />" required="" >
                     </div>
-                    <input  class="btn btn-primary btn-lg btn-block" type="submit"  name="btnenvio"value="<fmt:message key="msg.BotonConfirmar" />" >                    
+                    <input  class="btn btn-primary btn-lg btn-block" type="submit"  name="btnenvio"value="<fmt:message key="msg.Confirmar" />" >                    
                 </div>
                 <div>
                     <center>

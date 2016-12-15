@@ -7,8 +7,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title> <fmt:message key="msg.TituloPaginaEscritorio" /></title>
-       
-        
+
+
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
@@ -25,12 +25,13 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                       <fmt:message key="msg.TituloPaginaEscritorio" />
-                        <small>Control panel</small>
+                        <fmt:message key="msg.Escritorio" />
+                        <small></small>
+       
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Dashboard</li>
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Inicio" /></a></li>
+                        <li class="active"><fmt:message key="msg.Escritorio" /></li>
                     </ol>
                 </section>
 
@@ -75,7 +76,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-warning box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.PanelNombreCuotas" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.TituloVentanaCuotas" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -91,7 +92,7 @@
                                                         <div class="col-xs-4">
                                                             <label><fmt:message key="msg.Pais" /></label>
                                                             <select name="country"  required  ><br>
-                                                                <option value="${country}"> <fmt:message key="msg.PaisActual" /> ${country}  </option> 
+                                                                <option value="${country}"> <fmt:message key="msg.Actual" /> ${country}  </option> 
                                                                 <option value="Estados Unidos">Estados Unidos </option> 
                                                                 <option value="Canada">Canada</option> 
                                                                 <option value="Puesto Rico">Puerto Rico</option> 
