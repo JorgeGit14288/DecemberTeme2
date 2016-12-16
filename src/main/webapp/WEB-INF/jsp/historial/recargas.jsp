@@ -21,7 +21,18 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/user/topMenu2.jsp" />
+               <section class="content-header">
+                    <h1>
+                        <fmt:message key="msg.HistorialRecargas" />
+                        <small></small>
+
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
+                        <li class="active"><fmt:message key="msg.Historial" /></li>
+                         <li class="active"><fmt:message key="msg.HistorialRecargas" /></li>
+                    </ol>
+                </section>
 
                 <!-- Main content -->
                 <section class="content">
@@ -37,7 +48,7 @@
                                 <div class="col-lg-12">
                                     <div class="panel panel-green">
                                         <div class="panel-heading">
-                                            <i class=""></i> <center><label><fmt:message key="msg.NombrePanelHistorial1" /></label></center>
+                                            <i class=""></i> <center><label><fmt:message key="msg.FormularioBusqueda" /></label></center>
                                         </div>
                                         <!-- /.panel-heading -->
                                         <div class="panel-body">
@@ -69,7 +80,7 @@
                                                     </div>
 
                                                     <div class="col-xs-2">
-                                                        <label>Opciones</label>
+                                                        <label><fmt:message key="msg.Opciones" /></label>
                                                         <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
 
                                                     </div> 

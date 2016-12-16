@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>InterCity| <fmt:message key="msg.TituloPaginaEscritorio" /></title>
+        <title><fmt:message key="msg.TituloPaginaServicioCliente" /></title>
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
@@ -21,7 +21,18 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/user/topMenu2.jsp" />
+                <section class="content-header">
+                    <h1>
+                        <fmt:message key="msg.ServicioCliente" />
+                        <small></small>
+
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
+                        <li class="active"><fmt:message key="msg.Ayuda" /></li>
+                        <li class="active"><fmt:message key="msg.ServicioCliente" /></li>
+                    </ol>
+                </section>
 
                 <!-- Main content -->
                 <section class="content">
@@ -37,7 +48,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-success box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.NombrePanelHistorial1" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.ServicioCliente" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -47,7 +58,7 @@
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
-                                            
+
                                             <div id="result">
 
                                                 ${resultado}

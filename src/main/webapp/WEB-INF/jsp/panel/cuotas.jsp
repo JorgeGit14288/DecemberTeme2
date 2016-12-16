@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>InterCity| <fmt:message key="msg.TituloPaginaEscritorio" /></title>
+        <title><fmt:message key="msg.TituloPaginaCuotas" /></title>
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
@@ -21,7 +21,17 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/user/topMenu2.jsp" />
+                <section class="content-header">
+                    <h1>
+                        <fmt:message key="msg.Cuotas" />
+                        <small></small>
+
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
+                        <li class="active"><fmt:message key="msg.Cuotas" /></li>
+                    </ol>
+                </section>
 
                 <!-- Main content -->
                 <section class="content">
@@ -52,7 +62,7 @@
                                                     <div class="col-xs-4">
                                                         <label><fmt:message key="msg.Pais" /></label>
                                                         <select name="country"  required  ><br>
-                                                            <option value="${country}"> <fmt:message key="msg.PaisActual" /> ${country}  </option> 
+                                                            <option value="${country}"> <fmt:message key="msg.Actual" /> ${country}  </option> 
                                                             <option value="Estados Unidos">Estados Unidos </option> 
                                                             <option value="Canada">Canada</option> 
                                                             <option value="Puesto Rico">Puerto Rico</option> 

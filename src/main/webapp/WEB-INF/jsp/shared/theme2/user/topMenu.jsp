@@ -26,11 +26,6 @@
 
                     <!-- /.dropdown-user -->
                 </li>
-
-                <li><a href="servicioCliente.htm"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.ServicioCliente" /></a>
-                <li><a href="ayuda.htm"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.Ayuda" /></a>
-
-
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-flag-checkered"> </i>     <fmt:message key="msg.Lenguaje" />     ${idioma}   <i class="fa fa-caret-down"></i>
@@ -45,7 +40,22 @@
                 </li>
                 <!-- /.dropdown -->
 
-
+                <li><a href="servicioCliente.htm"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.ServicioCliente" /></a>
+   
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-flag-checkered"> </i>     <fmt:message key="msg.Ayuda" />      <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="dids.htm"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.NumerosAcceso" /></a>
+                        </li>
+                        <li><a href="ayuda.htm"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.Ayuda" /></a>
+                        <li><a href="acercaDe.htm"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.AcercaDe" /></a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -62,13 +72,7 @@
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
-
-
-
-
             </ul>
-
-
         </div>
     </nav>
 </header>

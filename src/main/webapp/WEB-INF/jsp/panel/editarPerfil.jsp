@@ -21,7 +21,18 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/user/topMenu2.jsp" />
+                <section class="content-header">
+                    <h1>
+                        <fmt:message key="msg.PerfilUsuario" />
+                        <small></small>
+
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
+                        <li class="active"><fmt:message key="msg.Perfil" /></li>
+                         <li class="active"><fmt:message key="msg.PerfilUsuario" /></li>
+                    </ol>
+                </section>
 
                 <!-- Main content -->
                 <section class="content">
@@ -99,16 +110,16 @@
                                                             </select><br>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="notify Email" ><fmt:message key="msg.NotificacionesCorreo" />:</label>
+                                                            <label for="notify Email" ><fmt:message key="msg.NotificarEmail" />:</label>
                                                             <input type="checkbox"  name="notifyEmail"  /><br>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="flag" ><fmt:message key="msg.NotificacionesBandera" />:</label>
+                                                            <label for="flag" ><fmt:message key="msg.NotificarBandea" />:</label>
                                                             <input type="checkbox"  name="notifyFlag"  /><br>
                                                         </div>
                                                         <div class="form-group">
-                                                            <button  type="submit"class="btn btn-primary form-group" ><fmt:message key="msg.BotonConfirmar" /></button>
-                                                            <button type="reset" class="btn btn-danger form-group"><fmt:message key="msg.BotonReiniciar" /></button>
+                                                            <button  type="submit"class="btn btn-primary form-group" ><fmt:message key="msg.Guardar" /></button>
+                                                            <button type="reset" class="btn btn-danger form-group"><fmt:message key="msg.Limpiar" /></button>
                                                         </div>
                                                     </form>
                                                 </table>
