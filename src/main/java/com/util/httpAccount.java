@@ -167,6 +167,7 @@ public class httpAccount {
             data += "&" + URLEncoder.encode("languaje", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(account.getLanguaje_id()), "UTF-8");
             data += "&" + URLEncoder.encode("notifyEmail", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(account.isNotifyEmail()), "UTF-8");
             data += "&" + URLEncoder.encode("notifyFlag", "UTF-8") + "=" + URLEncoder.encode(String.valueOf(account.isNotityFlag()), "UTF-8");
+            System.out.println("Los datos a enviar son "+data);
 //escribimos
             try ( //obtenemos el flujo de escritura
                     OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream())) {

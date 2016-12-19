@@ -41,18 +41,12 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="perfil.htm">
                     <i class="fa fa-user"></i>
                     <span> <fmt:message key="msg.PerfilUsuario" /></span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                    
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="perfil.htm"><i class="fa fa-user-secret"></i> <fmt:message key="msg.Perfil" /></a></li>
-                    <li><a href="editarPerfil.htm"><i class="fa fa-user-plus"></i><fmt:message key="msg.EditarPerfil" /></a></li>
-
-                </ul>
+                
             </li>
             <li class="treeview">
                 <a href="#">

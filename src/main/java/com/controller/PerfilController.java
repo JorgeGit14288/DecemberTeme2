@@ -40,51 +40,6 @@ public class PerfilController {
         String mensaje = null;
 
         if (sesion.getAttribute("usuario") == null) {
-
-            mav.setViewName("login/login");
-
-        } else {
-            String sesUser = sesion.getAttribute("usuario").toString();
-            String temp = sesUser.replace("-", "");
-            System.out.println(temp);
-            account = new Account();
-            sesionUser = sesion.getAttribute("usuario").toString();
-            httpAccount accountHelper = new httpAccount();
-            try {
-                account = accountHelper.getAccountObject(temp);
-                System.out.println("Regrese con datos para la vista " + account.getFirst_name() + account.getLanguaje_id());
-                mav.addObject("account", account);
-                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                    mav.setViewName("viewsAdmin/perfilAdmin");
-                    System.out.println("el usuario es administrador");
-                } else {
-                    mav.setViewName("panel/perfil");
-                }
-            } catch (Exception e) {
-                mensaje = "Lo sentimos, no se ha podido conectar con el servidor";
-                mav.addObject("mensaje", mensaje);
-                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                    mav.setViewName("viewsAdmin/perfilAdmin");
-                    System.out.println("el usuario es administrador");
-                } else {
-                    mav.setViewName("panel/perfil");
-                }
-
-            }
-
-        }
-        return mav;
-    }
-
-    
-
-    @RequestMapping("editarPerfil.htm")
-    public ModelAndView registrarUsuarios(HttpServletRequest request) {
-        sesion = request.getSession();
-        ModelAndView mav = new ModelAndView();
-        String mensaje = null;
-
-        if (sesion.getAttribute("usuario") == null) {
             mav.setViewName("login/login");
 
         } else {
@@ -110,7 +65,7 @@ public class PerfilController {
                 if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                     mav.setViewName("viewsAdmin/editarPerfilAdmin");
                 } else {
-                    mav.setViewName("panel/editarPerfil");
+                    mav.setViewName("panel/perfil");
                 }
             } catch (Exception e) {
                 mav.addObject("telefono", telefono);
@@ -118,9 +73,9 @@ public class PerfilController {
                 mav.addObject("account", account);
 
                 if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                    mav.setViewName("viewsAdmin/editarPerfilAdmin");
+                    mav.setViewName("viewsAdmin/PerfilAdmin");
                 } else {
-                    mav.setViewName("panel/editarPerfil");
+                    mav.setViewName("panel/pefil");
                 }
             }
         }
@@ -148,14 +103,21 @@ public class PerfilController {
             String lenguaje = request.getParameter("lenguaje");
             boolean notifyEmail = false;
             boolean notifyFlag = false;
+            String notmail = request.getParameter("notifyEmail");
+            String notflag = request.getParameter("notifyFlag");
 
-            if (request.getParameter("notifyEmail") != null) {
-                notifyEmail = true;
+            System.out.println("\n\n\n\n\nLAS NOTIFICACIONES ESTAN" + notmail + notflag);
+            if (notmail.compareTo("true")==0) {
+                notifyEmail=true;
+
             }
-            if (request.getParameter("notifyFlag") != null) {
-                notifyFlag = true;
+            if(notflag.compareTo("true")==0)
+            {
+                notifyFlag=true;
             }
-           AccountLight accountL = new AccountLight();
+            System.out.println("notify flag "+notifyFlag);
+
+            AccountLight accountL = new AccountLight();
             Usuarios usuario = new Usuarios();
             UsuariosDao userDao = new UsuariosDao();
 
@@ -165,10 +127,9 @@ public class PerfilController {
             accountL.setFirstName(nombres);
             accountL.setLastName(apellidos);
             accountL.setNotifyEmail(notifyEmail);
-            accountL.setNotifyEmail(notifyEmail);
+            accountL.setNotityFlag(notifyFlag);
             accountL.setPostalCode(codigoPostal);
             accountL.setLanguaje_id(lenguaje);
-            
 
             usuario = userDao.getUsuario(idUsuario);
 
@@ -204,7 +165,7 @@ public class PerfilController {
                 if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                     mav.setViewName("viewsAdmin/editarPerfilAdmin");
                 } else {
-                    mav.setViewName("perfil/editarPerfil");
+                    mav.setViewName("panel/perfil");
                 }
 
             }

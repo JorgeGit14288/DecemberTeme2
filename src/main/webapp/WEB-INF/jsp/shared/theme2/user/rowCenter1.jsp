@@ -30,7 +30,7 @@
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">    
         <!-- small box -->
-        <a  href="Recargas.htm." class="small-box bg-yellow">
+        <a  href="recargas.htm" class="small-box bg-yellow">
             <div class="inner">
 
                 <h2><fmt:message key="msg.HistorialRecargas" /></h2>
@@ -46,7 +46,7 @@
     
     <div class="col-lg-3 col-xs-6">    
         <!-- small box -->
-        <a  href="Recargar.htm." class="small-box bg-red">
+        <a  href="panel.htm" class="small-box bg-red">
             <div class="inner">
 
                 <h2><fmt:message key="msg.RecargarSaldo" /></h2>

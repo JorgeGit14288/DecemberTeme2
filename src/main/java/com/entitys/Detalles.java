@@ -17,6 +17,7 @@ public class Detalles implements java.io.Serializable {
     private String apellidos;
     private String direccion;
     private String ciudad;
+    private String pais;
     private String codigoPostal;
     private String email;
     private String notifiEmail;
@@ -25,6 +26,16 @@ public class Detalles implements java.io.Serializable {
     private String accountId;
     private String saldo;
     private String idiomaActual;
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+    
+    
 
     public String getIdiomaActual() {
         return idiomaActual;

@@ -84,12 +84,14 @@ public class LoginController {
                     Detalles cuenta = new Detalles();
 
                     cuenta.setIdUsuaro(user.getIdUsuario());
+                    System.out.println("\n\n\n Id de usuario "+cuenta.getIdUsuaro());
                     cuenta.setTelefono(telefonoArea);
                     cuenta.setAccountId(user.getIdAccount());
                     cuenta.setNombres(user.getNombres());
                     cuenta.setApellidos(user.getApellidos());
                     cuenta.setCiudad(user.getPais());
                     cuenta.setEmail(user.getEmail());
+                    cuenta.setPais(user.getPais());
                     cuenta.setIdiomaActual(RequestContextUtils.getLocale(request).getLanguage());
                     System.out.println("El lenguaje actual es  " + cuenta.getIdiomaActual());
                     try {
