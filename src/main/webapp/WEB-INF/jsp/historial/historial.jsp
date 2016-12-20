@@ -10,6 +10,7 @@
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
+
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -63,39 +64,74 @@
 
                                             <div class="col-lg-8">
                                                 <form name="form1" method="GET" action="getHistorial.htm" role="form">
-                                                    <div class="col-xs-4">
-                                                        <label><fmt:message key="msg.FechaInicio" /></label>
-                                                        <input type="date" min="2016-10-01" name="startDate" required value="${startDate}" placeholder="<fmt:message key="msg.DateExample"/>" >
+                                                    <div class="form-group col-xs-4">
+                                                        <label><fmt:message key="msg.FechaInicio" />:</label>
+
+                                                        <div class="input-group date ">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input  name="startDate" required value="${startDate}" type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                                        </div>
+                                                        <!-- /.input group -->
                                                     </div>
-                                                    <div class="col-xs-4">
-                                                        <label><fmt:message key="msg.FechaFin" /></label>
-                                                        <input type="date" name="endDate" min="2016-10-02" value="${endDate}"   placeholder="<fmt:message key="msg.DateExample"/>" required>
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
+                                                        <label><fmt:message key="msg.FechaFin" />:</label>
+
+                                                        <div class="input-group date ">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input  name="endDate" value="${endDate}" required type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                                        </div>
+                                                        <!-- /.input group -->
                                                     </div>
-                                                    <div class="col-xs-4">
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
                                                         <label><fmt:message key="msg.NumeroDestino" /></label>
-                                                        <input type="number" name="destination" min="1" value="${destination}" class="form-control" placeholder="<fmt:message key="msg.NumeroDestinoEjemplo" />">
-                                                    </div> 
-                                                    <div class="col-xs-4">
 
-                                                        <select name="max">
-                                                            <option selected value="${max}"><fmt:message key="msg.Mostrar" /> ${max}</option>
-
-                                                            <option value="1">1 <fmt:message key="msg.Llamada" /></option> 
-                                                            <option value="5">5 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="10">10 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="15">15 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="25">25 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="50">50 <fmt:message key="msg.Llamadas" /></option> 
-                                                            <option value="100">100 <fmt:message key="msg.Llamadas" /></option> 
-
-                                                        </select>
+                                                        <div class="input-group date ">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-phone"></i>
+                                                            </div>
+                                                            <input type="number" name="destination" min="1" value="${destination}" class="form-control" placeholder="<fmt:message key="msg.NumeroDestinoEjemplo" />">
+                                                        </div>
+                                                        <!-- /.input group -->
                                                     </div>
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
+                                                        <label><fmt:message key="msg.Mostrar" /></label>
 
-                                                    <div class="col-xs-3">
+                                                        <div class="input-group date ">
+                                                            
+                                                            <select name="max">
+                                                                <option selected value="${max}"><fmt:message key="msg.Mostrar" /> ${max}</option>
+
+                                                                <option value="1">1 <fmt:message key="msg.Llamada" /></option> 
+                                                                <option value="5">5 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="10">10 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="15">15 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="25">25 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="50">50 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="100">100 <fmt:message key="msg.Llamadas" /></option> 
+
+                                                            </select>
+                                                        </div>
+                                                        <!-- /.input group -->
+                                                    </div>
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
                                                         <label><br></label>
-                                                        <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
 
-                                                    </div> 
+                                                        <div class="input-group date ">
+                                                            
+                                                           <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+                                                        </div>
+                                                        <!-- /.input group -->
+                                                    </div>
+                                                    <!-- /.form group -->
+
                                                 </form>
                                             </div>
                                         </div><div id="Error" class=" alert alert-success">
@@ -172,6 +208,77 @@
             </div>
             <jsp:include page="../shared/theme2/user/footer.jsp" />
         </div>
+        <script>
+            $(function () {
+                //Initialize Select2 Elements
+                $(".select2").select2();
+
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+                $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+                //Money Euro
+                $("[data-mask]").inputmask();
+
+                //Date range picker
+                $('#reservation').daterangepicker();
+                //Date range picker with time picker
+                $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+                //Date range as a button
+                $('#daterange-btn').daterangepicker(
+                        {
+                            ranges: {
+                                'Today': [moment(), moment()],
+                                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                            },
+                            startDate: moment().subtract(29, 'days'),
+                            endDate: moment()
+                        },
+                        function (start, end) {
+                            $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                        }
+                );
+
+                //Date picker
+                $('#datepicker').datepicker({
+                    autoclose: true
+                });
+                //Date picker
+                $('#datepicker2').datepicker({
+                    autoclose: true
+                });
+
+                //iCheck for checkbox and radio inputs
+                $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                    checkboxClass: 'icheckbox_minimal-blue',
+                    radioClass: 'iradio_minimal-blue'
+                });
+                //Red color scheme for iCheck
+                $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
+                });
+                //Flat red color scheme for iCheck
+                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                    checkboxClass: 'icheckbox_flat-green',
+                    radioClass: 'iradio_flat-green'
+                });
+
+                //Colorpicker
+                $(".my-colorpicker1").colorpicker();
+                //color picker with addon
+                $(".my-colorpicker2").colorpicker();
+
+                //Timepicker
+                $(".timepicker").timepicker({
+                    showInputs: false
+                });
+            });
+        </script>
 
     </body>
 </html>

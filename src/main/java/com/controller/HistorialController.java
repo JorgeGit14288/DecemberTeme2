@@ -11,8 +11,10 @@ import com.entitys.Telefonos;
 import com.entitys.Usuarios;
 import com.jsonEntitys.Llamadas;
 import com.jsonEntitys.Recarga;
+import com.util.ConvertirFecha;
 import com.util.httpHistorial;
 import com.util.httpRecargas;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -55,7 +57,7 @@ public class HistorialController {
         int mes = c.get(Calendar.MONTH);
         int year = c.get(Calendar.YEAR);
         mes = mes + 1;
-        String fechaActual = year + "-" + mes + "-" + dia;
+        String fechaActual = dia + "/" + mes + "/" + year;
         System.out.println("Fecha acual " + fechaActual);
 
         int mesAnterior;
@@ -69,7 +71,7 @@ public class HistorialController {
             yearAnterior = year;
         }
 
-        String fechaAnterior = yearAnterior + "-" + mesAnterior + "-" + dia;
+        String fechaAnterior = dia + "/" + mesAnterior + "/" + yearAnterior;
         System.out.println("La fecha de un mes anterior es " + fechaAnterior);
         startDate = fechaAnterior;
         endDate = fechaActual;
@@ -149,7 +151,7 @@ public class HistorialController {
     }
 
     @RequestMapping(value = "getHistorial.htm", method = RequestMethod.GET)
-    public ModelAndView getHistorial(HttpServletRequest request) {
+    public ModelAndView getHistorial(HttpServletRequest request) throws ParseException {
         sesion = request.getSession();
         ModelAndView mav = new ModelAndView();
 
@@ -197,12 +199,17 @@ public class HistorialController {
             }
 
             pagenext = page + 1;
-            System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startDate + "\n\n " + endDate);
+            ConvertirFecha convertir  = new ConvertirFecha();
+            
+            String startFecha =  convertir.StringFecha(startDate);
+            String endFecha = convertir.StringFecha(endDate);
+            
+            System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startFecha + "\n\n " + endFecha);
 
-            System.out.println(idAccount + " " + page + " " + max + " " + startDate + " " + endDate + " " + destination + " ");
+            System.out.println(idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
 
             try {
-                this.llenarHistorial(idAccount, startDate, endDate, String.valueOf(page), String.valueOf(max), destination);
+                this.llenarHistorial(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max), destination);
                 if (llamadas.isEmpty()) {
                     mensaje = "No Existe registro de llamadas en las fechas comprendidas";
                     mav.addObject("startDate", startDate);

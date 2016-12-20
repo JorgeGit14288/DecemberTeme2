@@ -1,18 +1,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <div class="row">
+
     <div class="col-lg-3 col-xs-6">    
         <!-- small box -->
-        <a  href="perfil.htm" class="small-box bg-aqua">
+        <a  href="panel.htm" class="small-box bg-red">
             <div class="inner">
 
-                <h2><fmt:message key="msg.PerfilUsuario" /></h2>
+                <h2><fmt:message key="msg.RecargarSaldo" /></h2>
             </div>
             <div class="icon">
-                <i class="fa fa-user"></i>
+                <i class="fa fa-credit-card"></i>
             </div>
             <div  class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></div>
         </a>
     </div>
+    <!-- ./col -->
+
 
     <div class="col-lg-3 col-xs-6">    
         <!-- small box -->
@@ -41,21 +44,21 @@
             <div  class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></div>
         </a>
     </div>
-   
+
     <!-- ./col -->
-    
     <div class="col-lg-3 col-xs-6">    
         <!-- small box -->
-        <a  href="panel.htm" class="small-box bg-red">
+        <a  href="perfil.htm" class="small-box bg-aqua">
             <div class="inner">
 
-                <h2><fmt:message key="msg.RecargarSaldo" /></h2>
+                <h2><fmt:message key="msg.PerfilUsuario" /></h2>
             </div>
             <div class="icon">
-                <i class="fa fa-credit-card"></i>
+                <i class="fa fa-user"></i>
             </div>
             <div  class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></div>
         </a>
     </div>
-    <!-- ./col -->
+
+
 </div>

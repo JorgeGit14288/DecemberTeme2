@@ -6,45 +6,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><fmt:message key="msg.TituloPaginaPerfil" /></title>
+        <title><fmt:message key="msg.TituloPaginaHistorialLlamadas" /></title>
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
-        <script type="text/javascript">
 
-            function checkifempty()
-            {
-                if (!document.form.condicion.checked)
-                {
-                    document.form.btnenvio.disabled = true;
-                    document.form.nombres.disabled = true;
-                    document.form.apellidos.disabled = true;
-                    document.form.direccion.disabled=true;
-                    document.form.ciudad.disabled = true;
-                    document.form.pais.disabled=true;
-                    document.form.codigoPostal.disabled=true;
-                    document.form.email.disabled = true;
-                    document.form.languaje.disabled=true;
-                    document.form.notifyEmail.disabled=true;
-                    document.form.notifyFlag.disabled=true;
-
-                } else
-                {
-                    document.form.btnenvio.disabled = false;
-                    document.form.nombres.disabled = false;
-                    document.form.apellidos.disabled = false;
-                    document.form.direccion.disabled=false;
-                    document.form.ciudad.disabled = false;
-                    document.form.pais.disabled=false;
-                    document.form.codigoPostal.disabled=false;
-                    document.form.email.disabled = false;
-                    document.form.languaje.disabled=false;
-                    document.form.notifyEmail.disabled=false;
-                    document.form.notifyFlag.disabled=false;
-                  
-                }
-
-            }
-        </script>
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -59,14 +24,14 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <fmt:message key="msg.PerfilUsuario" />
+                        <fmt:message key="msg.HistorialLlamadas" />
                         <small></small>
 
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
-                        <li class="active"><fmt:message key="msg.Perfil" /></li>
-                        <li class="active"><fmt:message key="msg.PerfilUsuario" /></li>
+                        <li class="active"><fmt:message key="msg.Historial" /></li>
+                        <li class="active"><fmt:message key="msg.HistorialLlamadas" /></li>
                     </ol>
                 </section>
 
@@ -84,7 +49,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-success box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.TituloPaginaEditarPerfil" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.FormularioBusqueda" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -94,161 +59,134 @@
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
-                                            <div class="col-md-8">
 
-                                                <!-- Horizontal Form -->
+                                            <!-- /.panel-heading -->
 
-                                                <!-- form start -->
-                                                <form class="form-horizontal" method="POST" action="validarEditarPerfil.htm" name="form">
-                                                    <div class="box-body">
-                                                        <div class="form-group">
-                                                            <label for="idUsuario" class="col-sm-2 control-label"> <fmt:message key="msg.IdUsuario" />:</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="text" readonly name="idUsuario" value ="${user.getIdUsuario()}" id="idUsuario" /> 
+                                            <div class="col-lg-8">
+                                                <form name="form1" method="GET" action="getHistorial.htm" role="form">
+                                                    <div class="form-group col-xs-4">
+                                                        <label><fmt:message key="msg.FechaInicio" />:</label>
+
+                                                        <div class="input-group date ">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
                                                             </div>
+                                                            <input min="2016-10-01" name="startDate" required value="${startDate}" type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Telefono" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <input  class="form-control" type="text"  name="telefono"  id="telefono" required placeholder="<fmt:message key="msg.Telefono" />" value="${cuenta.getTelefono()}" readonly /> 
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Nombres" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <input  class="form-control" type="text" id="nombres" name="nombres"  id="nombre" disabled="true" required placeholder="<fmt:message key="msg.Nombres" />" value="${account.getFirst_name()}" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Apellidos" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <input  class="form-control" type="text" id="apellidos" name="apellidos"  id="apellidos" disabled="true" required placeholder="<fmt:message key="msg.Apellidos" />" value="${account.getLast_name()}" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Direccion" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <input  class="form-control" type="text" id="direccion"  name="direccion" disabled="true"  id="direccion" required placeholder="<fmt:message key="msg.Direccion" />" value="${account.getAddress1()}" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Ciudad" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <input  class="form-control" type="text" disabled="true" id="ciudad"  name="ciudad"  id="city" required placeholder="<fmt:message key="msg.Ciudad" />" value="${account.getCity()}" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Pais" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <input  class="form-control" type="text" disabled="true" id="pais"  name="pais"  id="country" required placeholder="<fmt:message key="msg.Pais" />" value="${user.getPais()}" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.CodigoPostal" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <input type="num"  class="form-control" id="codigoPostal" disabled="true"  name="codigoPostal"  id="nombre" required placeholder="<fmt:message key="msg.CodigoPostal" />" value="${account.getPostal_code()}" />
-                                                            </div>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Correo" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <input type="email"  class="form-control" disabled="true" id="email" name="email"  id="nombre" required placeholder="<fmt:message key="msg.Correo" />" value="${account.getEmail()}" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="lenguaje" class="col-sm-2 control-label"><fmt:message key="msg.LenguajeOperador" />:</label>
-                                                            <div class="col-sm-10">
-                                                                <select name="languaje" id="languaje" disabled="true"  required  class="form-control" >
-                                                                    <option value="Es"><fmt:message key="msg.Espa" />:</option> 
-                                                                    <option value="En"><fmt:message key="msg.Ingles" />:</option> 
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="notifymail" class="col-sm-2 control-label"><fmt:message key="msg.NotificarEmail" />:</label>
-
-                                                            <div class="col-sm-10">
-                                                                <select name="notifyEmail" id="notifyEmail" disabled="true" required  class="form-control" >
-                                                                    <option value="${actualMail}"><fmt:message key="msg.Actual" /> ${actualMail}</option>
-                                                                    <option value="Yes"><fmt:message key="msg.Si" />:</option> 
-                                                                    <option value="No"><fmt:message key="msg.No" />:</option> 
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="notifyflag" class="col-sm-2 control-label"><fmt:message key="msg.NotificarBandea" />:</label>
-                                                            <div class="col-sm-10">
-                                                                <select name="notifyFlag"  id="notifyFlag" disabled="true"  required  class="form-control" >
-                                                                    <option value="${actualFlag}"><fmt:message key="msg.Actual" /> ${actualFlag}</option>
-                                                                    <option value="Yes"><fmt:message key="msg.Si" />:</option> 
-                                                                    <option value="No"><fmt:message key="msg.No" />:</option> 
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <div class="col-sm-offset-2 col-sm-10">
-                                                                <div class="checkbox">
-                                                                    <label>
-                                                                         <input type="checkbox" name="condicion" id="condicion" onclick="checkifempty()"/> <fmt:message key="msg.EditarPerfil" />   
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <!-- /.input group -->
                                                     </div>
-                                                    <!-- /.box-body -->
-                                                    <div class="box-footer">
-                                                        <button type="submit" class="btn btn-default"><fmt:message key="msg.Cancelar" /></button>
-                                                        <button type="submit" disabled="true" name="btnenvio" class="btn btn-info pull-right"><fmt:message key="msg.Guardar" /></button>
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
+                                                        <label><fmt:message key="msg.FechaFin" />:</label>
+
+                                                        <div class="input-group date ">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input  name="endDate" min="2016-10-02" value="${endDate}" required type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                                        </div>
+                                                        <!-- /.input group -->
                                                     </div>
-                                                    <!-- /.box-footer -->
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
+                                                        <label><fmt:message key="msg.NumeroDestino" /></label>
+
+                                                        <div class="input-group date ">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-phone"></i>
+                                                            </div>
+                                                            <input type="number" name="destination" min="1" value="${destination}" class="form-control" placeholder="<fmt:message key="msg.NumeroDestinoEjemplo" />">
+                                                        </div>
+                                                        <!-- /.input group -->
+                                                    </div>
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
+                                                        <label><fmt:message key="msg.Mostrar" /></label>
+
+                                                        <div class="input-group date ">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-list"></i>
+                                                            </div>
+                                                            <select name="max">
+                                                                <option selected value="${max}"><fmt:message key="msg.Mostrar" /> ${max}</option>
+
+                                                                <option value="1">1 <fmt:message key="msg.Llamada" /></option> 
+                                                                <option value="5">5 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="10">10 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="15">15 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="25">25 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="50">50 <fmt:message key="msg.Llamadas" /></option> 
+                                                                <option value="100">100 <fmt:message key="msg.Llamadas" /></option> 
+
+                                                            </select>
+                                                        </div>
+                                                        <!-- /.input group -->
+                                                    </div>
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
+                                                        <label><br></label>
+
+                                                        <div class="input-group date ">
+                                                            
+                                                           <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+                                                        </div>
+                                                        <!-- /.input group -->
+                                                    </div>
+                                                    <!-- /.form group -->
+
                                                 </form>
                                             </div>
-                                            <!-- /.box -->
-
-                                            <form class="form-Registro" method="POST" action="validarEditarPerfil.htm" >
-
-                                            </form>
-                                            <div id="Error">
-                                                <Br>
-                                                <center>
-
-                                                    <h5>
-                                                        ${mensaje}
-                                                    </h5>
-
-                                                </center>
-
-                                            </div>
-
-                                            <!-- /.box-body -->
+                                        </div><div id="Error" class=" alert alert-success">
+                                            <center>
+                                                <strong>${mensaje}</strong>
+                                            </center>
                                         </div>
 
-                                    </div>
 
-                                    <!-- /.box-body -->
+                                        <div class="table-striped">
+                                            <table class="table table-bordered table-hover table-striped">
+                                                <thead>
+
+                                                    <tr>
+                                                        <th><fmt:message key="msg.No" /></th>
+                                                        <th><fmt:message key="msg.FechaHora" /></th>
+                                                        <th><fmt:message key="msg.Destino" /></th>
+                                                        <th><fmt:message key="msg.PaisOperador" /></th>
+
+                                                        <th><fmt:message key="msg.Minutos" /></th>
+                                                        <th><fmt:message key="msg.CostoMinuto" /></th>
+                                                        <th><fmt:message key="msg.CostoTotal" /></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach items="${llamadas}" var="llamada">
+                                                        <tr class="odd gradeX">
+                                                            <td><c:out value="${llamada.getNo()}" /></td>
+                                                            <td><c:out value="${llamada.getInicioLLamada()}" /></td>
+                                                            <td><c:out value="${llamada.getNumero()}" /></td>
+                                                            <td><c:out value="${llamada.getPais_operador()}" /></td>
+                                                            <td><c:out value="${llamada.getDuracionMinutos() }" /></td>
+                                                            <td><c:out value="${llamada.getCostoMinuto()}" /></td>
+                                                            <td><c:out value="${llamada.getCostoTotal()}" /></td>
+
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                            <ul class="pager">
+
+                                                <li class="previous"><a href="getHistorial.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">&larr; <fmt:message key="msg.Anterior" /> ${pageprevius}</a></li>
+                                                <li class="list-group-item-text"><fmt:message key="msg.Pagina" />${page}</li>
+                                                <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}"><fmt:message key="msg.Siguiente" /> ${pagenext} &rarr;</a></li>
+                                            </ul>
+
+
+                                        </div>
+
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
                                 </div>
-                                <!-- /.box -->
 
 
                             </div>
@@ -262,11 +200,87 @@
 
                 </section>
                 <!-- /.content -->
-                <jsp:include page="../shared/theme2/user/footer.jsp" />
+
+                <!-- /.content-wrapper -->
+
+
+
+                <div class="control-sidebar-bg"></div>
 
             </div>
-            <!-- /.content-wrapper -->
-            <div class="control-sidebar-bg"></div>
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
         </div>
+        <script>
+            $(function () {
+                //Initialize Select2 Elements
+                $(".select2").select2();
+
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask2 mm/dd/yyyy
+                $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+                //Money Euro
+                $("[data-mask]").inputmask();
+
+                //Date range picker
+                $('#reservation').daterangepicker();
+                //Date range picker with time picker
+                $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+                //Date range as a button
+                $('#daterange-btn').daterangepicker(
+                        {
+                            ranges: {
+                                'Today': [moment(), moment()],
+                                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                            },
+                            startDate: moment().subtract(29, 'days'),
+                            endDate: moment()
+                        },
+                        function (start, end) {
+                            $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                        }
+                );
+
+                //Date picker
+                $('#datepicker').datepicker({
+                    autoclose: true
+                });
+                //Date picker
+                $('#datepicker2').datepicker({
+                    autoclose: true
+                });
+
+                //iCheck for checkbox and radio inputs
+                $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                    checkboxClass: 'icheckbox_minimal-blue',
+                    radioClass: 'iradio_minimal-blue'
+                });
+                //Red color scheme for iCheck
+                $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
+                });
+                //Flat red color scheme for iCheck
+                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                    checkboxClass: 'icheckbox_flat-green',
+                    radioClass: 'iradio_flat-green'
+                });
+
+                //Colorpicker
+                $(".my-colorpicker1").colorpicker();
+                //color picker with addon
+                $(".my-colorpicker2").colorpicker();
+
+                //Timepicker
+                $(".timepicker").timepicker({
+                    showInputs: false
+                });
+            });
+        </script>
+
     </body>
 </html>
