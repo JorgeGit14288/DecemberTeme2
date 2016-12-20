@@ -20,6 +20,7 @@
     <body class="login-img3-body">
 
         <div class="container">
+            <center> <img src="${pageContext.request.contextPath}/resources/image/logo.png" /> </center>
 
             <form name="form" class="login-form" method="POST"  method="POST" action="validarPhone.htm">        
                 <div class="login-wrap">

@@ -50,10 +50,10 @@
     <body class="login-img3-body">
 
         <div class="container">
-
+            <center> <img src="${pageContext.request.contextPath}/resources/image/logo.png" /> </center>
             <form name="form" class="login-form" method="POST" onSubmit="return validar()" action="validarRegistro.htm">        
                 <div class="login-wrap">
-                    <center> <h3 class="panel-primary"><fmt:message key="msg.TituloVentanaRegistrar" /></h3></center> 
+                    <center> <h3 class="panel-primary"><fmt:message key="msg.InformacionCliente" /></h3></center> 
                     <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
                     <input name="codigo" required list="listapaises" placeholder="<fmt:message key="msg.CodigoArea" />">
                     <datalist id="listapaises">

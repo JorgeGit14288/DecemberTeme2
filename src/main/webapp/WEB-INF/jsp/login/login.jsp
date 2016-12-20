@@ -17,7 +17,7 @@
     <body class="login-img3-body">
         <jsp:include page="../shared/theme3/user/topMenu.jsp" />
         <div class="container">
-
+            <center> <img src="${pageContext.request.contextPath}/resources/image/logo.png" /> </center>
             <form class="login-form" method="POST" action="validarLogin.htm">        
                 <div class="login-wrap">
                     <p class="login-img"><i class="icon_lock_alt"></i></p>
