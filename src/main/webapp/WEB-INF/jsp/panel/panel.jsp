@@ -27,7 +27,7 @@
                     <h1>
                         <fmt:message key="msg.Escritorio" />
                         <small></small>
-       
+
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Inicio" /></a></li>
@@ -168,10 +168,8 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-            <jsp:include page="../shared/theme2/user/footer.jsp" />
-
-
             <div class="control-sidebar-bg"></div>
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
         </div>
     </body>
 </html>

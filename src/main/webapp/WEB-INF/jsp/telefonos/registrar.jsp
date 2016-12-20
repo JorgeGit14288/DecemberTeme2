@@ -55,7 +55,7 @@
                 <div class="login-wrap">
                     <center> <h3 class="panel-primary"><fmt:message key="msg.TituloVentanaRegistrar" /></h3></center> 
                     <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
-                    <input name="codigo" list="listapaises" placeholder="<fmt:message key="msg.CodigoArea" />">
+                    <input name="codigo" required list="listapaises" placeholder="<fmt:message key="msg.CodigoArea" />">
                     <datalist id="listapaises">
                         <option value="1"> United States </option> 
                         <option value="1"> Canada</option> 

@@ -122,11 +122,10 @@
 
                 </section>
                 <!-- /.content -->
-                <jsp:include page="../shared/theme2/user/footer.jsp" />
-
             </div>
             <!-- /.content-wrapper -->
             <div class="control-sidebar-bg"></div>
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
         </div>
     </body>
 </html>

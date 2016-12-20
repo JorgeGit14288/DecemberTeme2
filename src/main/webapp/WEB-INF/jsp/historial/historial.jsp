@@ -30,7 +30,7 @@
                     <ol class="breadcrumb">
                         <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
                         <li class="active"><fmt:message key="msg.Historial" /></li>
-                         <li class="active"><fmt:message key="msg.HistorialLlamadas" /></li>
+                        <li class="active"><fmt:message key="msg.HistorialLlamadas" /></li>
                     </ol>
                 </section>
 
@@ -150,26 +150,28 @@
                                     <!-- /.box -->
                                 </div>
 
+
                             </div>
                             <!-- /.row -->
 
+                            <!-- =========================================================== -->
                         </div>
-                        <!-- /.row -->
-
-                        <!-- =========================================================== -->
+                        <!-- /#page-wrapper -->
                     </div>
-                    <!-- /#page-wrapper -->
+                    <!-- /.row (main row) -->
+
+                </section>
+                <!-- /.content -->
+
+                <!-- /.content-wrapper -->
+
+
+
+                <div class="control-sidebar-bg"></div>
+
             </div>
-            <!-- /.row (main row) -->
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
+        </div>
 
-        </section>
-        <!-- /.content -->
-
-        <!-- /.content-wrapper -->
-        <jsp:include page="../shared/theme2/user/footer.jsp" />
-
-
-        <div class="control-sidebar-bg"></div>
-    </div>
-</body>
+    </body>
 </html>

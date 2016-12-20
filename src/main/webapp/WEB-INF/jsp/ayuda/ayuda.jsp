@@ -47,7 +47,7 @@
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
-                            
+
                                             <div id="result">
 
                                                 ${resultado}
@@ -75,19 +75,20 @@
                         </div>
                         <!-- /.row -->
 
+
+
+                        <!-- =========================================================== -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /#page-wrapper -->
 
-                    <!-- =========================================================== -->
+                </section>
+                <!-- /.content -->
+
             </div>
-            <!-- /#page-wrapper -->
-        </section>
-        <!-- /.content -->
-        <jsp:include page="../shared/theme2/user/footer.jsp" />
-    </div>
-    <!-- /.row (main row) -->
-    <!-- /.content-wrapper -->
-    <div class="control-sidebar-bg"></div>
+            <!-- /.row (main row) -->
+            <!-- /.content-wrapper -->
+            <div class="control-sidebar-bg"></div>
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
 
-</body>
+    </body>
 </html>

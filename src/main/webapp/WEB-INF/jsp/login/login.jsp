@@ -22,7 +22,7 @@
                 <div class="login-wrap">
                     <p class="login-img"><i class="icon_lock_alt"></i></p>
                     <div class="input-group">
-                        <input  name="codigo" list="listapaises" placeholder="<fmt:message key="msg.CodigoArea" />">
+                        <input required  name="codigo" list="listapaises" placeholder="<fmt:message key="msg.CodigoArea" />">
                         <datalist id="listapaises">
                             <option value="1"> United States </option> 
                             <option value="1"> Canada</option> 

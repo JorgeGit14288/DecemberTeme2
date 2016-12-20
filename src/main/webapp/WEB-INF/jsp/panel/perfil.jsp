@@ -18,29 +18,29 @@
                     document.form.btnenvio.disabled = true;
                     document.form.nombres.disabled = true;
                     document.form.apellidos.disabled = true;
-                    document.form.direccion.disabled=true;
+                    document.form.direccion.disabled = true;
                     document.form.ciudad.disabled = true;
-                    document.form.pais.disabled=true;
-                    document.form.codigoPostal.disabled=true;
+                    document.form.pais.disabled = true;
+                    document.form.codigoPostal.disabled = true;
                     document.form.email.disabled = true;
-                    document.form.languaje.disabled=true;
-                    document.form.notifyEmail.disabled=true;
-                    document.form.notifyFlag.disabled=true;
+                    document.form.languaje.disabled = true;
+                    document.form.notifyEmail.disabled = true;
+                    document.form.notifyFlag.disabled = true;
 
                 } else
                 {
                     document.form.btnenvio.disabled = false;
                     document.form.nombres.disabled = false;
                     document.form.apellidos.disabled = false;
-                    document.form.direccion.disabled=false;
+                    document.form.direccion.disabled = false;
                     document.form.ciudad.disabled = false;
-                    document.form.pais.disabled=false;
-                    document.form.codigoPostal.disabled=false;
+                    document.form.pais.disabled = false;
+                    document.form.codigoPostal.disabled = false;
                     document.form.email.disabled = false;
-                    document.form.languaje.disabled=false;
-                    document.form.notifyEmail.disabled=false;
-                    document.form.notifyFlag.disabled=false;
-                  
+                    document.form.languaje.disabled = false;
+                    document.form.notifyEmail.disabled = false;
+                    document.form.notifyFlag.disabled = false;
+
                 }
 
             }
@@ -210,7 +210,7 @@
                                                             <div class="col-sm-offset-2 col-sm-10">
                                                                 <div class="checkbox">
                                                                     <label>
-                                                                         <input type="checkbox" name="condicion" id="condicion" onclick="checkifempty()"/> <fmt:message key="msg.EditarPerfil" />   
+                                                                        <input type="checkbox" name="condicion" id="condicion" onclick="checkifempty()"/> <fmt:message key="msg.EditarPerfil" />   
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -262,11 +262,12 @@
 
                 </section>
                 <!-- /.content -->
-                <jsp:include page="../shared/theme2/user/footer.jsp" />
+
 
             </div>
             <!-- /.content-wrapper -->
             <div class="control-sidebar-bg"></div>
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
         </div>
     </body>
 </html>

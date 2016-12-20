@@ -139,9 +139,7 @@ public class RecargarController {
         ModelAndView mav = new ModelAndView();
         sesion = request.getSession();
         Detalles cuenta = new Detalles();
-
         try {
-
             cuenta = (Detalles) sesion.getAttribute("cuenta");
             String amount = request.getParameter("amount");
             String details = "Relizando una recarga ";
@@ -160,9 +158,21 @@ public class RecargarController {
 
                 httpRecargar recargarHelper = new httpRecargar();
                 String redirect = recargarHelper.getRecargar(accountid, amount, returnUrl, details);
-                String urlRedirect = "redirect:" + redirect;
+                String urlRedirect =null;
+                if (redirect==null)
+                {
+                    redirect ="panel/panel.htm";
+                    urlRedirect= redirect;
+                    mensaje = "El servidor de recargas no esta disponible, Disculpe";
+                                                       
+                }
+                else
+                {
+                urlRedirect = "redirect:" + redirect;
                 System.out.println(urlRedirect);
-
+                }
+                mav.addObject("mensaje", mensaje);
+                        
                 if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
 
                     System.out.println("El usuario es administrador ");

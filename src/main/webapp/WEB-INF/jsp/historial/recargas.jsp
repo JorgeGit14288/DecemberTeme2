@@ -21,7 +21,7 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-               <section class="content-header">
+                <section class="content-header">
                     <h1>
                         <fmt:message key="msg.HistorialRecargas" />
                         <small></small>
@@ -30,7 +30,7 @@
                     <ol class="breadcrumb">
                         <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
                         <li class="active"><fmt:message key="msg.Historial" /></li>
-                         <li class="active"><fmt:message key="msg.HistorialRecargas" /></li>
+                        <li class="active"><fmt:message key="msg.HistorialRecargas" /></li>
                     </ol>
                 </section>
 
@@ -133,23 +133,22 @@
                             </div>
                             <!-- /.row -->
 
+                            <!-- =========================================================== -->
                         </div>
-                        <!-- /.row -->
-
-                        <!-- =========================================================== -->
+                        <!-- /#page-wrapper -->
                     </div>
-                    <!-- /#page-wrapper -->
+                    <!-- /.row (main row) -->
+
+                </section>
+                <!-- /.content -->
+
+                <!-- /.content-wrapper -->
+
+
+
+                <div class="control-sidebar-bg"></div>
             </div>
-            <!-- /.row (main row) -->
-
-        </section>
-        <!-- /.content -->
-
-        <!-- /.content-wrapper -->
-        <jsp:include page="../shared/theme2/user/footer.jsp" />
-
-
-        <div class="control-sidebar-bg"></div>
-    </div>
-</body>
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
+        </div>
+    </body>
 </html>
