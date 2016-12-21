@@ -94,8 +94,8 @@ public class HistorialController {
                     telefono = telDao.getTelefono(telUser);
                     usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());
                     idAccount = usuario.getIdAccount();
-                    String endDate2 = endDate + "23:59:00";
-                    String startDate2 = startDate + "00:00:00";
+                    String endDate2 = endDate + " 23:59:00";
+                    String startDate2 = startDate + " 00:00:00";
 
                     System.out.println(idAccount + " " + page + " " + max + " " + startDate2 + " " + endDate2 + " " + destination + " ");
                     this.llenarHistorial(idAccount, startDate2, endDate2, String.valueOf(page), String.valueOf(max), destination);
@@ -371,8 +371,8 @@ public class HistorialController {
                 mav.addObject("pageprevius", pageprevius);
                 mav.addObject("page", page);
                 mav.addObject("max", max);
-                String endDate2 = endDate + "23:59:00";
-                String startDate2 = startDate + "00:00:00";
+                String endDate2 = endDate + " 23:59:00";
+                String startDate2 = startDate + " 00:00:00";
                 System.out.println("account" + idAccount + " page  " + page + " max " + max + " startDate " + startDate2 + " endDate " + endDate2);
 
                 try {
