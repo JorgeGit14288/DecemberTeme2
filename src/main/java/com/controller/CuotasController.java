@@ -34,40 +34,53 @@ public class CuotasController {
 
     @RequestMapping("cuotas.htm")
     public ModelAndView getCuotas(HttpServletRequest request) {
-        sesion = request.getSession();
         ModelAndView mav = new ModelAndView();
-        String mensaje = null;
-        Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
+        try {
+            sesion = request.getSession();
 
-        String country = detalle.getCiudad();
-        if (country ==null)
-        {
-            country = "Guatemala";
-        }
-        String amount = "5";
-        httpCuotas cuotasHelper = new httpCuotas();
-        String resultado = cuotasHelper.getCuotas(country, amount);
+            if (sesion.getAttribute("usuario") == null) {
 
-        if (sesion.getAttribute("usuario") == null) {
+                mav.setViewName("login/login");
 
-            mav.setViewName("login/login");
+            } else {
+                String mensaje = null;
+                Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
 
-        } else {
-            sesionUser = sesion.getAttribute("usuario").toString();
-            //Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
-            mav.addObject("country", detalle.getCiudad());
-            mav.addObject("resultado", resultado);
-            mensaje = "Lista de Cuotas";
+                String country = detalle.getCiudad();
+                if (country == null) {
+                    country = "Guatemala";
+                }
+                String amount = "5";
+                httpCuotas cuotasHelper = new httpCuotas();
+                String resultado = cuotasHelper.getCuotas(country, amount);
+                sesionUser = sesion.getAttribute("usuario").toString();
+                //Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
+                mav.addObject("country", detalle.getCiudad());
+                mav.addObject("resultado", resultado);
+                mensaje = "Lista de Cuotas";
+                mav.addObject("mensaje", mensaje);
+                mav.addObject("amount", amount);
+                mav.addObject("country", country);
+
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                    mav.setViewName("viewsAdmin/cuotasAdmin");
+                    System.out.println("el usuario es administrador");
+                } else {
+                    mav.setViewName("panel/cuotas");
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
             mav.addObject("mensaje", mensaje);
-            mav.addObject("amount", amount);
-            mav.addObject("country", country);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                mav.setViewName("viewsAdmin/cuotasAdmin");
+                mav.setViewName("viewsAdmin/panelAdmin");
                 System.out.println("el usuario es administrador");
             } else {
-                mav.setViewName("panel/cuotas");
+                mav.setViewName("panel/panel");
             }
+
         }
         return mav;
     }
@@ -75,29 +88,44 @@ public class CuotasController {
     @RequestMapping(value = "postCuotas.htm", method = RequestMethod.POST)
     public ModelAndView postCuotas(HttpServletRequest request) {
 
-        sesion = request.getSession();
-        String country = request.getParameter("country");
-        String amount = request.getParameter("amount");
-
-        Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
-        System.out.print(detalle.getCiudad());
-
         ModelAndView mav = new ModelAndView();
-        if (sesion.getAttribute("usuario") == null) {
+        try {
 
-            mav.setViewName("login/login");
+            sesion = request.getSession();
 
-        } else {
-            httpCuotas cuotasHelper = new httpCuotas();
-            String resultado =  cuotasHelper.getCuotas(country, amount);
-            sesionUser = sesion.getAttribute("usuario").toString();
-            //Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
-            mav.addObject("country", detalle.getCiudad());
-            mav.addObject("resultado", resultado);
-            mensaje = "Lista de Cuotas";
+            if (sesion.getAttribute("usuario") == null) {
+
+                mav.setViewName("login/login");
+
+            } else {
+                String country = request.getParameter("country");
+                String amount = request.getParameter("amount");
+
+                Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
+                System.out.print(detalle.getCiudad());
+                httpCuotas cuotasHelper = new httpCuotas();
+                String resultado = cuotasHelper.getCuotas(country, amount);
+                sesionUser = sesion.getAttribute("usuario").toString();
+                //Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
+                mav.addObject("country", detalle.getCiudad());
+                mav.addObject("resultado", resultado);
+                mensaje = "Lista de Cuotas";
+                mav.addObject("mensaje", mensaje);
+                mav.addObject("amount", amount);
+                mav.addObject("country", country);
+
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                    mav.setViewName("viewsAdmin/cuotasAdmin");
+                    System.out.println("el usuario es administrador");
+                } else {
+                    mav.setViewName("panel/cuotas");
+                }
+
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
             mav.addObject("mensaje", mensaje);
-            mav.addObject("amount", amount);
-            mav.addObject("country", country);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                 mav.setViewName("viewsAdmin/cuotasAdmin");
@@ -105,7 +133,7 @@ public class CuotasController {
             } else {
                 mav.setViewName("panel/cuotas");
             }
-           
+
         }
         return mav;
 

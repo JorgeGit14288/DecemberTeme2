@@ -37,21 +37,29 @@ public class AdminController {
     @RequestMapping("panelAdmin.htm")
     public ModelAndView getPanel(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
-        sesion = request.getSession();
-        if (sesion.getAttribute("usuario") == null) {
-            mensaje = "Ingrese sus datos para poder ingresar al sistema";
-            mav.addObject("mensaje", mensaje);
+        try {
+
+            sesion = request.getSession();
+            if (sesion.getAttribute("usuario") == null) {
+                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mav.addObject("mensaje", mensaje);
+                mav.setViewName("login/login");
+
+            } else {
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                    mav.setViewName("viewsAdmin/panelAdmin");
+                } else {
+                    mav.setViewName("panel/panel");
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje ="Ha ocurrido un error al obtener la vista"  ;   
+             mav.addObject("mensaje", mensaje);
             mav.setViewName("login/login");
 
-        } else {
-            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                mav.setViewName("viewsAdmin/panelAdmin");
-            } else {
-                mav.setViewName("panel/panel");
-            }
         }
         return mav;
     }
 
-   
 }

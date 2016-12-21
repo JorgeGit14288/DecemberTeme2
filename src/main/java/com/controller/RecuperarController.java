@@ -32,6 +32,7 @@ public class RecuperarController {
     HttpSession sesion;
     String codigo;
     int contador = 0;
+    String mensaje;
 
     public String getCodigo() {
         return codigo;
@@ -52,7 +53,22 @@ public class RecuperarController {
     @RequestMapping("recuperar.htm")
     public ModelAndView Recuperar() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("recuperar/recuperar");
+        try {
+
+            mav.setViewName("recuperar/recuperar");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
+            mav.addObject("mensaje", mensaje);
+
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("login/login");
+
+            } else {
+                mav.setViewName("login/login");
+            }
+
+        }
         return mav;
     }
 
@@ -97,20 +113,30 @@ public class RecuperarController {
     public ModelAndView getConfirm() {
 
         ModelAndView mav = new ModelAndView();
-        String mensaje = null;
-        mensaje = "Ingrese el codigo que recibio en su telefono ";
-        mav.addObject("mensaje", mensaje);
-        mav.setViewName("recuperar/recuperarPhone");
+        try {
+            String mensaje = null;
+            mensaje = "Ingrese el codigo que recibio en su telefono ";
+            mav.addObject("mensaje", mensaje);
+            mav.setViewName("recuperar/recuperarPhone");
+        } catch (Exception e) {
+            mensaje = null;
+            e.printStackTrace();
+            mensaje = "NO SE PUDO CONTACTAR CON EL SERVIDOR";
+            mav.setViewName("recuperar/recuperarPhone");
+        }
+
         return mav;
     }
 
     @RequestMapping(value = "validarRecuperarPhone.htm", method = RequestMethod.POST)
     public ModelAndView ValidarPhone(HttpServletRequest request) {
-        String mensaje = null;
-        sesion = request.getSession();
+
         ModelAndView mav = new ModelAndView();
-        String codigo2 = request.getParameter("codigo");
+
         try {
+            String codigo2 = request.getParameter("codigo");
+            String mensaje = null;
+            sesion = request.getSession();
             if (sesion.getAttribute("usuario") == null) {
                 mav.setViewName("login/login");
 
@@ -129,7 +155,7 @@ public class RecuperarController {
                     } else {
                         mensaje = "El codigo es correcto, pero no se ha podido cargar a su cuenta";
                         mav.addObject("mensaje", mensaje);
-                        mav.setViewName("usuarios/confirmPhone");
+                        mav.setViewName("telefonos/confirmPhone");
                     }
                 } else {
 
@@ -141,6 +167,15 @@ public class RecuperarController {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
+            mav.addObject("mensaje", mensaje);
+
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("login/login");
+
+            } else {
+                mav.setViewName("login/login");
+            }
         }
 
         return mav;
@@ -149,7 +184,22 @@ public class RecuperarController {
     @RequestMapping("recuperarPassword.htm")
     public ModelAndView RecuperarPassword() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("recuperar/recuperarPassword");
+
+        try {
+            mav.setViewName("recuperar/recuperarPassword");
+        } catch (Exception e) {
+            e.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
+            mav.addObject("mensaje", mensaje);
+
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("telefonos/confirmPhone");
+
+            } else {
+               mav.setViewName("telefonos/confirmPhone");
+            }
+        }
+
         return mav;
     }
 
@@ -189,6 +239,7 @@ public class RecuperarController {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            mav.setViewName("recuperar/setPassword");
         }
 
         mav.setViewName("login/login");

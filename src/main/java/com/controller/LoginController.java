@@ -84,7 +84,7 @@ public class LoginController {
                     Detalles cuenta = new Detalles();
 
                     cuenta.setIdUsuaro(user.getIdUsuario());
-                    System.out.println("\n\n\n Id de usuario "+cuenta.getIdUsuaro());
+                    System.out.println("\n\n\n Id de usuario " + cuenta.getIdUsuaro());
                     cuenta.setTelefono(telefonoArea);
                     cuenta.setAccountId(user.getIdAccount());
                     cuenta.setNombres(user.getNombres());
@@ -148,10 +148,15 @@ public class LoginController {
     @RequestMapping(value = "logout.htm", method = RequestMethod.POST)
     public ModelAndView LogOutPOST(HttpServletRequest request
     ) {
-
         sesion = null;
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("login/login");
+
+        try {
+            mav.setViewName("login/login");
+        } catch (Exception ex) {
+
+            mav.setViewName("login/login");
+        }
         return mav;
 
     }
@@ -162,7 +167,11 @@ public class LoginController {
         sesion = request.getSession();
         sesion.invalidate();
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("login/login");
+        try {
+            mav.setViewName("login/login");
+        } catch (Exception ex) {
+            mav.setViewName("login/login");
+        }
         return mav;
 
     }

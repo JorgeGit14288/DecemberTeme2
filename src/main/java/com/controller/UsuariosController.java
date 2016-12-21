@@ -36,23 +36,37 @@ public class UsuariosController {
     @RequestMapping("usuarios.htm")
     public ModelAndView getListUsuarios(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
-        sesion = request.getSession();
-        if (sesion.getAttribute("usuario") == null) {
-            mensaje = "Ingrese sus datos para poder ingresar al sistema";
+        try {
+            sesion = request.getSession();
+            if (sesion.getAttribute("usuario") == null) {
+                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mav.addObject("mensaje", mensaje);
+                mav.setViewName("login/login");
+
+            } else {
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+
+                    UsuariosDao userDao = new UsuariosDao();
+                    List<Usuarios> listUser = userDao.getAllUsuarios();
+                    mav.addObject("listaUsuarios", listUser);
+                    //sesion.setAttribute("listaUsuarios", listUser);
+                    mav.setViewName("usuarios/usuarios");
+                } else {
+                    mav.setViewName("panel/panel");
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
             mav.addObject("mensaje", mensaje);
-            mav.setViewName("login/login");
 
-        } else {
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-
-                UsuariosDao userDao = new UsuariosDao();
-                List<Usuarios> listUser = userDao.getAllUsuarios();
-                mav.addObject("listaUsuarios", listUser);
-                //sesion.setAttribute("listaUsuarios", listUser);
-                mav.setViewName("usuarios/usuarios");
+                mav.setViewName("viewsAdmin/panelAdmin");
+                System.out.println("el usuario es administrador");
             } else {
                 mav.setViewName("panel/panel");
             }
+
         }
         return mav;
     }
@@ -60,30 +74,44 @@ public class UsuariosController {
     @RequestMapping(value = "editarUsuarios.htm", method = RequestMethod.GET)
     public ModelAndView getEditUsuarios(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
-        sesion = request.getSession();
-        if (sesion.getAttribute("usuario") == null) {
-            mensaje = "Ingrese sus datos para poder ingresar al sistema";
+        try {
+            sesion = request.getSession();
+            if (sesion.getAttribute("usuario") == null) {
+                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mav.addObject("mensaje", mensaje);
+                mav.setViewName("login/login");
+
+            } else {
+
+                String userId = request.getParameter("idUsuario");
+                UsuariosDao userDao = new UsuariosDao();
+                Usuarios usuario = userDao.getUsuario(userId);
+
+                Telefonos telUser = new Telefonos();
+                TelefonosDao telDao = new TelefonosDao();
+                telUser = telDao.getTelUser(userId);
+
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                    mav.addObject("usuario", usuario);
+                    mav.addObject("telUser", telUser);
+                    mav.setViewName("usuarios/editarUsuarios");
+                } else {
+                    mav.addObject("usuario", usuario);
+                    mav.setViewName("panel/editarPerfil");
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
             mav.addObject("mensaje", mensaje);
-            mav.setViewName("login/login");
-
-        } else {
-
-            String userId = request.getParameter("idUsuario");
-            UsuariosDao userDao = new UsuariosDao();
-            Usuarios usuario = userDao.getUsuario(userId);
-
-            Telefonos telUser = new Telefonos();
-            TelefonosDao telDao = new TelefonosDao();
-            telUser = telDao.getTelUser(userId);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                mav.addObject("usuario", usuario);
-                mav.addObject("telUser", telUser);
-                mav.setViewName("usuarios/editarUsuarios");
+                mav.setViewName("viewsAdmin/panelAdmin");
+                System.out.println("el usuario es administrador");
             } else {
-                mav.addObject("usuario", usuario);
-                mav.setViewName("panel/editarPerfil");
+                mav.setViewName("panel/panel");
             }
+
         }
         return mav;
     }
@@ -91,56 +119,67 @@ public class UsuariosController {
     @RequestMapping(value = "validarEditarUsuario.htm", method = RequestMethod.POST)
     public ModelAndView getValidarEditarUsuarios(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
-        sesion = request.getSession();
-        if (sesion.getAttribute("usuario") == null) {
-            mensaje = "Ingrese sus datos para poder ingresar al sistema";
-            mav.addObject("mensaje", mensaje);
-            mav.setViewName("login/login");
+        try {
+            sesion = request.getSession();
+            if (sesion.getAttribute("usuario") == null) {
+                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mav.addObject("mensaje", mensaje);
+                mav.setViewName("login/login");
 
-        } else {
-
-            String userId = request.getParameter("idUsuario");
-            UsuariosDao userDao = new UsuariosDao();
-            Usuarios usuario = userDao.getUsuario(userId);
-
-            usuario.setTipoUsuario(request.getParameter("tipoUsuario"));
-            usuario.setStatus(request.getParameter("status"));
-
-            String nombres = request.getParameter("nombres");
-            if (nombres != null) {
-                usuario.setNombres(nombres);
-            }
-            String apellidos = request.getParameter("apellidos");
-            if (apellidos != null) {
-                usuario.setApellidos(apellidos);
-            }
-            String pais = request.getParameter("pais");
-            if (pais != null) {
-                usuario.setPais(pais);
-            }
-            String email = request.getParameter("email");
-            if (email != null) {
-                usuario.setEmail(email);
-            }
-
-            Telefonos telUser = new Telefonos();
-            TelefonosDao telDao = new TelefonosDao();
-            telUser = telDao.getTelUser(userId);
-
-            if (userDao.updateUsuarios(usuario)) {
-                System.out.println("Se ha actualizado el usuario");
-                mensaje = "Se ha realizado la actualizacion";
-                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                    mav.addObject("usuario", usuario);
-                    mav.addObject("telUser", telUser);
-                    mav.setViewName("usuarios/editarUsuarios");
-                } else {
-                    mav.addObject("usuario", usuario);
-                    mav.setViewName("panel/editarPerfil");
-                }
             } else {
-                System.out.println("No se ha podido realizar la actualizacion");
-                mensaje = "No se ha realizado la actualizacion";
+
+                String userId = request.getParameter("idUsuario");
+                UsuariosDao userDao = new UsuariosDao();
+                Usuarios usuario = userDao.getUsuario(userId);
+
+                usuario.setTipoUsuario(request.getParameter("tipoUsuario"));
+                usuario.setStatus(request.getParameter("status"));
+
+                String nombres = request.getParameter("nombres");
+                if (nombres != null) {
+                    usuario.setNombres(nombres);
+                }
+                String apellidos = request.getParameter("apellidos");
+                if (apellidos != null) {
+                    usuario.setApellidos(apellidos);
+                }
+                String pais = request.getParameter("pais");
+                if (pais != null) {
+                    usuario.setPais(pais);
+                }
+                String email = request.getParameter("email");
+                if (email != null) {
+                    usuario.setEmail(email);
+                }
+
+                Telefonos telUser = new Telefonos();
+                TelefonosDao telDao = new TelefonosDao();
+                telUser = telDao.getTelUser(userId);
+
+                if (userDao.updateUsuarios(usuario)) {
+                    System.out.println("Se ha actualizado el usuario");
+                    mensaje = "Se ha realizado la actualizacion";
+                    if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                        mav.addObject("usuario", usuario);
+                        mav.addObject("telUser", telUser);
+                        mav.setViewName("usuarios/editarUsuarios");
+                    } else {
+                        mav.addObject("usuario", usuario);
+                        mav.setViewName("panel/editarPerfil");
+                    }
+                } else {
+                    System.out.println("No se ha podido realizar la actualizacion");
+                    mensaje = "No se ha realizado la actualizacion";
+                    if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                        mav.addObject("usuario", usuario);
+                        mav.addObject("telUser", telUser);
+                        mav.setViewName("usuarios/editarUsuarios");
+                    } else {
+                        mav.addObject("usuario", usuario);
+                        mav.setViewName("panel/editarPerfil");
+                    }
+                }
+
                 if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                     mav.addObject("usuario", usuario);
                     mav.addObject("telUser", telUser);
@@ -150,15 +189,18 @@ public class UsuariosController {
                     mav.setViewName("panel/editarPerfil");
                 }
             }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
+            mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                mav.addObject("usuario", usuario);
-                mav.addObject("telUser", telUser);
-                mav.setViewName("usuarios/editarUsuarios");
+                mav.setViewName("viewsAdmin/panelAdmin");
+                System.out.println("el usuario es administrador");
             } else {
-                mav.addObject("usuario", usuario);
-                mav.setViewName("panel/editarPerfil");
+                mav.setViewName("panel/panel");
             }
+
         }
         return mav;
     }

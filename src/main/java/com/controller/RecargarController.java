@@ -32,10 +32,11 @@ public class RecargarController {
 
     @RequestMapping(value = "recargar.htm", method = RequestMethod.GET)
     public ModelAndView getResultado(HttpServletRequest request) {
-        sesion = request.getSession();
+
         ModelAndView mav = new ModelAndView();
 
         try {
+            sesion = request.getSession();
 
             if (sesion.getAttribute("usuario") == null) {
                 mensaje = "No esta logeado para obtener las vistas";
@@ -60,15 +61,15 @@ public class RecargarController {
 
                     if (resRecarga.getCodeServer().compareTo("200") == 0) {
                         //cuenta.setSaldo(resRecarga.getAmount());
-                        
-                         account = accountHelper.getAccountObject(cuenta.getTelefono());
-                            cuenta.setSaldo(account.getBalance());
-                            sesion.setAttribute("cuenta", cuenta);
+
+                        account = accountHelper.getAccountObject(cuenta.getTelefono());
+                        cuenta.setSaldo(account.getBalance());
+                        sesion.setAttribute("cuenta", cuenta);
 
                         if (rsStatus.compareTo("COMPLETED") == 0) {
                             mensaje = "Transaccion Completa";
                             //cuenta.setSaldo(resRecarga.getAmount());
-                           
+
                         } else if (rsStatus.compareTo("REGISTERED") == 0) {
                             mensaje = "La Transacion aun esta en proceso";
                         } else if (rsStatus.compareTo("VERIFYING") == 0) {
@@ -137,17 +138,9 @@ public class RecargarController {
     @RequestMapping(value = "postRecargar.htm", method = RequestMethod.GET)
     public ModelAndView postRecargar(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
-        sesion = request.getSession();
-        Detalles cuenta = new Detalles();
-        try {
-            cuenta = (Detalles) sesion.getAttribute("cuenta");
-            String amount = request.getParameter("amount");
-            String details = "Relizando una recarga ";
-            String accountid = cuenta.getAccountId();
 
-            // System.out.print("Se realizara una recarga a "+cuenta.getAccountId() + " monto "+amount);
-            String datoRecarga = ("Account " + cuenta.getAccountId() + " monot " + amount + " urlRetorno " + returnUrl + " Detalles " + details);
-            System.out.println(datoRecarga);
+        try {
+            sesion = request.getSession();
 
             if (sesion.getAttribute("usuario") == null) {
                 mensaje = "No esta logeado para obtener las vistas";
@@ -155,24 +148,30 @@ public class RecargarController {
                 mav.setViewName("login/login");
 
             } else {
+                Detalles cuenta = new Detalles();
+                cuenta = (Detalles) sesion.getAttribute("cuenta");
+                String amount = request.getParameter("amount");
+                String details = "Relizando una recarga ";
+                String accountid = cuenta.getAccountId();
+
+                // System.out.print("Se realizara una recarga a "+cuenta.getAccountId() + " monto "+amount);
+                String datoRecarga = ("Account " + cuenta.getAccountId() + " monot " + amount + " urlRetorno " + returnUrl + " Detalles " + details);
+                System.out.println(datoRecarga);
 
                 httpRecargar recargarHelper = new httpRecargar();
                 String redirect = recargarHelper.getRecargar(accountid, amount, returnUrl, details);
-                String urlRedirect =null;
-                if (redirect==null)
-                {
-                    redirect ="panel/panel.htm";
-                    urlRedirect= redirect;
+                String urlRedirect = null;
+                if (redirect == null) {
+                    redirect = "panel/panel.htm";
+                    urlRedirect = redirect;
                     mensaje = "El servidor de recargas no esta disponible, Disculpe";
-                                                       
-                }
-                else
-                {
-                urlRedirect = "redirect:" + redirect;
-                System.out.println(urlRedirect);
+
+                } else {
+                    urlRedirect = "redirect:" + redirect;
+                    System.out.println(urlRedirect);
                 }
                 mav.addObject("mensaje", mensaje);
-                        
+
                 if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
 
                     System.out.println("El usuario es administrador ");

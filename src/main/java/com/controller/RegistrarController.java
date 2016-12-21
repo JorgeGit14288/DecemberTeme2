@@ -35,6 +35,7 @@ public class RegistrarController {
     int contador = 0;
     private Usuarios userP;
     private Telefonos telP;
+    String mensaje;
 
     public Usuarios getUserP() {
         return userP;
@@ -71,7 +72,21 @@ public class RegistrarController {
     @RequestMapping("registrar.htm")
     public ModelAndView Registrar() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("telefonos/registrar");
+        try {
+            mav.setViewName("telefonos/registrar");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
+            mav.addObject("mensaje", mensaje);
+
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("viewsAdmin/panelAdmin");
+                System.out.println("el usuario es administrador");
+            } else {
+                mav.setViewName("panel/panel");
+            }
+
+        }
         return mav;
     }
 
@@ -104,11 +119,11 @@ public class RegistrarController {
             this.setTelP(telefono);
             this.setUserP(usuario);
             this.createCodigo();
-            String telArea =telefono.getCodigoArea()+telefono.getTelefono();
-            System.out.print("enviando el codigo a "+telArea);
-            String mensajeCodigo = "Codigo de Confirmacion2 "+ this.getCodigo();
+            String telArea = telefono.getCodigoArea() + telefono.getTelefono();
+            System.out.print("enviando el codigo a " + telArea);
+            String mensajeCodigo = "Codigo de Confirmacion2 " + this.getCodigo();
             httpSendMsg msgHelper = new httpSendMsg();
-            String resultmsg = msgHelper.sendMsg(telArea, mensajeCodigo );
+            String resultmsg = msgHelper.sendMsg(telArea, mensajeCodigo);
             mav.setViewName("telefonos/confirmPhone");
 
         } catch (Exception e) {
@@ -133,12 +148,25 @@ public class RegistrarController {
     public ModelAndView getConfirm() {
 
         ModelAndView mav = new ModelAndView();
-        String mensaje = null;
-        mensaje = "Ingrese el codigo que recibio en su telefono " + this.getCodigo();
-        
-        
-        mav.addObject("mensaje", mensaje);
-        mav.setViewName("telefonos/confirmPhone");
+        try {
+            mensaje = null;
+            mensaje = "Ingrese el codigo que recibio en su telefono " + this.getCodigo();
+
+            mav.addObject("mensaje", mensaje);
+            mav.setViewName("telefonos/confirmPhone");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
+            mav.addObject("mensaje", mensaje);
+
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("viewsAdmin/panelAdmin");
+                System.out.println("el usuario es administrador");
+            } else {
+                mav.setViewName("panel/panel");
+            }
+
+        }
         return mav;
     }
 
@@ -212,7 +240,16 @@ public class RegistrarController {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+          e.printStackTrace();
+            mensaje = "Ha ocurrido un error al obtener la vista";
+            mav.addObject("mensaje", mensaje);
+
+            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                mav.setViewName("viewsAdmin/panelAdmin");
+                System.out.println("el usuario es administrador");
+            } else {
+                mav.setViewName("panel/panel");
+            }
         }
 
         return mav;
