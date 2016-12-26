@@ -15,16 +15,18 @@
             <span class="sr-only">Toggle navigation</span>
 
         </a>
-        
-            
-        
 
-        <div class="navbar-custom-menu">
 
-            <ul class="nav navbar-nav">
+
+
+        <div class="navbar-custom-menu ">
+
+            <ul class="nav navbar-nav ">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <fmt:message key="msg.SaldoActual" />  ${sessionScope.cuenta.getSaldo()}
+                    <a class="dropdown-toggle bg-red" data-toggle="dropdown" href="#">
+                        <span class="bg-red">
+                            <fmt:message key="msg.SaldoActual" />  $  ${sessionScope.cuenta.getSaldo()}
+                        </span>
                     </a>
 
                     <!-- /.dropdown-user -->
@@ -43,11 +45,11 @@
                 </li>
                 <!-- /.dropdown -->
 
-                <li><a href="servicioCliente.htm"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.ServicioCliente" /></a>
-   
+                <li class=""><a href="servicioCliente.htm"><i class="fa fa-phone fa-fw"></i><fmt:message key="msg.ServicioCliente" /></a>
+
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-flag-checkered"> </i>     <fmt:message key="msg.Ayuda" />      <i class="fa fa-caret-down"></i>
+                    <a class="dropdown-toggle " data-toggle="dropdown" href="#">
+                        <i class="fa fa-question-circle"> </i>     <fmt:message key="msg.Ayuda" />      <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="dids.htm"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.NumerosAcceso" /></a>
@@ -64,9 +66,9 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="editarPerfil.htm"><i class="fa fa-user fa-fw"></i><fmt:message key="msg.PerfilUsuario" /></a>
+                        <li><a href="perfil.htm"><i class="fa fa-user fa-fw"></i><fmt:message key="msg.PerfilUsuario" /></a>
                         </li>
-                        <li><a href="recuperarPhone.htm"><i class="fa fa-gear fa-fw"></i><fmt:message key="msg.CambiarPassword" /></a>
+                        <li><a href="cambiarPassword.htm"><i class="fa fa-spinner fa-fw"></i><fmt:message key="msg.CambiarPassword" /></a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="logout.htm"><i class="fa fa-sign-out fa-fw"></i><fmt:message key="msg.Salir" /></a>

@@ -109,6 +109,12 @@ public class PerfilController {
             if (sesion.getAttribute("usuario") == null) {
                 mav.setViewName("login/login");
             } else {
+                String sesUser = sesion.getAttribute("usuario").toString();
+
+               
+                TelefonosDao telDao = new TelefonosDao();
+                Telefonos telefono = new Telefonos();
+                telefono = telDao.getTelefono(sesUser);
                 String idUsuario = request.getParameter("idUsuario");
                 String TelArea = request.getParameter(sesion.getAttribute("usuario").toString());
                 String nombres = request.getParameter("nombres");
@@ -118,7 +124,7 @@ public class PerfilController {
                 String pais = request.getParameter("pais");
                 String codigoPostal = request.getParameter("codigoPostal");
                 String email = request.getParameter("email");
-                String lenguaje = request.getParameter("lenguaje");
+                String lenguaje = request.getParameter("languaje");
                 boolean notifyEmail = false;
                 boolean notifyFlag = false;
                 String notmail = request.getParameter("notifyEmail");
@@ -129,9 +135,7 @@ public class PerfilController {
                     notifyEmail = true;
 
                 }
-                if (notflag.compareTo("true") == 0) {
-                    notifyFlag = true;
-                }
+                
                 System.out.println("notify flag " + notifyFlag);
 
                 AccountLight accountL = new AccountLight();
@@ -160,6 +164,12 @@ public class PerfilController {
                 httpAccount accountHelper = new httpAccount();
 
                 if (userDao.updateUsuarios(usuario)) {
+                    account = accountHelper.getAccountObject(sesUser);
+                    String idAccount = account.getId();
+
+                    mav.addObject("telefono", telefono);
+                    mav.addObject("user", usuario);
+                    mav.addObject("account", account);
 
                     usuario = userDao.getUsuario(idUsuario);
                     if (usuario.getIdAccount() == null) {
@@ -193,10 +203,10 @@ public class PerfilController {
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                mav.setViewName("viewsAdmin/panelAdmin");
+                mav.setViewName("viewsAdmin/perfilAdmin");
                 System.out.println("el usuario es administrador");
             } else {
-                mav.setViewName("panel/panel");
+                mav.setViewName("panel/perfil");
             }
 
         }

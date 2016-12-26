@@ -179,8 +179,9 @@
                                                             <label for="lenguaje" class="col-sm-2 control-label"><fmt:message key="msg.LenguajeOperador" />:</label>
                                                             <div class="col-sm-10">
                                                                 <select name="languaje" id="languaje" disabled="true"  required  class="form-control" >
-                                                                    <option value="Es"><fmt:message key="msg.Espa" />:</option> 
-                                                                    <option value="En"><fmt:message key="msg.Ingles" />:</option> 
+                                                                    <option value="${account.getLanguaje_id()}"><fmt:message key="msg.Actual" /> ${account.getLanguaje_id()}</option>
+                                                                    <option value="Es"><fmt:message key="msg.Espa" /></option> 
+                                                                    <option value="En"><fmt:message key="msg.Ingles" /></option> 
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -195,16 +196,7 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="notifyflag" class="col-sm-2 control-label"><fmt:message key="msg.NotificarBandea" />:</label>
-                                                            <div class="col-sm-10">
-                                                                <select name="notifyFlag"  id="notifyFlag" disabled="true"  required  class="form-control" >
-                                                                    <option value="${account.getNotify_flag()}"><fmt:message key="msg.Actual" /> ${account.getNotify_flag()}</option>  
-                                                                    <option value="true"><fmt:message key="msg.True" /></option> 
-                                                                    <option value="false"><fmt:message key="msg.False" /></option> 
-                                                                </select>
-                                                            </div>
-                                                        </div>
+                                                        
 
                                                         <div class="form-group">
                                                             <div class="col-sm-offset-2 col-sm-10">

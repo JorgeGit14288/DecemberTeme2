@@ -7,22 +7,19 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title> <fmt:message key="msg.TituloPaginaEscritorio" /></title>
-
-
-
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
         <script>
             function validar() {
                 if (document.form.password.value != document.form.confirmPassword.value)
                 {
-                    alert('¡los datos de los campos no coinciden, intente de nuevo');
+                    alert('The password is invalid');
                     document.form.password.focus();
                     return false;
                     // 
                 } else
                 {
                     /* Si todo está OK se prosigue con lo que sea: */
-                    alert('¡Cambio exitoso, se redigira a la pantalla de  login para que ingrese sus nuevos datos!');
+                    alert('Change Password');
                     document.form.submit;
                     return true;
                 }
@@ -77,7 +74,7 @@
                                         <!-- /.box-header -->
                                         <div class="box-body">
                                             <div class="col-md-8">
-                                                <form name="form" class="form-Registro" method="POST" onsubmit="return validar()" action="validarNewPassword.htm" >
+                                                <form name="form" class="form-Registro" method="POST" onsubmit="return validar()" action="validarCambiarPassword.htm" >
 
                                                     <div class="form-group">
                                                         <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Telefono" />:</label>
@@ -86,30 +83,29 @@
                                                             <input  class="form-control" type="tel" value="${sessionScope.usuario}"  disabled="true" required placeholder="<fmt:message key="msg.Nombres" />" value="${account.getFirst_name()}" />
                                                         </div>
                                                     </div>
-
-
-
                                                     <label for="inputPassword" class="sr-only">Password</label>
-                                                    <input type="password" name="passwordActual"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.Password" />" required >
+                                                    <input type="password" name="passwordActual"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.Password" />" autocomplete="No" required >
                                                     <label for="inputPassword" class="sr-only">Password</label>
                                                     <input type="password" name="password"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.PasswordNuevo" />" required >
                                                     <label for="confirmPassword" class="sr-only">Confiramar Password</label>
                                                     <input type="password" name="confirmPassword" id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.ConfirmarPassword" />" required>
                                                     <input class="btn btn-lg btn-warning btn-block" type="submit" name="btnenvio"value="<fmt:message key="msg.Confirmar" />" >
                                                 </form>
+                                                <div id="Error" >
+                                                    <center>
+                                                        <strong>${mensaje}</strong>
+                                                    </center>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- /.box-body -->
                                     </div>
                                     <!-- /.box -->
                                 </div>
-                                <!-- /.col -->
 
                                 <!-- /.col -->
                             </div>
                             <!-- /.row -->
-
-
                         </div>
                         <!-- /#page-wrapper -->
                     </div>

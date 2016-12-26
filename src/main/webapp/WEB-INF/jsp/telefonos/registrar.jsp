@@ -24,7 +24,7 @@
                 } else
                 {
                     /* Si todo está OK se prosigue con lo que sea: */
-                    alert('¡registrando usuario!');
+                    alert('¡Usuario Valido!');
                     document.form.submit;
                     return true;
                 }

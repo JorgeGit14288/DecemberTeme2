@@ -17,7 +17,8 @@ public class ConvertirFecha {
     public String StringFecha(String fecha) throws ParseException
     {
         String resultado = null;
-        SimpleDateFormat formato = new SimpleDateFormat("MM/dd/yyyy");
+        System.out.println("La fecha a convertir es "+fecha);
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaDate = formato.parse(fecha);
         System.out.println("recibiendo del historial " + fechaDate);
 

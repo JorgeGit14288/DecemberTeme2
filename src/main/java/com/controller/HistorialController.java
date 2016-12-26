@@ -83,6 +83,14 @@ public class HistorialController {
                 System.out.println("La fecha de un mes anterior es " + fechaAnterior);
                 startDate = fechaAnterior;
                 endDate = fechaActual;
+                
+                ConvertirFecha convertir = new ConvertirFecha();
+                String startFecha = convertir.StringFecha(startDate);
+                String endFecha = convertir.StringFecha(endDate);
+
+                System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startDate + "\n\n " + endDate);
+
+               
                 //fin fecha
 
                 try {
@@ -94,11 +102,14 @@ public class HistorialController {
                     telefono = telDao.getTelefono(telUser);
                     usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());
                     idAccount = usuario.getIdAccount();
+                    
+                    
+                    
                     String endDate2 = endDate + " 23:59:00";
                     String startDate2 = startDate + " 00:00:00";
 
-                    System.out.println(idAccount + " " + page + " " + max + " " + startDate2 + " " + endDate2 + " " + destination + " ");
-                    this.llenarHistorial(idAccount, startDate2, endDate2, String.valueOf(page), String.valueOf(max), destination);
+                    System.out.println("id account = " +idAccount + " " + page + " " + max + " " + startDate2 + " " + endDate2 + " " + destination + " ");
+                    this.llenarHistorial(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max), destination);
                     if (llamadas.isEmpty()) {
                         mensaje = "No se realizaron llamadas en los ultimos 30 dias";
                         mav.addObject("startDate", startDate);
@@ -197,7 +208,10 @@ public class HistorialController {
                 //String idAccount = "22";
                 String max2 = request.getParameter("max");
                 String startDate2 = request.getParameter("startDate");
+                System.out.println("la fecha ingresada desde la vista es " + startDate2);
                 String endDate2 = request.getParameter("endDate");
+                System.out.println("la fecha ingresada desde la vista es " + endDate2);
+
                 String destination2 = request.getParameter("destination");
                 String page2 = request.getParameter("page");
 
@@ -224,13 +238,12 @@ public class HistorialController {
 
                 pagenext = page + 1;
                 ConvertirFecha convertir = new ConvertirFecha();
-
                 String startFecha = convertir.StringFecha(startDate);
                 String endFecha = convertir.StringFecha(endDate);
 
-                System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startFecha + "\n\n " + endFecha);
+                System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startDate + "\n\n " + endDate);
 
-                System.out.println(idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
+                System.out.println("id account "+idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
 
                 try {
                     this.llenarHistorial(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max), destination);
@@ -344,7 +357,7 @@ public class HistorialController {
                 int mes = c.get(Calendar.MONTH);
                 int year = c.get(Calendar.YEAR);
                 mes = mes + 1;
-                String fechaActual = year + "-" + mes + "-" + dia;
+                String fechaActual = dia + "/" + mes + "/" + year;
                 System.out.println("Fecha acual " + fechaActual);
 
                 int mesAnterior;
@@ -358,10 +371,21 @@ public class HistorialController {
                     yearAnterior = year;
                 }
 
-                String fechaAnterior = yearAnterior + "-" + mesAnterior + "-" + dia;
+                String fechaAnterior = dia + "/" + mesAnterior + "/" + yearAnterior;
                 System.out.println("La fecha de un mes anterior es " + fechaAnterior);
                 startDate = fechaAnterior;
                 endDate = fechaActual;
+                
+                
+                ConvertirFecha convertir = new ConvertirFecha();
+                String startFecha = convertir.StringFecha(startDate);
+                String endFecha = convertir.StringFecha(endDate);
+
+                System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startDate + "\n\n " + endDate);
+
+                System.out.println(idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
+                
+                            
 
                 //fin fechas
                 page = 1;
@@ -373,10 +397,10 @@ public class HistorialController {
                 mav.addObject("max", max);
                 String endDate2 = endDate + " 23:59:00";
                 String startDate2 = startDate + " 00:00:00";
-                System.out.println("account" + idAccount + " page  " + page + " max " + max + " startDate " + startDate2 + " endDate " + endDate2);
+               
 
                 try {
-                    this.llenarRecargas(idAccount, startDate, endDate, String.valueOf(page), String.valueOf(max));
+                    this.llenarRecargas(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max));
 
                     if (recargas.isEmpty()) {
                         System.out.println("No se encontraron recargas en los ultimos 30 dias");
@@ -501,15 +525,23 @@ public class HistorialController {
                 } else {
                     pageprevius = page - 1;
                 }
-
-                pagenext = page + 1;
+                
+                ConvertirFecha convertir = new ConvertirFecha();
+                String startFecha = convertir.StringFecha(startDate);
+                String endFecha = convertir.StringFecha(endDate);
 
                 System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startDate + "\n\n " + endDate);
 
-                System.out.println("account" + idAccount + " page  " + page + " max " + max + " startDate " + startDate + " endDate " + endDate);
+                System.out.println(idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
+
+                pagenext = page + 1;
+
+                
+
+
 
                 try {
-                    this.llenarRecargas(idAccount, startDate, endDate, String.valueOf(page), String.valueOf(max));
+                    this.llenarRecargas(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max));
 
                     if (recargas.isEmpty()) {
                         System.out.println("No se encontraron recargas en las fechas comprendidas");

@@ -245,6 +245,96 @@ public class RecuperarController {
         mav.setViewName("login/login");
         return mav;
     }
+    @RequestMapping(value = "cambiarPassword")
+    public ModelAndView cambiarPassword(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        String mensaje = null;
+        sesion = request.getSession();
+        try {
+            if (sesion.getAttribute("usuario") == null) {
+                mav.setViewName("login/login");
+
+            } else {
+
+                Telefonos telefono = new Telefonos();
+                TelefonosDao telDao = new TelefonosDao();
+                String idtel = (sesion.getAttribute("usuario")).toString();
+                Cifrar varCifrar = new Cifrar();
+                
+                telefono = telDao.getTelefono(idtel);
+                UsuariosDao userDao = new UsuariosDao();
+
+                Usuarios usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());
+                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
+                    mav.setViewName("viewsAdmin/cambiarPasswordAdmin");
+                    System.out.println("el usuario es administrador");
+                } else {
+                    mav.setViewName("panel/cambiarPassword");
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            mav.setViewName("panel/panel");
+        }
+
+      
+        return mav;
+    }
+    @RequestMapping(value = "validarCambiarPassword", method = RequestMethod.POST)
+    public ModelAndView validarcambiarPassword(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        String mensaje = null;
+        sesion = request.getSession();
+        try {
+            if (sesion.getAttribute("usuario") == null) {
+                mav.setViewName("login/login");
+
+            } else {
+
+                Telefonos telefono = new Telefonos();
+                TelefonosDao telDao = new TelefonosDao();
+                String idtel = (sesion.getAttribute("usuario")).toString();
+                Cifrar varCifrar = new Cifrar();
+                String newPassword = varCifrar.Encriptar(request.getParameter("password"));
+                String passActual = varCifrar.Encriptar(request.getParameter("passwordActual"));
+                telefono = telDao.getTelefono(idtel);
+                UsuariosDao userDao = new UsuariosDao();
+
+                Usuarios usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());
+
+                if (passActual.compareTo(usuario.getPassword()) == 0) {
+                    System.out.print("Los Password Coinciden");
+                    usuario.setPassword(newPassword);
+                    if (userDao.updateUsuarios(usuario)) {
+                       System.out.print("Se ha actualizado el password");
+                       mav.setViewName("panel/cambiarPassword");
+                        mensaje = "Change Password Succes";
+                        mav.addObject("mensaje", mensaje);
+                        this.createCodigo();
+                    } else {
+                        mensaje = "No se ha podido actualizar el password en el servidor";
+                        System.out.print("No se ha podido actualizar el password en el servidor");
+                        mav.addObject("mensaje", mensaje);
+                        mav.setViewName("panel/cambiarPassword");
+                    }
+
+                } else {
+                    System.out.print("Los El password ingresado es invalido");
+                    mav.setViewName("panel/cambiarPassword");
+                    mensaje = "el password Actual es incorrecto";
+                    mav.addObject("mensaje", mensaje);
+
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            mav.setViewName("recuperar/setPassword");
+        }
+
+        return mav;
+    }
 
     @ModelAttribute("codigo")
     public String obtenerCodigo() {

@@ -29,7 +29,7 @@
                         <div class="panel-body">
                             <center>
                                 <form class="form-Registro"  method="POST" action="validarRecuperarPhone.htm">
-                                    <label><fmt:message key="msg.InforPanelConfimarTelefono" /><c:out value="${codigo}" /></label><br>
+                                    <label><fmt:message key="msg.InforPanelConfimarTelefono" /></label><br>
                                     <input type="number" class="form-control" name="codigo" placeholder="<fmt:message key="msg.CodigoEjemplo" />" required="" >
                                     <br>
                                     <button class="btn btn-lg btn-warning btn-block" type="submit"  ><fmt:message key="msg.BotonEnviarCodigo" /></button>

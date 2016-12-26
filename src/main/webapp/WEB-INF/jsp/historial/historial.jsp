@@ -9,8 +9,17 @@
         <title><fmt:message key="msg.TituloPaginaHistorialLlamadas" /></title>
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
-
-
+        
+        <script >
+            function imprimir() {
+                var objeto = document.getElementById('imprimeme');  //obtenemos el objeto a imprimir
+                var ventana = window.open('', '_blank');  //abrimos una ventana vacía nueva
+                ventana.document.write(objeto.innerHTML);  //imprimimos el HTML del objeto en la nueva ventana
+                ventana.document.close();  //cerramos el documento
+                ventana.print();  //imprimimos la ventana
+                ventana.close();  //cerramos la ventana
+            }
+        </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -104,7 +113,7 @@
                                                         <label><fmt:message key="msg.Mostrar" /></label>
 
                                                         <div class="input-group date ">
-                                                            
+
                                                             <select name="max">
                                                                 <option selected value="${max}"><fmt:message key="msg.Mostrar" /> ${max}</option>
 
@@ -125,8 +134,18 @@
                                                         <label><br></label>
 
                                                         <div class="input-group date ">
-                                                            
-                                                           <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+
+                                                            <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+                                                        </div>
+                                                        <!-- /.input group -->
+                                                    </div>
+                                                    <!-- /.form group -->
+                                                    <div class="form-group col-xs-4">
+                                                        <label><br></label>
+
+                                                        <div class="input-group date ">
+
+                                                            <button onclick="imprimir();" class=" btn btn-danger"><fmt:message key="msg.Imprimir" /></button>
                                                         </div>
                                                         <!-- /.input group -->
                                                     </div>
@@ -140,48 +159,51 @@
                                             </center>
                                         </div>
 
+                                        <div id="imprimeme">
 
-                                        <div class="table-striped">
-                                            <table class="table table-bordered table-hover table-striped">
-                                                <thead>
 
-                                                    <tr>
-                                                        <th><fmt:message key="msg.No" /></th>
-                                                        <th><fmt:message key="msg.FechaHora" /></th>
-                                                        <th><fmt:message key="msg.Destino" /></th>
-                                                        <th><fmt:message key="msg.PaisOperador" /></th>
+                                            <div class="table-striped">
+                                                <table class="table table-bordered table-hover table-striped">
+                                                    <thead>
 
-                                                        <th><fmt:message key="msg.Minutos" /></th>
-                                                        <th><fmt:message key="msg.CostoMinuto" /></th>
-                                                        <th><fmt:message key="msg.CostoTotal" /></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <c:forEach items="${llamadas}" var="llamada">
-                                                        <tr class="odd gradeX">
-                                                            <td><c:out value="${llamada.getNo()}" /></td>
-                                                            <td><c:out value="${llamada.getInicioLLamada()}" /></td>
-                                                            <td><c:out value="${llamada.getNumero()}" /></td>
-                                                            <td><c:out value="${llamada.getPais_operador()}" /></td>
-                                                            <td><c:out value="${llamada.getDuracionMinutos() }" /></td>
-                                                            <td><c:out value="${llamada.getCostoMinuto()}" /></td>
-                                                            <td><c:out value="${llamada.getCostoTotal()}" /></td>
+                                                        <tr>
+                                                            <th><fmt:message key="msg.No" /></th>
+                                                            <th><fmt:message key="msg.FechaHora" /></th>
+                                                            <th><fmt:message key="msg.Destino" /></th>
+                                                            <th><fmt:message key="msg.PaisOperador" /></th>
 
+                                                            <th><fmt:message key="msg.Minutos" /></th>
+                                                            <th><fmt:message key="msg.CostoMinuto" /></th>
+                                                            <th><fmt:message key="msg.CostoTotal" /></th>
                                                         </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>
-                                            <ul class="pager">
+                                                    </thead>
+                                                    <tbody>
+                                                        <c:forEach items="${llamadas}" var="llamada">
+                                                            <tr class="odd gradeX">
+                                                                <td><c:out value="${llamada.getNo()}" /></td>
+                                                                <td><c:out value="${llamada.getInicioLLamada()}" /></td>
+                                                                <td><c:out value="${llamada.getNumero()}" /></td>
+                                                                <td><c:out value="${llamada.getPais_operador()}" /></td>
+                                                                <td><c:out value="${llamada.getDuracionMinutos() }" /></td>
+                                                                <td><c:out value="${llamada.getCostoMinuto()}" /></td>
+                                                                <td><c:out value="${llamada.getCostoTotal()}" /></td>
 
-                                                <li class="previous"><a href="getHistorial.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">&larr; <fmt:message key="msg.Anterior" /> ${pageprevius}</a></li>
-                                                <li class="list-group-item-text"><fmt:message key="msg.Pagina" />${page}</li>
-                                                <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}"><fmt:message key="msg.Siguiente" /> ${pagenext} &rarr;</a></li>
-                                            </ul>
+                                                            </tr>
+                                                        </c:forEach>
+                                                    </tbody>
+                                                </table>
+                                                <ul class="pager">
+
+                                                    <li class="previous"><a href="getHistorial.htm?page=${pageprevius}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}">&larr; <fmt:message key="msg.Anterior" /> ${pageprevius}</a></li>
+                                                    <li class="list-group-item-text"><fmt:message key="msg.Pagina" />${page}</li>
+                                                    <li class="next"><a href="getHistorial.htm?page=${pagenext}&max=${max}&startDate=${startDate}&endDate=${endDate}&destination=${destination}"><fmt:message key="msg.Siguiente" /> ${pagenext} &rarr;</a></li>
+                                                </ul>
 
 
+                                            </div>
+
+                                            <!-- /.box-body -->
                                         </div>
-
-                                        <!-- /.box-body -->
                                     </div>
                                     <!-- /.box -->
                                 </div>
