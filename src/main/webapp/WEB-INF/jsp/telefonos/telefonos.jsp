@@ -7,25 +7,36 @@
         
         <title>Phones </title>
 
-        <jsp:include page="../shared/theme2/admin/headDashboard.jsp" />
+      <jsp:include page="../shared/theme2/user/headDashboardTables.jsp" />
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
 
-            <jsp:include page="../shared/theme2/admin/topMenu.jsp" />
+            <jsp:include page="../shared/theme2/user/topMenu.jsp" />
             <!-- Left side column. contains the logo and sidebar -->
             <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/admin/topMenu2.jsp" />
+                <section class="content-header">
+                    <h1>
+                        <fmt:message key="msg.ListaTelefonos" />
+                        <small></small>
+
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
+                        <li class="active"><fmt:message key="msg.GestionUsuarios" /></li>
+                        <li class="active"><fmt:message key="msg.TelefonosRegistrados" /></li>
+                    </ol>
+                </section>
 
                 <!-- Main content -->
                 <section class="content">
                     <!-- Small boxes (Stat box) -->
-                    <jsp:include page="../shared/theme2/admin/rowCenter1.jsp" />
+                    <jsp:include page="../shared/theme2/user/rowCenter1.jsp" />
                     <!-- /.row -->
                     <!-- Main row -->
                     <div id="wrapper">
@@ -36,7 +47,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-primary box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.Recargar" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.ListaTelefonos" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -100,7 +111,7 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-            <jsp:include page="../shared/theme2/admin/footer.jsp" />
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
 
 
             <div class="control-sidebar-bg"></div>

@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>InterCity| <fmt:message key="msg.TituloPaginaEscritorio" /></title>
+        <title><fmt:message key="msg.TituloPaginaCuotas" /></title>
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
@@ -14,14 +14,24 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
 
-            <jsp:include page="../shared/theme2/admin/topMenu.jsp" />
+            <jsp:include page="../shared/theme2/user/topMenu.jsp" />
             <!-- Left side column. contains the logo and sidebar -->
-            <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
+            <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/admin/topMenu2.jsp" />
+                <section class="content-header">
+                    <h1>
+                        <fmt:message key="msg.Cuotas" />
+                        <small></small>
+
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
+                        <li class="active"><fmt:message key="msg.Cuotas" /></li>
+                    </ol>
+                </section>
 
                 <!-- Main content -->
                 <section class="content">
@@ -37,7 +47,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-success box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.NombrePanelHistorial1" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.TituloVentanaCuotas" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -52,7 +62,7 @@
                                                     <div class="col-xs-4">
                                                         <label><fmt:message key="msg.Pais" /></label>
                                                         <select name="country"  required  ><br>
-                                                            <option value="${country}"> <fmt:message key="msg.PaisActual" /> ${country}  </option> 
+                                                            <option value="${country}"> <fmt:message key="msg.Actual" /> ${country}  </option> 
                                                             <option value="Estados Unidos">Estados Unidos </option> 
                                                             <option value="Canada">Canada</option> 
                                                             <option value="Puesto Rico">Puerto Rico</option> 
@@ -80,6 +90,8 @@
                                                             <option value="15">15 </option> 
                                                             <option value="20">$25</option> 
                                                             <option value="30">$30</option> 
+                                                            <option value="50">$50</option> 
+                                                            <option value="100">$100</option> 
                                                         </select>
                                                     </div>
                                                     <div class="col-xs-2">
@@ -117,19 +129,19 @@
                         </div>
                         <!-- /.row -->
 
+                        <
+                        <!-- =========================================================== -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /#page-wrapper -->
+                </section>
+                <!-- /.content -->
 
-                    <!-- =========================================================== -->
             </div>
-            <!-- /#page-wrapper -->
-        </section>
-        <!-- /.content -->
-        <jsp:include page="../shared/theme2/admin/footer.jsp" />
-    </div>
-    <!-- /.row (main row) -->
-    <!-- /.content-wrapper -->
-    <div class="control-sidebar-bg"></div>
+            <!-- /.row (main row) -->
+            <!-- /.content-wrapper -->
+            <div class="control-sidebar-bg"></div>
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
+        </div>
 
-</body>
+    </body>
 </html>

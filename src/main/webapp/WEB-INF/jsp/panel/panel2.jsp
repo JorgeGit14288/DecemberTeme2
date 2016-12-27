@@ -1,126 +1,64 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title> <fmt:message key="msg.TituloPaginaEscritorio" /></title>
-
-
-
-        <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
-        <script>
-            function validar() {
-                if (document.form.password.value != document.form.confirmPassword.value)
-                {
-                    alert('¡los datos de los campos no coinciden, intente de nuevo');
-                    document.form.password.focus();
-                    return false;
-                    // 
-                } else
-                {
-                    /* Si todo está OK se prosigue con lo que sea: */
-                    alert('¡Cambio exitoso, se redigira a la pantalla de  login para que ingrese sus nuevos datos!');
-                    document.form.submit;
-                    return true;
-                }
-            }
-        </script>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title><fmt:message key="msg.TituloPaginaLogin" /></title>
+        <jsp:include page="../shared/theme3/user/headLogin.jsp" />
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-        <div class="wrapper">
 
-            <jsp:include page="../shared/theme2/user/topMenu.jsp" />
-            <!-- Left side column. contains the logo and sidebar -->
-            <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
-
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                        <fmt:message key="msg.Escritorio" />
-                        <small></small>
-
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Inicio" /></a></li>
-                        <li class="active"><fmt:message key="msg.Escritorio" /></li>
-                    </ol>
-                </section>
-
-                <!-- Main content -->
-                <section class="content">
-                    <!-- Small boxes (Stat box) -->
-                    <jsp:include page="../shared/theme2/user/rowCenter1.jsp" />
-                    <!-- /.row -->
-                    <!-- Main row -->
-                    <div id="wrapper">
-
-                        <div id="page-wrapper">
-                            <div class="row">
-                                <!-- /.col -->
-                                <div class="col-md-12">
-                                    <div class="box box-primary box-solid">
-                                        <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.Recargar" /></h3>
-
-                                            <div class="box-tools pull-right">
-                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                                </button>
-                                            </div>
-                                            <!-- /.box-tools -->
-                                        </div>
-                                        <!-- /.box-header -->
-                                        <div class="box-body">
-                                            <div class="col-md-8">
-                                                <form name="form" class="form-Registro" method="POST" onsubmit="return validar()" action="validarNewPassword.htm" >
-
-                                                    <div class="form-group">
-                                                        <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Telefono" />:</label>
-
-                                                        <div class="col-sm-10">
-                                                            <input  class="form-control" type="tel" value="${sessionScope.usuario}"  disabled="true" required placeholder="<fmt:message key="msg.Nombres" />" value="${account.getFirst_name()}" />
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <label for="inputPassword" class="sr-only">Password</label>
-                                                    <input type="password" name="passwordActual"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.Password" />" required >
-                                                    <label for="inputPassword" class="sr-only">Password</label>
-                                                    <input type="password" name="password"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.PasswordNuevo" />" required >
-                                                    <label for="confirmPassword" class="sr-only">Confiramar Password</label>
-                                                    <input type="password" name="confirmPassword" id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.ConfirmarPassword" />" required>
-                                                    <input class="btn btn-lg btn-warning btn-block" type="submit" name="btnenvio"value="<fmt:message key="msg.Confirmar" />" >
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <!-- /.box-body -->
-                                    </div>
-                                    <!-- /.box -->
-                                </div>
-                                <!-- /.col -->
-
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.row -->
-
-
-                        </div>
-                        <!-- /#page-wrapper -->
+    <body class="login-img3-body">
+        <jsp:include page="../shared/theme3/user/topMenu.jsp" />
+        <div class="container">
+            <center> <img src="${pageContext.request.contextPath}/resources/image/logo.png" /> </center>
+            <form class="login-form" method="POST" action="validarRecuperar.htm">        
+                <div class="login-wrap">
+                    <center>   <label><fmt:message key="msg.InfoPanelRecuperar" /></label><br> </center>
+                    <div class="input-group">
+                        <label for="codigoArea"  class="sr-only"><fmt:message key="msg.CodigoArea" /></label>
+                        <select name="codigo"  required  >
+                            <option value="1">+1 Estados Unidos </option> 
+                            <option value="1">+1 Canada</option> 
+                            <option value="1">+1 Puerto Rico</option> 
+                            <option value="1">+1 Republica Dominicana</option> 
+                            <option value="51">+51 Peru</option>
+                            <option value="52">+52 Mexico</option>
+                            <option value="53">+53 Cuba</option>
+                            <option value="56">+56 Chile</option>
+                            <option value="502">+502 Guatemala</option>
+                            <option value="503">+503 El Salvador</option>
+                            <option value="504">+504 Honduras</option>
+                            <option value="505">+505 Nicaragua</option>
+                            <option value="506">+506 Costa Rica</option>
+                            <option value="507">+507 Panama</option>
+                        </select>
                     </div>
-                    <!-- /.row (main row) -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon_phone"></i></span>
+                        <input class="form-control"  placeholder="<fmt:message key="msg.NumeroTelefonico" />" type="tel" name="telefono" id="telefono" autocomplete="on" autofocus >
+                    </div>
 
-                </section>
-                <!-- /.content -->
-            </div>
-            <!-- /.content-wrapper -->
-            <div class="control-sidebar-bg"></div>
-            <jsp:include page="../shared/theme2/user/footer.jsp" />
+                    <button class="btn btn-lg btn-warning btn-block" type="submit"><fmt:message key="msg.Buscar" /></button>
+                    <center> <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a> </center> 
+                </div>
+                <div id="Error">
+                    <Br>
+                    <center>
+                        <h4>
+                            <label> ${mensaje}</label>
+                        </h4>
+                    </center>
+                </div>
+            </form>
+
+
         </div>
     </body>
 </html>

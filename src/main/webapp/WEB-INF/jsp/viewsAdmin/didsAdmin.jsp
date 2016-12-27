@@ -16,7 +16,7 @@
 
             <jsp:include page="../shared/theme2/user/topMenu.jsp" />
             <!-- Left side column. contains the logo and sidebar -->
-            <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
+            <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
@@ -117,7 +117,7 @@
                                                         <input type="text" name="area" value="${area}"  placeholder="<fmt:message key="msg.Area"/>" >
                                                     </div>            
 
-                                                    <div class="col-xs-2">                                                        <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+                                                    <div class="col-xs-2">                                                        <button type="submit" class="btn btn-success"><fmt:message key="msg.Buscar" /></button>
                                                     </div> 
                                                 </form>
                                             </div>

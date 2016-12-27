@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>InterCity| <fmt:message key="msg.TituloPaginaAyuda" /></title>
+        <title><fmt:message key="msg.TituloPaginaServicioCliente" /></title>
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
@@ -23,13 +23,14 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <fmt:message key="msg.Ayuda" />
+                        <fmt:message key="msg.ServicioCliente" />
                         <small></small>
 
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
                         <li class="active"><fmt:message key="msg.Ayuda" /></li>
+                        <li class="active"><fmt:message key="msg.ServicioCliente" /></li>
                     </ol>
                 </section>
 
@@ -47,7 +48,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-success box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.Ayuda" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.ServicioCliente" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -85,20 +86,19 @@
                         </div>
                         <!-- /.row -->
 
-
-
-                        <!-- =========================================================== -->
                     </div>
-                    <!-- /#page-wrapper -->
+                    <!-- /.row -->
 
-                </section>
-                <!-- /.content -->
-
+                    <!-- =========================================================== -->
             </div>
-            <!-- /.row (main row) -->
-            <!-- /.content-wrapper -->
-            <div class="control-sidebar-bg"></div>
-            <jsp:include page="../shared/theme2/user/footer.jsp" />
+            <!-- /#page-wrapper -->
+        </section>
+        <!-- /.content -->
+        <jsp:include page="../shared/theme2/user/footer.jsp" />
+    </div>
+    <!-- /.row (main row) -->
+    <!-- /.content-wrapper -->
+    <div class="control-sidebar-bg"></div>
 
-    </body>
+</body>
 </html>

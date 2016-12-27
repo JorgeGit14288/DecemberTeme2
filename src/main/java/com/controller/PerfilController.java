@@ -66,7 +66,7 @@ public class PerfilController {
                     mav.addObject("account", account);
 
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                        mav.setViewName("viewsAdmin/editarPerfilAdmin");
+                        mav.setViewName("viewsAdmin/perfilAdmin");
                     } else {
                         mav.setViewName("panel/perfil");
                     }
@@ -76,7 +76,7 @@ public class PerfilController {
                     mav.addObject("account", account);
 
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                        mav.setViewName("viewsAdmin/PerfilAdmin");
+                        mav.setViewName("viewsAdmin/perfilAdmin");
                     } else {
                         mav.setViewName("panel/pefil");
                     }
@@ -190,7 +190,7 @@ public class PerfilController {
                     }
                 } else {
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                        mav.setViewName("viewsAdmin/editarPerfilAdmin");
+                        mav.setViewName("viewsAdmin/PerfilAdmin");
                     } else {
                         mav.setViewName("panel/perfil");
                     }

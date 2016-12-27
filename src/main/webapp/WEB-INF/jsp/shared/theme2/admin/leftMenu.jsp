@@ -6,7 +6,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="${pageContext.request.contextPath}/resources/theme2/adminltemaster/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="${pageContext.request.contextPath}/resources/image/logo-mini-128-2.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>${sessionScope.usuario}</p>
@@ -41,34 +41,14 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="perfil.htm">
                     <i class="fa fa-user"></i>
                     <span> <fmt:message key="msg.PerfilUsuario" /></span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                    
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="perfil.htm"><i class="fa fa-user-secret"></i> <fmt:message key="msg.Perfil" /></a></li>
-                    <li><a href="editarPerfil.htm"><i class="fa fa-user-plus"></i><fmt:message key="msg.EditarPerfil" /></a></li>
-
-                </ul>
+                
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user"></i>
-                    <span> <fmt:message key="msg.Ayuda" /></span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="dids.htm"><i class="fa fa-user-plus"></i><fmt:message key="msg.Dids" /></a></li>             
-                    <li><a href="servicioCliente.htm"><i class="fa fa-phone"></i><fmt:message key="msg.ServicioCliente" /></a></li>
-                     <li><a href="ayuda.htm"><i class="fa fa-circle"></i> <fmt:message key="msg.Ayuda" /></a></li>
-
-                </ul>
-            </li>
+            
             <li class="treeview">
                 <a href="cuotas.htm">
                     <i class="fa fa-money"></i> <span><fmt:message key="msg.VerCuotas" /></span>  

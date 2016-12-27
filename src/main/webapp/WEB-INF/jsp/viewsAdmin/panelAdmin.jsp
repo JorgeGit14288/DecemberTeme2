@@ -8,7 +8,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title> <fmt:message key="msg.TituloPaginaEscritorio" /></title>
 
-        <jsp:include page="../shared/theme2/admin/headDashboard.jsp" />
+
+
+        <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -21,12 +23,22 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <jsp:include page="../shared/theme2/admin/topMenu2.jsp" />
+                <section class="content-header">
+                    <h1>
+                        <fmt:message key="msg.Escritorio" />
+                        <small></small>
+
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Inicio" /></a></li>
+                        <li class="active"><fmt:message key="msg.Escritorio" /></li>
+                    </ol>
+                </section>
 
                 <!-- Main content -->
                 <section class="content">
                     <!-- Small boxes (Stat box) -->
-                    <jsp:include page="../shared/theme2/admin/rowCenter1.jsp" />
+                    <jsp:include page="../shared/theme2/user/rowCenter1.jsp" />
                     <!-- /.row -->
                     <!-- Main row -->
                     <div id="wrapper">
@@ -64,7 +76,7 @@
                                 <div class="col-md-12">
                                     <div class="box box-warning box-solid">
                                         <div class="box-header with-border">
-                                            <h3 class="box-title"><fmt:message key="msg.PanelNombreCuotas" /></h3>
+                                            <h3 class="box-title"><fmt:message key="msg.TituloVentanaCuotas" /></h3>
 
                                             <div class="box-tools pull-right">
                                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -80,7 +92,7 @@
                                                         <div class="col-xs-4">
                                                             <label><fmt:message key="msg.Pais" /></label>
                                                             <select name="country"  required  ><br>
-                                                                <option value="${country}"> <fmt:message key="msg.PaisActual" /> ${country}  </option> 
+                                                                <option value="${country}"> <fmt:message key="msg.Actual" /> ${country}  </option> 
                                                                 <option value="Estados Unidos">Estados Unidos </option> 
                                                                 <option value="Canada">Canada</option> 
                                                                 <option value="Puesto Rico">Puerto Rico</option> 
@@ -108,6 +120,8 @@
                                                                 <option value="15">15 </option> 
                                                                 <option value="20">$25</option> 
                                                                 <option value="30">$30</option> 
+                                                                 <option value="50">$50</option> 
+                                                                  <option value="100">$100</option> 
                                                             </select>
                                                         </div>
                                                         <div class="col-xs-2">
@@ -156,10 +170,8 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-            <jsp:include page="../shared/theme2/admin/footer.jsp" />
-
-
             <div class="control-sidebar-bg"></div>
+            <jsp:include page="../shared/theme2/user/footer.jsp" />
         </div>
     </body>
 </html>
