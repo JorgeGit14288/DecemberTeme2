@@ -58,11 +58,15 @@ public class AyudaController {
                 System.out.println("mostrar ayuda con el idioma " + idioma);
 
                 sesionUser = sesion.getAttribute("usuario").toString();
-                httpHelp help = new httpHelp();
-                String resultado = help.getHelp(idioma);
+                
+                
+                httpServicioCliente help = new httpServicioCliente();
+                String resultado = help.getServicioCliente(idioma);
                 mav.addObject("resultado", resultado);
-                mensaje = "Ayuda";
+                mensaje = "Servicio al Cliente";
                 mav.addObject("mensaje", mensaje);
+                
+
 
                 if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                     mav.setViewName("viewsAdmin/ayudaAdmin");
@@ -107,11 +111,14 @@ public class AyudaController {
                 String idioma = RequestContextUtils.getLocale(request).getLanguage();
                 System.out.println("mostrar ayuda con el idioma " + idioma);
                 sesionUser = sesion.getAttribute("usuario").toString();
-                httpServicioCliente help = new httpServicioCliente();
-                String resultado = help.getServicioCliente(idioma);
+                
+                
+                httpHelp help = new httpHelp();
+                String resultado = help.getHelp(idioma);
                 mav.addObject("resultado", resultado);
-                mensaje = "Servicio al Cliente";
+                mensaje = "Ayuda";
                 mav.addObject("mensaje", mensaje);
+                
 
                 if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                     mav.setViewName("viewsAdmin/servicioClienteAdmin");

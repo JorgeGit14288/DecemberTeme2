@@ -1,78 +1,103 @@
-
-<%@ page session="false"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title><fmt:message key="msg.TituloPaginaConfirmarCodigo" /></title>
-        <jsp:include page="../shared/theme3/user/headLogin.jsp" />
-        <script>
-            function validar() {
-                if (document.form.password.value != document.form.confirmPassword.value)
-                {
-                    alert('¡los datos de los campos no coinciden, intente de nuevo');
-                    document.form.password.focus();
-                    return false;
-                    // 
-                } else
-                {
-                    /* Si todo está OK se prosigue con lo que sea: */
-                    alert('¡Cambio exitoso, se redigira a la pantalla de  login para que ingrese sus nuevos datos!');
-                    document.form.submit;
-                    return true;
-                }
-            }
-        </script>
+        <title><fmt:message key="msg.TituloPaginaServicioCliente" /></title>
+
+        <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
 
     </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
 
-    <body class="login-img3-body">
+            <jsp:include page="../shared/theme2/user/topMenu.jsp" />
+            <!-- Left side column. contains the logo and sidebar -->
+            <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
 
-        <div class="container">
-            <center> <img src="${pageContext.request.contextPath}/resources/image/logo.png" /> </center>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        <fmt:message key="msg.ServicioCliente" />
+                        <small></small>
 
-            <form name="form" class="login-form" method="POST"  onsubmit="return validar()" action="validarNewPassword.htm">        
-                <div class="login-wrap">
-                    <center> 
-                        <label><fmt:message key="msg.IngreseCodigo" /><br> ${codigo}</label>
-                    </center>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="panel.htm"><i class="fa fa-dashboard"></i> <fmt:message key="msg.Escritorio" /></a></li>
+                        <li class="active"><fmt:message key="msg.Ayuda" /></li>
+                        <li class="active"><fmt:message key="msg.ServicioCliente" /></li>
+                    </ol>
+                </section>
 
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="icon_phone"></i></span>
-                        <label for="Codigo" class="sr-only"><fmt:message key="msg.Codigo" /></label>
-                         <label for="Telefono" class="sr-only">Telefono</label>
-                                <input type="tel" value="${sessionScope.usuario}" readonly  name="telefono" id="telefono" class="form-control" placeholder="Numero de telefono" required autofocus>
-                                <label for="inputPassword" class="sr-only">Password</label>
-                                <input type="password" name="password"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.Password" />" required >
-                                <label for="confirmPassword" class="sr-only">Confiramar Password</label>
-                                <input type="password" name="confirmPassword" id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.ConfirmarPassword" />" required>
-                                <input class="btn btn-lg btn-warning btn-block" type="submit" name="btnenvio"value="<fmt:message key="msg.BotonConfirmar" />" >
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Small boxes (Stat box) -->
+                    <jsp:include page="../shared/theme2/user/rowCenter1.jsp" />
+                    <!-- /.row -->
+                    <!-- Main row -->
+                    <div id="wrapper">
+
+                        <div id="page-wrapper">
+                            <div class="row">
+                                <!-- /.col -->
+                                <div class="col-md-12">
+                                    <div class="box box-success box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title"><fmt:message key="msg.ServicioCliente" /></h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+
+                                            <div id="result">
+
+                                                ${resultado}
+
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                        <div id="result">
+                                            <div id="Error" class=" alert alert-success">
+                                                <center>
+                                                    <strong>${mensaje}</strong>
+                                                </center>
+                                            </div>
+
+                                            <!-- /.box-body -->
+                                        </div>
+
+                                    </div>
+
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+
+                        </div>
+                        <!-- /.row -->
+
                     </div>
-                    <input  class="btn btn-primary btn-lg btn-block" type="submit"  name="btnenvio"value="<fmt:message key="msg.Confirmar" />" >                    
-                </div>
-                <div>
-                    <center>
-                        <br>
-                        <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a>
+                    <!-- /.row -->
 
-                    </center>
-                </div>
-                <div id="Error">
-                    <center>
-                        <h4>
-                            <label> ${mensaje}</label>
-                        </h4>
-                    </center>
-                </div>
-            </form>
-        </div>
-    </body>
+                    <!-- =========================================================== -->
+            </div>
+            <!-- /#page-wrapper -->
+        </section>
+        <!-- /.content -->
+        <jsp:include page="../shared/theme2/user/footer.jsp" />
+    </div>
+    <!-- /.row (main row) -->
+    <!-- /.content-wrapper -->
+    <div class="control-sidebar-bg"></div>
+</body>
 </html>

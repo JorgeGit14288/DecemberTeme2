@@ -90,6 +90,7 @@ public class RecargarController {
                     } else {
 
                         mensaje = "No se ha encontrado informacion a cerca de la recarga";
+                        mav.setViewName("panel/panel");
 
                     }
                     mav.addObject("mensaje", mensaje);
@@ -109,11 +110,11 @@ public class RecargarController {
 
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
 
-                        mav.setViewName("viewsAdmin/recargarAdmin");
+                        mav.setViewName("viewsAdmin/panelAdmin");
                         System.out.println("El usuario es administrador ");
                     } else {
 
-                        mav.setViewName("recargar/recargar");
+                        mav.setViewName("panel/panel");
                     }
                 }
             }
@@ -123,11 +124,11 @@ public class RecargarController {
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
 
-                mav.setViewName("viewsAdmin/recargarAdmin");
+                mav.setViewName("viewsAdmin/panelAdmin");
                 System.out.println("El usuario es administrador ");
             } else {
 
-                mav.setViewName("recargar/recargar");
+                mav.setViewName("panel/panel");
             }
 
         }

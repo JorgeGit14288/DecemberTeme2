@@ -55,14 +55,14 @@
                 <div class="login-wrap">
                     <center> <h3 class="panel-primary"><fmt:message key="msg.InformacionCliente" /></h3></center> 
                     <label for="codigoArea" ><fmt:message key="msg.CodigoArea" /></label>
-                    <input name="codigo" required list="listapaises" placeholder="<fmt:message key="msg.CodigoArea" />">
-                    <datalist id="listapaises">
-                        <option value="1"> United States </option> 
-                        <option value="1"> Canada</option> 
-                        <option value="1"> Puerto Rico</option> 
-                        <option value="1"> Republica Dominicana</option> 
 
-                    </datalist>
+                    <select name="codigo"  required  >
+                        <option value="1">Estados Unidos </option> 
+                        <option value="1">Canada</option> 
+                        <option value="1">Puerto Rico</option> 
+                        <option value="1">Republica Dominicana</option> 
+
+                    </select>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="icon_phone"></i></span>
                         <label for="Telefono" class="sr-only"><fmt:message key="msg.Telefono" /></label>
@@ -96,10 +96,11 @@
                         </label>
                     </div>
 
-                    <input  class="btn btn-primary btn-lg btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.Registrar" />" >                    
+                    <input  class="btn btn-primary btn-lg btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.Registrar" />" >                                        
+                    <center> <h3> <label> <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a> </label> </h3></center> 
                 </div>
                 <div id="Error">
-                  
+
                     <center>
                         <h4>
                             <label> ${mensaje}</label>
@@ -107,8 +108,6 @@
                     </center>
                 </div>
             </form>
-
-
         </div>
     </body>
 </html>

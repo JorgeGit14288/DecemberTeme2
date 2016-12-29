@@ -15,10 +15,6 @@
             <span class="sr-only">Toggle navigation</span>
 
         </a>
-
-
-
-
         <div class="navbar-custom-menu ">
 
             <ul class="nav navbar-nav ">
@@ -55,8 +51,7 @@
                         <li><a href="dids.htm"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.NumerosAcceso" /></a>
                         </li>
                         <li><a href="ayuda.htm"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.Ayuda" /></a>
-                        <li><a href="acercaDe.htm"><i class="fa fa-language fa-fw"></i><fmt:message key="msg.AcercaDe" /></a>
-                        </li>
+                        
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>

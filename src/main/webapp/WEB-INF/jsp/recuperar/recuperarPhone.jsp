@@ -26,7 +26,7 @@
             <form name="form" class="login-form" method="POST"  method="POST" action="validarRecuperarPhone.htm">        
                 <div class="login-wrap">
                     <center> 
-                        <label><fmt:message key="msg.IngreseCodigo" /><br> ${codigo}</label>
+                        <label><fmt:message key="msg.IngreseCodigo" /><br> </label>
                         
                     </center>
 

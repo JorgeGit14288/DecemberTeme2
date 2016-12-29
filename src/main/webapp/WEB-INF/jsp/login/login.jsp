@@ -24,20 +24,11 @@
                     <p class="login-img"><i class="icon_lock_alt"></i></p>
                    <label for="codigoArea"  class="sr-only"><fmt:message key="msg.CodigoArea" /></label>
                                 <select name="codigo"  required  >
-                                    <option value="1">+1 Estados Unidos </option> 
-                                    <option value="1">+1 Canada</option> 
-                                    <option value="1">+1 Puerto Rico</option> 
-                                    <option value="1">+1 Republica Dominicana</option> 
-                                    <option value="51">+51 Peru</option>
-                                    <option value="52">+52 Mexico</option>
-                                    <option value="53">+53 Cuba</option>
-                                    <option value="56">+56 Chile</option>
-                                    <option value="502">+502 Guatemala</option>
-                                    <option value="503">+503 El Salvador</option>
-                                    <option value="504">+504 Honduras</option>
-                                    <option value="505">+505 Nicaragua</option>
-                                    <option value="506">+506 Costa Rica</option>
-                                    <option value="507">+507 Panama</option>
+                                    <option value="1">Estados Unidos </option> 
+                                    <option value="1">Canada</option> 
+                                    <option value="1">Puerto Rico</option> 
+                                    <option value="1">Republica Dominicana</option>                                  
+                                    <option value="502">Guatemala</option>                              
                                 </select>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="icon_phone"></i></span>
@@ -63,8 +54,6 @@
                     </center>
                 </div>
             </form>
-
-
         </div>
     </body>
 </html>

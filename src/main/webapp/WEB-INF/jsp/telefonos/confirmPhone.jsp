@@ -25,7 +25,7 @@
             <form name="form" class="login-form" method="POST"  method="POST" action="validarPhone.htm">        
                 <div class="login-wrap">
                     <center> 
-                        <label><fmt:message key="msg.IngreseCodigo" /><br> ${codigo}</label>
+                        <label><fmt:message key="msg.IngreseCodigo" /><br></label>
                     </center>
 
                     <div class="input-group">
