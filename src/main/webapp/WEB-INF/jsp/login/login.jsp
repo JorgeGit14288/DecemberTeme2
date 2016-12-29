@@ -12,6 +12,7 @@
         <meta name="author" content="">
         <title><fmt:message key="msg.TituloPaginaLogin" /></title>
         <jsp:include page="../shared/theme3/user/headLogin.jsp" />
+       
     </head>
 
     <body class="login-img3-body">

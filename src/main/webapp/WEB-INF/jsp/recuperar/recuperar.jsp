@@ -10,8 +10,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title><fmt:message key="msg.TituloPaginaLogin" /></title>
+        <title><fmt:message key="msg.TituloPaginaRecuperar" /></title>
         <jsp:include page="../shared/theme3/user/headLogin.jsp" />
+        <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
     </head>
 
     <body class="login-img3-body">
@@ -46,7 +47,8 @@
                     </div>
 
                     <button class="btn btn-lg btn-warning btn-block" type="submit"><fmt:message key="msg.Buscar" /></button>
-                    <center> <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a> </center> 
+                    <br>
+                    <center> <h3> <label> <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a> </label> </h3></center> 
                 </div>
                 <div id="Error">
                     <Br>

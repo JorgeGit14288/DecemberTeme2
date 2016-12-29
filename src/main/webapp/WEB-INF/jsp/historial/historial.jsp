@@ -9,7 +9,7 @@
         <title><fmt:message key="msg.TituloPaginaHistorialLlamadas" /></title>
 
         <jsp:include page="../shared/theme2/user/headDashboard.jsp" />
-        
+
         <script >
             function imprimir() {
                 var objeto = document.getElementById('imprimeme');  //obtenemos el objeto a imprimir
@@ -71,9 +71,9 @@
 
                                             <!-- /.panel-heading -->
 
-                                            <div class="col-lg-8">
+                                            <div class="col-lg-12">
                                                 <form name="form1" method="GET" action="getHistorial.htm" role="form">
-                                                    <div class="form-group col-xs-4">
+                                                    <div class="form-group col-xs-3">
                                                         <label><fmt:message key="msg.FechaInicio" />:</label>
 
                                                         <div class="input-group date ">
@@ -85,7 +85,7 @@
                                                         <!-- /.input group -->
                                                     </div>
                                                     <!-- /.form group -->
-                                                    <div class="form-group col-xs-4">
+                                                    <div class="form-group col-xs-3">
                                                         <label><fmt:message key="msg.FechaFin" />:</label>
 
                                                         <div class="input-group date ">
@@ -97,7 +97,7 @@
                                                         <!-- /.input group -->
                                                     </div>
                                                     <!-- /.form group -->
-                                                    <div class="form-group col-xs-4">
+                                                    <div class="form-group col-xs-3">
                                                         <label><fmt:message key="msg.NumeroDestino" /></label>
 
                                                         <div class="input-group date ">
@@ -109,7 +109,7 @@
                                                         <!-- /.input group -->
                                                     </div>
                                                     <!-- /.form group -->
-                                                    <div class="form-group col-xs-4">
+                                                    <div class="form-group col-xs-3">
                                                         <label><fmt:message key="msg.Mostrar" /></label>
 
                                                         <div class="input-group date ">
@@ -130,26 +130,9 @@
                                                         <!-- /.input group -->
                                                     </div>
                                                     <!-- /.form group -->
-                                                    <div class="form-group col-xs-4">
-                                                        <label><br></label>
+                                                    <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
 
-                                                        <div class="input-group date ">
-
-                                                            <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
-                                                        </div>
-                                                        <!-- /.input group -->
-                                                    </div>
-                                                    <!-- /.form group -->
-                                                    <div class="form-group col-xs-4">
-                                                        <label><br></label>
-
-                                                        <div class="input-group date ">
-
-                                                            <button onclick="imprimir();" class=" btn btn-danger"><fmt:message key="msg.Imprimir" /></button>
-                                                        </div>
-                                                        <!-- /.input group -->
-                                                    </div>
-                                                    <!-- /.form group -->
+                                                    <button onclick="imprimir();" class=" btn btn-danger"><fmt:message key="msg.Imprimir" /></button>
 
                                                 </form>
                                             </div>

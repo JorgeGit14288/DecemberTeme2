@@ -75,7 +75,7 @@ public class PanelController {
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                 mav.setViewName("viewsAdmin/panelAdmin");
+                mav.setViewName("viewsAdmin/panelAdmin");
                 System.out.println("el usuario es administrador");
             } else {
                 mav.setViewName("panel/panel");
@@ -143,33 +143,25 @@ public class PanelController {
     public ModelAndView getPoliticas(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
         try {
-            sesion = request.getSession();
 
+            mav.setViewName("politicas/politicas");
             String mensaje = null;
 
-            if (sesion.getAttribute("usuario") == null) {
-                mav.setViewName("politicas/politicas");
+            mav.setViewName("viewsAdmin/politicas");
+            System.out.println("el usuario es administrador");
 
-            } else {
-                sesionUser = sesion.getAttribute("usuario").toString();
-                if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                    mav.setViewName("viewsAdmin/politicas");
-                    System.out.println("el usuario es administrador");
-                } else {
-                    mav.setViewName("politicas/politicas");
-                }
-            }
+            mav.setViewName("politicas/politicas");
+
         } catch (Exception ex) {
             ex.printStackTrace();
             mensaje = "Ha ocurrido un error al obtener la vista";
             mav.addObject("mensaje", mensaje);
+            mav.setViewName("politicas/politicas");
 
-            if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
-                mav.setViewName("viewsAdmin/panelAdmin");
-                System.out.println("el usuario es administrador");
-            } else {
-                mav.setViewName("panel/panel");
-            }
+            mav.setViewName("viewsAdmin/panelAdmin");
+            System.out.println("el usuario es administrador");
+
+            mav.setViewName("panel/panel");
 
         }
         return mav;

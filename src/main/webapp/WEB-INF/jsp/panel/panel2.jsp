@@ -1,7 +1,9 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@ page session="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,46 +12,60 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title><fmt:message key="msg.TituloPaginaLogin" /></title>
+        <title><fmt:message key="msg.TituloPaginaConfirmarCodigo" /></title>
         <jsp:include page="../shared/theme3/user/headLogin.jsp" />
+        <script>
+            function validar() {
+                if (document.form.password.value != document.form.confirmPassword.value)
+                {
+                    alert('¡los datos de los campos no coinciden, intente de nuevo');
+                    document.form.password.focus();
+                    return false;
+                    // 
+                } else
+                {
+                    /* Si todo está OK se prosigue con lo que sea: */
+                    alert('¡Cambio exitoso, se redigira a la pantalla de  login para que ingrese sus nuevos datos!');
+                    document.form.submit;
+                    return true;
+                }
+            }
+        </script>
+
     </head>
 
     <body class="login-img3-body">
-        <jsp:include page="../shared/theme3/user/topMenu.jsp" />
+
         <div class="container">
             <center> <img src="${pageContext.request.contextPath}/resources/image/logo.png" /> </center>
-            <form class="login-form" method="POST" action="validarRecuperar.htm">        
+
+            <form name="form" class="login-form" method="POST"  onsubmit="return validar()" action="validarNewPassword.htm">        
                 <div class="login-wrap">
-                    <center>   <label><fmt:message key="msg.InfoPanelRecuperar" /></label><br> </center>
-                    <div class="input-group">
-                        <label for="codigoArea"  class="sr-only"><fmt:message key="msg.CodigoArea" /></label>
-                        <select name="codigo"  required  >
-                            <option value="1">+1 Estados Unidos </option> 
-                            <option value="1">+1 Canada</option> 
-                            <option value="1">+1 Puerto Rico</option> 
-                            <option value="1">+1 Republica Dominicana</option> 
-                            <option value="51">+51 Peru</option>
-                            <option value="52">+52 Mexico</option>
-                            <option value="53">+53 Cuba</option>
-                            <option value="56">+56 Chile</option>
-                            <option value="502">+502 Guatemala</option>
-                            <option value="503">+503 El Salvador</option>
-                            <option value="504">+504 Honduras</option>
-                            <option value="505">+505 Nicaragua</option>
-                            <option value="506">+506 Costa Rica</option>
-                            <option value="507">+507 Panama</option>
-                        </select>
-                    </div>
+                    <center> 
+                        <label><fmt:message key="msg.IngreseCodigo" /><br> ${codigo}</label>
+                    </center>
+
                     <div class="input-group">
                         <span class="input-group-addon"><i class="icon_phone"></i></span>
-                        <input class="form-control"  placeholder="<fmt:message key="msg.NumeroTelefonico" />" type="tel" name="telefono" id="telefono" autocomplete="on" autofocus >
+                        <label for="Codigo" class="sr-only"><fmt:message key="msg.Codigo" /></label>
+                         <label for="Telefono" class="sr-only">Telefono</label>
+                                <input type="tel" value="${sessionScope.usuario}" readonly  name="telefono" id="telefono" class="form-control" placeholder="Numero de telefono" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" name="password"  id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.Password" />" required >
+                                <label for="confirmPassword" class="sr-only">Confiramar Password</label>
+                                <input type="password" name="confirmPassword" id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.ConfirmarPassword" />" required>
+                                <input class="btn btn-lg btn-warning btn-block" type="submit" name="btnenvio"value="<fmt:message key="msg.BotonConfirmar" />" >
                     </div>
+                    <input  class="btn btn-primary btn-lg btn-block" type="submit"  name="btnenvio"value="<fmt:message key="msg.Confirmar" />" >                    
+                </div>
+                <div>
+                    <center>
+                        <br>
+                        <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a>
 
-                    <button class="btn btn-lg btn-warning btn-block" type="submit"><fmt:message key="msg.Buscar" /></button>
-                    <center> <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a> </center> 
+                    </center>
                 </div>
                 <div id="Error">
-                    <Br>
                     <center>
                         <h4>
                             <label> ${mensaje}</label>
@@ -57,8 +73,6 @@
                     </center>
                 </div>
             </form>
-
-
         </div>
     </body>
 </html>
