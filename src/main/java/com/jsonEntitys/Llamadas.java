@@ -22,6 +22,11 @@ public class Llamadas {
     private long duracionMinutos;
     private String costoTotal;
     private String costoMinuto;
+    private String horaLLamada;
+    private String fechaLLamada;
+    
+            
+    
 
     public int getNo() {
         return no;

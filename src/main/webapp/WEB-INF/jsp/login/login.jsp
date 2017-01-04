@@ -45,13 +45,11 @@
                     <button class="btn btn-primary btn-lg btn-block" type="submit"><fmt:message key="msg.Ingresar" /></button>
                     <center> <h3> <a href="registrar.htm"><fmt:message key="msg.Registrarse" /></a></h3> </center>
                 </div>
-                <div id="Error">
+                <div id="Error" class="alert alert-danger">
                     <Br>
                     <center>
-                        <h4>
-                            <label> ${mensaje}</label>
-                        </h4>
-                    </center>
+                        <h4> <b> ${mensaje} </b> </h4>
+                     </center>
                 </div>
             </form>
         </div>

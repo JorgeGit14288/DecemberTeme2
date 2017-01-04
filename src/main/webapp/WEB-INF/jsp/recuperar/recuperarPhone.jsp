@@ -32,7 +32,7 @@
 
                     <div class="input-group">
                         <span class="input-group-addon"><i class="icon_info"></i></span>
-                        <label for="Codigo" class="sr-only"><fmt:message key="msg.Codigo" /></label>
+                        <label for="Codigo" class="sr-only"><fmt:message key="msg.Codigo" /> ${codigo} </label>
                         <input class="form-control" type="number" name="codigo" placeholder="<fmt:message key="msg.CodigoEjemplo" />" required="" >
                     </div>
                     <input  class="btn btn-primary btn-lg btn-block" type="submit"  name="btnenvio"value="<fmt:message key="msg.Confirmar" />" >                    

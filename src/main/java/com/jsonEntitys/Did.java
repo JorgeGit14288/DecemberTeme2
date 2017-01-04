@@ -12,7 +12,7 @@ package com.jsonEntitys;
 public class Did {
     private int no;
     private int id;
-    private int phone;
+    private String phone;
     private String country;
     private String state;
     private String areas;
@@ -39,11 +39,11 @@ public class Did {
         this.id = id;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

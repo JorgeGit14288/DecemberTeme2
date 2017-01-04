@@ -132,23 +132,21 @@
                                             <table class="table table-bordered table-hover table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th><fmt:message key="msg.No" /></th>
-                                                        <th><fmt:message key="msg.Id" /></th>
-                                                        <th><fmt:message key="msg.Telefono" /></th>
-                                                        <th><fmt:message key="msg.Pais" /></th>
+                                                        
+                                                        <th><fmt:message key="msg.NumerosAcceso" /></th>                                                        
                                                         <th><fmt:message key="msg.Estado" /></th>
-                                                        <th><fmt:message key="msg.Status" /></th>
+                                                        <th><fmt:message key="msg.Area" /></th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <c:forEach items="${dids}" var="did">
                                                         <tr>
-                                                            <td><c:out value="${did.getNo()}" /></td>
-                                                            <td><c:out value="${did.getPhone()}" /></td>
-                                                            <td><c:out value="${did.getCountry()}" /></td>
+                                                            
+                                                            <td><c:out value="${did.getPhone()}" /></td>                                                           
                                                             <td><c:out value="${did.getState()}" /></td>
                                                             <td><c:out value="${did.getAreas() }" /></td>
-                                                            <td><c:out value="${did.getStatus() }" /></td>
+                                                           
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

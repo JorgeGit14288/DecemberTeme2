@@ -101,12 +101,7 @@
                                                 <!-- form start -->
                                                 <form class="form-horizontal" method="POST" action="validarEditarPerfil.htm" name="form">
                                                     <div class="box-body">
-                                                        <div class="form-group">
-                                                            <label for="idUsuario" class="col-sm-2 control-label"> <fmt:message key="msg.IdUsuario" />:</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="text" readonly name="idUsuario" value ="${cuenta.getIdUsuaro()}" id="idUsuario" /> 
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class="form-group">
                                                             <label for="telefono" class="col-sm-2 control-label"><fmt:message key="msg.Telefono" />:</label>
 

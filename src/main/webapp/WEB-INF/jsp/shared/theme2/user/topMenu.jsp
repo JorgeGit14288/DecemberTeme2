@@ -19,9 +19,9 @@
 
             <ul class="nav navbar-nav ">
                 <li class="dropdown">
-                    <a class="dropdown-toggle bg-red" data-toggle="dropdown" href="#">
-                        <span class="bg-red">
-                            <fmt:message key="msg.SaldoActual" />  $  ${sessionScope.cuenta.getSaldo()}
+                    <a class="dropdown-toggle bg-blue-gradient" data-toggle="dropdown" href="#" style="padding: 15px; font-size: 22px">
+                        <span>
+                            <fmt:message key="msg.SaldoActual" />  $  ${sessionScope.cuenta.getSaldo()} 
                         </span>
                     </a>
 

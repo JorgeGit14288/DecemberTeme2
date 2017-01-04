@@ -16,6 +16,7 @@ import com.dao.UsuariosDao;
 import com.entitys.Usuarios;
 import com.util.Cifrar;
 import com.util.GeneradorCodigos;
+import com.util.httpSendMsg;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -86,6 +87,10 @@ public class RecuperarController {
             String codigo = (request.getParameter("codigo"));
             String tel = (request.getParameter("telefono"));
             String telArea = (codigo + "-" + tel);
+            System.out.print("enviando el codigo a " + telArea);
+            String mensajeCodigo = "InterCity Registration Code " + this.getCodigo();
+            System.err.print(mensajeCodigo);
+            httpSendMsg msgHelper = new httpSendMsg();
 
             telefono = telDao.getTelefono(telArea);
             usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());
@@ -118,6 +123,7 @@ public class RecuperarController {
             mensaje = "Ingrese el codigo que recibio en su telefono ";
             mav.addObject("mensaje", mensaje);
             mav.setViewName("recuperar/recuperarPhone");
+            mav.addObject("codigo", codigo);
         } catch (Exception e) {
             mensaje = null;
             e.printStackTrace();
@@ -196,7 +202,7 @@ public class RecuperarController {
                 mav.setViewName("telefonos/confirmPhone");
 
             } else {
-               mav.setViewName("telefonos/confirmPhone");
+                mav.setViewName("telefonos/confirmPhone");
             }
         }
 
@@ -245,6 +251,7 @@ public class RecuperarController {
         mav.setViewName("login/login");
         return mav;
     }
+
     @RequestMapping(value = "cambiarPassword")
     public ModelAndView cambiarPassword(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
@@ -260,7 +267,7 @@ public class RecuperarController {
                 TelefonosDao telDao = new TelefonosDao();
                 String idtel = (sesion.getAttribute("usuario")).toString();
                 Cifrar varCifrar = new Cifrar();
-                
+
                 telefono = telDao.getTelefono(idtel);
                 UsuariosDao userDao = new UsuariosDao();
 
@@ -278,9 +285,9 @@ public class RecuperarController {
             mav.setViewName("panel/panel");
         }
 
-      
         return mav;
     }
+
     @RequestMapping(value = "validarCambiarPassword", method = RequestMethod.POST)
     public ModelAndView validarcambiarPassword(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
@@ -307,8 +314,8 @@ public class RecuperarController {
                     System.out.print("Los Password Coinciden");
                     usuario.setPassword(newPassword);
                     if (userDao.updateUsuarios(usuario)) {
-                       System.out.print("Se ha actualizado el password");
-                       mav.setViewName("panel/cambiarPassword");
+                        System.out.print("Se ha actualizado el password");
+                        mav.setViewName("panel/cambiarPassword");
                         mensaje = "Change Password Succes";
                         mav.addObject("mensaje", mensaje);
                         this.createCodigo();

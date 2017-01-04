@@ -7,6 +7,7 @@ package com.controller;
 
 import com.dao.TelefonosDao;
 import com.dao.UsuariosDao;
+import com.entitys.Detalles;
 import com.jsonEntitys.Account;
 import com.entitys.Telefonos;
 import com.entitys.Usuarios;
@@ -115,7 +116,12 @@ public class PerfilController {
                 TelefonosDao telDao = new TelefonosDao();
                 Telefonos telefono = new Telefonos();
                 telefono = telDao.getTelefono(sesUser);
-                String idUsuario = request.getParameter("idUsuario");
+                
+                 Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
+                
+               // String idUsuario = request.getParameter("idUsuario");
+                 String idUsuario = detalle.getIdUsuaro();
+    
                 String TelArea = request.getParameter(sesion.getAttribute("usuario").toString());
                 String nombres = request.getParameter("nombres");
                 String apellidos = request.getParameter("apellidos");

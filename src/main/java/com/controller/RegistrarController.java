@@ -121,7 +121,8 @@ public class RegistrarController {
             this.createCodigo();
             String telArea = telefono.getCodigoArea() + telefono.getTelefono();
             System.out.print("enviando el codigo a " + telArea);
-            String mensajeCodigo = "Codigo de Confirmacion2 " + this.getCodigo();
+            String mensajeCodigo = "InterCity Registration Code " + this.getCodigo();
+            System.err.print(mensajeCodigo);
             httpSendMsg msgHelper = new httpSendMsg();
             String resultmsg = msgHelper.sendMsg(telArea, mensajeCodigo);
             mav.setViewName("telefonos/confirmPhone");

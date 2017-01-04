@@ -2434,7 +2434,7 @@ ul.ft-link li a i {
 
 /*profile-widget image bg*/
 .profile-widget-img{
-    background: url('../img/backgrounds/bg-11-small.jpg') no-repeat !important;    
+    background: url('http://reseller.intercitytm.com/img/backgrounds/background2.jpg') no-repeat !important;    
 }
 .profile-nav .profile-widget-img .bg-layer {
     background: rgba(0,0,0,0.5) !important;

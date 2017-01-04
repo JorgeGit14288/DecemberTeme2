@@ -121,11 +121,12 @@ public class httpDids {
                          Did did = new Did();
                         did.setNo(i + 1);
                         did.setId(( jsonArray.getJSONObject(i).getInt("id")));
-                       did.setPhone( jsonArray.getJSONObject(i).getInt("phone"));
+                        did.setPhone(String.valueOf(jsonArray.getJSONObject(i).getBigInteger("phone")));
                         did.setCountry(jsonArray.getJSONObject(i).getString("country"));
                         did.setState(jsonArray.getJSONObject(i).getString("state"));
                         did.setAreas(jsonArray.getJSONObject(i).getString("areas"));
                         did.setStatus(jsonArray.getJSONObject(i).getInt("status"));
+                        System.out.print(jsonArray.getJSONObject(i).getInt("phone"));
 
                         
 
