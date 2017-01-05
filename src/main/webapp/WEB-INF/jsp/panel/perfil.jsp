@@ -216,17 +216,19 @@
                                             <form class="form-Registro" method="POST" action="validarEditarPerfil.htm" >
 
                                             </form>
-                                            <div id="Error">
-                                                <Br>
+                                            <% String msj = (String) request.getAttribute("mensaje");
+                                                if (msj != null) {
+                                            %>
+                                            <div id="Error" class="alert alert-success">
                                                 <center>
-
-                                                    <h5>
-                                                        ${mensaje}
-                                                    </h5>
-
+                                                    <b> <h4><%= msj%></h4></b>
                                                 </center>
-
                                             </div>
+
+                                            <%
+                                                } else {
+                                                }
+                                            %>  
 
                                             <!-- /.box-body -->
                                         </div>

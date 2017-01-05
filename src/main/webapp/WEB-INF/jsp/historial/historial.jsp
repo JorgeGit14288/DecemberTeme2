@@ -73,74 +73,86 @@
 
                                             <div class="col-lg-12">
                                                 <form name="form1" method="GET" action="getHistorial.htm" role="form">
-                                                    <div class="form-group col-xs-3">
-                                                        <label><fmt:message key="msg.FechaInicio" />:</label>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group col-xs-6">
+                                                            <label><fmt:message key="msg.FechaInicio" />:</label>
 
-                                                        <div class="input-group date ">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i>
+                                                            <div class="input-group date ">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </div>
+                                                                <input  name="startDate" required value="${startDate}" type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                                                             </div>
-                                                            <input  name="startDate" required value="${startDate}" type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                                            <!-- /.input group -->
                                                         </div>
-                                                        <!-- /.input group -->
-                                                    </div>
-                                                    <!-- /.form group -->
-                                                    <div class="form-group col-xs-3">
-                                                        <label><fmt:message key="msg.FechaFin" />:</label>
+                                                        <!-- /.form group -->
+                                                        <div class="form-group col-xs-6">
+                                                            <label><fmt:message key="msg.FechaFin" />:</label>
 
-                                                        <div class="input-group date ">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i>
+                                                            <div class="input-group date ">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </div>
+                                                                <input  name="endDate" value="${endDate}" required type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                                                             </div>
-                                                            <input  name="endDate" value="${endDate}" required type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                                            <!-- /.input group -->
                                                         </div>
-                                                        <!-- /.input group -->
                                                     </div>
-                                                    <!-- /.form group -->
-                                                    <div class="form-group col-xs-3">
-                                                        <label><fmt:message key="msg.NumeroDestino" /></label>
+                                                    <div class="col-md-6">                                                          <!-- /.form group -->
 
-                                                        <div class="input-group date ">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-phone"></i>
+                                                        <div class="form-group col-xs-6">
+                                                            <label><fmt:message key="msg.NumeroDestino" /></label>
+
+                                                            <div class="input-group date ">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-phone"></i>
+                                                                </div>
+                                                                <input type="number" name="destination" min="1" value="${destination}" class="form-control" placeholder="<fmt:message key="msg.NumeroDestinoEjemplo" />">
                                                             </div>
-                                                            <input type="number" name="destination" min="1" value="${destination}" class="form-control" placeholder="<fmt:message key="msg.NumeroDestinoEjemplo" />">
+                                                            <!-- /.input group -->
                                                         </div>
-                                                        <!-- /.input group -->
-                                                    </div>
-                                                    <!-- /.form group -->
-                                                    <div class="form-group col-xs-3">
-                                                        <label><fmt:message key="msg.Mostrar" /></label>
+                                                        <!-- /.form group -->
+                                                        <div class="form-group col-xs-6">
+                                                            <div class="col-xs-6">
 
-                                                        <div class="input-group date ">
+                                                                <div class="input-group date ">
+                                                                    <input type="hidden" name="max" value="15">
+                                                                    <br>
+                                                                    <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6">
 
-                                                            <select name="max">
-                                                                <option selected value="${max}"><fmt:message key="msg.Mostrar" /> ${max}</option>
+                                                                <div class="input-group date ">
+                                                                    <input type="hidden" name="max" value="15">
+                                                                    <br>
+                                                                     <button onclick="imprimir();" class=" btn btn-danger"><fmt:message key="msg.Imprimir" /></button>
+                                                                </div>
+                                                            </div>
 
-                                                                <option value="1">1 <fmt:message key="msg.Llamada" /></option> 
-                                                                <option value="5">5 <fmt:message key="msg.Llamadas" /></option> 
-                                                                <option value="10">10 <fmt:message key="msg.Llamadas" /></option> 
-                                                                <option value="15">15 <fmt:message key="msg.Llamadas" /></option> 
-                                                                <option value="25">25 <fmt:message key="msg.Llamadas" /></option> 
-                                                                <option value="50">50 <fmt:message key="msg.Llamadas" /></option> 
-                                                                <option value="100">100 <fmt:message key="msg.Llamadas" /></option> 
-
-                                                            </select>
                                                         </div>
-                                                        <!-- /.input group -->
                                                     </div>
-                                                    <!-- /.form group -->
-                                                    <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
 
-                                                    <button onclick="imprimir();" class=" btn btn-danger"><fmt:message key="msg.Imprimir" /></button>
+                                                                                                        <!-- /.form group -->
+
+
 
                                                 </form>
                                             </div>
-                                        </div><div id="Error" class=" alert alert-success">
+                                        </div>
+                                        <% String msj = (String) request.getAttribute("mensaje");
+                                            if (msj != null) {
+                                        %>
+                                        <div id="Error" class="alert alert-success">
                                             <center>
-                                                <strong>${mensaje}</strong>
+                                                <b> <h4><%= msj%></h4></b>
                                             </center>
                                         </div>
+
+                                        <%
+                                            } else {
+                                            }
+                                        %>  
 
                                         <div id="imprimeme">
 
@@ -151,7 +163,8 @@
 
                                                         <tr>
                                                             <th><fmt:message key="msg.No" /></th>
-                                                            <th><fmt:message key="msg.FechaHora" /></th>
+                                                            <th><fmt:message key="msg.Fecha" /></th>
+                                                            <th><fmt:message key="msg.Hora" /></th>
                                                             <th><fmt:message key="msg.Destino" /></th>
                                                             <th><fmt:message key="msg.PaisOperador" /></th>
 
@@ -164,7 +177,8 @@
                                                         <c:forEach items="${llamadas}" var="llamada">
                                                             <tr class="odd gradeX">
                                                                 <td><c:out value="${llamada.getNo()}" /></td>
-                                                                <td><c:out value="${llamada.getInicioLLamada()}" /></td>
+                                                                <td><c:out value="${llamada.getFechaLLamada()}" /></td>
+                                                                <td><c:out value="${llamada.getHoraLLamada()}" /></td>
                                                                 <td><c:out value="${llamada.getNumero()}" /></td>
                                                                 <td><c:out value="${llamada.getPais_operador()}" /></td>
                                                                 <td><c:out value="${llamada.getDuracionMinutos() }" /></td>
@@ -284,6 +298,5 @@
                 });
             });
         </script>
-
     </body>
 </html>

@@ -47,6 +47,24 @@
                             <div class="row">
                                 <!-- /.col -->
                                 <div class="col-md-12">
+                                    <div id="result">
+                                        <% String msj = (String) request.getAttribute("mensaje");
+                                            if (msj != null) {
+                                        %>
+                                        <div id="Error" class="alert alert-warning">
+                                            <center>
+                                                <b> <h4><%= msj%></h4></b>
+                                            </center>
+                                        </div>
+
+                                        <%
+                                            } else {
+                                            }
+                                        %>  
+
+
+
+                                    </div>
                                     <div class="box box-primary box-solid">
                                         <div class="box-header with-border">
                                             <h3 class="box-title"><fmt:message key="msg.Recargar" /></h3>
@@ -140,16 +158,7 @@
                                                 </div>
                                             </div>
                                             <!-- /.row -->
-                                            <div id="result">
-                                                <div id="Error" class=" alert alert-success">
-                                                    <center>
-                                                        <strong>${mensaje}</strong>
-                                                    </center>
-                                                </div>
 
-
-
-                                            </div>
                                         </div>
                                         <!-- /.box-body -->
                                     </div>

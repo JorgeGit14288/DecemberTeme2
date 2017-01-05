@@ -21,7 +21,7 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-               <section class="content-header">
+                <section class="content-header">
                     <h1>
                         <fmt:message key="msg.EditarTelefono" />
                         <small></small>
@@ -90,17 +90,19 @@
 
                                             </form>
 
-                                            <div id="Error">
-                                                <Br>
+                                            <% String msj = (String) request.getAttribute("mensaje");
+                                                if (msj != null) {
+                                            %>
+                                            <div id="Error" class="alert alert-danger">
                                                 <center>
-
-                                                    <h5>
-                                                        ${mensaje}
-                                                    </h5>
-
+                                                    <b> <h4><%= msj%></h4></b>
                                                 </center>
-
                                             </div>
+
+                                            <%
+                                                } else {
+                                                }
+                                            %>    
 
                                         </div>
                                         <!-- /.box-body -->

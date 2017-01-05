@@ -4,24 +4,24 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
-         <meta charset="utf-8">
+
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title> <fmt:message key="msg.TituloPaginaUsuarios" /></title>
         <jsp:include page="../shared/theme2/user/headDashboardTables.jsp" />
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
+        <script>
+            $(function () {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
+                });
+            });
+        </script>
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -34,7 +34,7 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-               <section class="content-header">
+                <section class="content-header">
                     <h1>
                         <fmt:message key="msg.ListaUsuarios" />
                         <small></small>
@@ -110,13 +110,26 @@
                                     </div>
                                     <!-- /.box -->
 
-                                    
+
                                 </div>
                                 <!-- /.col -->
 
 
                             </div>
                             <!-- /.row -->
+                            <% String msj = (String) request.getAttribute("mensaje");
+                                if (msj != null) {
+                            %>
+                            <div id="Error" class="alert alert-success">
+                                <center>
+                                    <b> <h4><%= msj%></h4></b>
+                                </center>
+                            </div>
+
+                            <%
+                                } else {
+                                }
+                            %>  
 
 
                             <!-- =========================================================== -->

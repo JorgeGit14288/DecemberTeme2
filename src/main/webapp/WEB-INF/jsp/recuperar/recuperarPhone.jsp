@@ -27,7 +27,7 @@
                 <div class="login-wrap">
                     <center> 
                         <label><fmt:message key="msg.IngreseCodigo" /><br> </label>
-                        
+
                     </center>
 
                     <div class="input-group">
@@ -38,19 +38,25 @@
                     <input  class="btn btn-primary btn-lg btn-block" type="submit"  name="btnenvio"value="<fmt:message key="msg.Confirmar" />" >                    
                 </div>
                 <div>
-                   
-                        
+
+
                     <center> <h3> <label> <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a> </label> </h3></center> 
 
-                   
+
                 </div>
-                <div id="Error">
+                <% String msj = (String) request.getAttribute("mensaje");
+                    if (msj != null) {
+                %>
+                <div id="Error" class="alert alert-success">
                     <center>
-                        <h4>
-                            <label> ${mensaje}</label>
-                        </h4>
+                        <b> <h4><%= msj%></h4></b>
                     </center>
                 </div>
+
+                <%
+                    } else {
+                    }
+                %>  
             </form>
         </div>
     </body>

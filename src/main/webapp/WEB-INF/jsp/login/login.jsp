@@ -12,7 +12,7 @@
         <meta name="author" content="">
         <title><fmt:message key="msg.TituloPaginaLogin" /></title>
         <jsp:include page="../shared/theme3/user/headLogin.jsp" />
-       
+
     </head>
 
     <body class="login-img3-body">
@@ -22,14 +22,14 @@
             <form class="login-form" method="POST" action="validarLogin.htm">        
                 <div class="login-wrap">
                     <p class="login-img"><i class="icon_lock_alt"></i></p>
-                   <label for="codigoArea"  class="sr-only"><fmt:message key="msg.CodigoArea" /></label>
-                                <select name="codigo"  required  >
-                                    <option value="1">Estados Unidos </option> 
-                                    <option value="1">Canada</option> 
-                                    <option value="1">Puerto Rico</option> 
-                                    <option value="1">Republica Dominicana</option>                                  
-                                    <option value="502">Guatemala</option>                              
-                                </select>
+                    <label for="codigoArea"  class="sr-only"><fmt:message key="msg.CodigoArea" /></label>
+                    <select name="codigo"  required  >
+                        <option value="1">Estados Unidos </option> 
+                        <option value="1">Canada</option> 
+                        <option value="1">Puerto Rico</option> 
+                        <option value="1">Republica Dominicana</option>                                  
+                        <option value="502">Guatemala</option>                              
+                    </select>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="icon_phone"></i></span>
                         <input class="form-control"  placeholder="<fmt:message key="msg.NumeroTelefonico" />" name="telefono" required type="tel" autocomplete="on" autofocus >
@@ -45,12 +45,19 @@
                     <button class="btn btn-primary btn-lg btn-block" type="submit"><fmt:message key="msg.Ingresar" /></button>
                     <center> <h3> <a href="registrar.htm"><fmt:message key="msg.Registrarse" /></a></h3> </center>
                 </div>
+                <% String msj = (String) request.getAttribute("mensaje");
+                    if (msj != null) {
+                %>
                 <div id="Error" class="alert alert-danger">
-                    <Br>
                     <center>
-                        <h4> <b> ${mensaje} </b> </h4>
-                     </center>
+                        <b> <h4><%= msj%></h4></b>
+                    </center>
                 </div>
+
+                <%
+                    } else {
+                    }
+                %>             
             </form>
         </div>
     </body>

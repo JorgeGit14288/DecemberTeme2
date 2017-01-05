@@ -121,32 +121,41 @@
                                                     </div> 
                                                 </form>
                                             </div>
-                                        </div><div id="Error" class=" alert alert-success">
+                                        </div>
+                                        <% String msj = (String) request.getAttribute("mensaje");
+                                            if (msj != null) {
+                                        %>
+                                        <div id="Error" class="alert alert-success">
                                             <center>
-                                                <strong>${mensaje}</strong>
+                                                <b> <h4><%= msj%></h4></b>
                                             </center>
                                         </div>
+
+                                        <%
+                                            } else {
+                                            }
+                                        %>  
 
 
                                         <div class="table-striped">
                                             <table class="table table-bordered table-hover table-striped">
                                                 <thead>
                                                     <tr>
-                                                        
+
                                                         <th><fmt:message key="msg.NumerosAcceso" /></th>                                                        
                                                         <th><fmt:message key="msg.Estado" /></th>
                                                         <th><fmt:message key="msg.Area" /></th>
-                                                        
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <c:forEach items="${dids}" var="did">
                                                         <tr>
-                                                            
+
                                                             <td><c:out value="${did.getPhone()}" /></td>                                                           
                                                             <td><c:out value="${did.getState()}" /></td>
                                                             <td><c:out value="${did.getAreas() }" /></td>
-                                                           
+
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

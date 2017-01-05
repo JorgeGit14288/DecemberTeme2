@@ -24,6 +24,18 @@ import org.json.JSONObject;
  * @author jorge
  */
 public class httpHistorial {
+    
+    private int totalCount;
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
+    
+    
 
     public String getHttpString(String idAccount, String page, String max, String startDate, String endDate, String destination) {
         String resultado = null;
@@ -118,13 +130,19 @@ public class httpHistorial {
                     //objJason = gson.t
                     jsonArray = objJason.getJSONArray("items");
                     // System.out.println("\n\nEL ARRAY FINAL ES " + jsonArray.toString());
+                    this.setTotalCount(objJason.optInt("total_count"));
+                            //total_count =  nume
+                            
+                            System.out.println("\n\n\n el numero de items es "+ this.getTotalCount());
 
                   
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                          Llamadas llamada = new Llamadas();
                         llamada.setNo(i + 1);
-                        llamada.setInicioLLamada(jsonArray.getJSONObject(i).getString("callstart"));
+                       // llamada.setInicioLLamada(jsonArray.getJSONObject(i).getString("callstart"));
+                        llamada.setFechaLLamada(jsonArray.getJSONObject(i).getString("call_date"));
+                        llamada.setHoraLLamada(jsonArray.getJSONObject(i).getString("call_time"));
                         llamada.setNumero(jsonArray.getJSONObject(i).getString("callednum"));
                         llamada.setPais_operador(jsonArray.getJSONObject(i).getString("notes"));
                         llamada.setDuracionSegundos(String.valueOf(jsonArray.getJSONObject(i).getBigDecimal("billseconds")));

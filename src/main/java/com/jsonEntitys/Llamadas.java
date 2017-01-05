@@ -24,8 +24,16 @@ public class Llamadas {
     private String costoMinuto;
     private String horaLLamada;
     private String fechaLLamada;
+    private int totalCount;
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
     
-            
     
 
     public int getNo() {
@@ -92,6 +100,22 @@ public class Llamadas {
         this.costoMinuto = costoMinuto;
     }
 
-   
+    public String getHoraLLamada() {
+        return horaLLamada;
+    }
 
+    public void setHoraLLamada(String horaLLamada) {
+        this.horaLLamada = horaLLamada;
+    }
+
+    public String getFechaLLamada() {
+        return fechaLLamada;
+    }
+
+    public void setFechaLLamada(String fechaLLamada) {
+        this.fechaLLamada = fechaLLamada;
+    }
+    
+            
+    
 }

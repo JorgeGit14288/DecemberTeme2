@@ -100,14 +100,19 @@
                     <input  class="btn btn-primary btn-lg btn-block" type="submit" disabled="true" name="btnenvio"value="<fmt:message key="msg.Registrar" />" >                                        
                     <center> <h3> <label> <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a> </label> </h3></center> 
                 </div>
-                <div id="Error">
-
+                <% String msj = (String) request.getAttribute("mensaje");
+                    if (msj != null) {
+                %>
+                <div id="Error" class="alert alert-danger">
                     <center>
-                        <h4>
-                            <label> ${mensaje}</label>
-                        </h4>
+                        <b> <h4><%= msj%></h4></b>
                     </center>
                 </div>
+
+                <%
+                    } else {
+                    }
+                %>    
             </form>
         </div>
     </body>

@@ -71,13 +71,19 @@
 
                         </center>
                     </div>
-                    <div id="Error">
-                        <center>
-                            <h4>
-                                <label> ${mensaje}</label>
-                            </h4>
-                        </center>
-                    </div>
+                    <% String msj = (String) request.getAttribute("mensaje");
+                                                if (msj != null) {
+                                            %>
+                                            <div id="Error" class="alert alert-success">
+                                                <center>
+                                                    <b> <h4><%= msj%></h4></b>
+                                                </center>
+                                            </div>
+
+                                            <%
+                                                } else {
+                                                }
+                                            %>  
             </form>
         </div>
     </body>

@@ -38,10 +38,11 @@ public class HistorialController {
     String endDate;
     String destination = "";
     String idAccount;
-    int pagenext;
-    int pageprevius;
+    int pagenext = 2;
+    int pageprevius = 1;
     int page = 1;
-    int max = 10;
+    int max = 15;
+    int totalPages = 1;
     List<Llamadas> llamadas;
     List<Recarga> recargas;
 
@@ -83,16 +84,14 @@ public class HistorialController {
                 System.out.println("La fecha de un mes anterior es " + fechaAnterior);
                 startDate = fechaAnterior;
                 endDate = fechaActual;
-                
+
                 ConvertirFecha convertir = new ConvertirFecha();
                 String startFecha = convertir.StringFecha(startDate);
                 String endFecha = convertir.StringFecha(endDate);
 
                 System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startDate + "\n\n " + endDate);
 
-               
                 //fin fecha
-
                 try {
                     String telUser = sesion.getAttribute("usuario").toString();
                     Usuarios usuario = new Usuarios();
@@ -102,14 +101,17 @@ public class HistorialController {
                     telefono = telDao.getTelefono(telUser);
                     usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());
                     idAccount = usuario.getIdAccount();
+
                     
-                    
-                    
+
                     String endDate2 = endDate + " 23:59:00";
                     String startDate2 = startDate + " 00:00:00";
 
-                    System.out.println("id account = " +idAccount + " " + page + " " + max + " " + startDate2 + " " + endDate2 + " " + destination + " ");
+                    System.out.println("id account = " + idAccount + " " + page + " " + max + " " + startDate2 + " " + endDate2 + " " + destination + " ");
                     this.llenarHistorial(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max), destination);
+                    if (totalPages == 1) {
+                        pagenext = 1;
+                    }
                     if (llamadas.isEmpty()) {
                         mensaje = "No se realizaron llamadas en los ultimos 30 dias";
                         mav.addObject("startDate", startDate);
@@ -128,6 +130,7 @@ public class HistorialController {
                         }
 
                     } else {
+
                         mensaje = "HISTORIAL DE LLAMADAS DE LOS ULTIMOS 30 DIAS ";
                         mav.addObject("startDate", startDate);
                         mav.addObject("endDate", endDate);
@@ -229,21 +232,25 @@ public class HistorialController {
                 }
                 if (page2 != null) {
                     page = Integer.parseInt(page2);
+                    System.out.print("La pagina solicitada es " + page2);
                 }
                 if (page == 1) {
                     pageprevius = 1;
                 } else {
                     pageprevius = page - 1;
                 }
-
-                pagenext = page + 1;
+                if (pagenext == totalPages) {
+                    pagenext = totalPages;
+                } else {
+                    pagenext = page + 1;
+                }
                 ConvertirFecha convertir = new ConvertirFecha();
                 String startFecha = convertir.StringFecha(startDate);
                 String endFecha = convertir.StringFecha(endDate);
 
                 System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startDate + "\n\n " + endDate);
 
-                System.out.println("id account "+idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
+                System.out.println("id account " + idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
 
                 try {
                     this.llenarHistorial(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max), destination);
@@ -324,12 +331,41 @@ public class HistorialController {
 
         httpHistorial historial = new httpHistorial();
         this.llamadas = historial.getHistorial(idAccount, page, max, startDate, endDate, destination);
+        int noItems = historial.getTotalCount();
+
+        int divi = (noItems / 15);
+        double diviMod = noItems % 15;
+        System.out.println("\n\n\n modulo residuo =" + diviMod);
+        if (divi <= 1) {
+            totalPages = 1;
+        } else if (diviMod > 0) {
+            totalPages = divi+1;
+        } else {
+            totalPages = divi;
+
+        }
+        System.out.print("\n\n\n\n el numero de paginas a mostrar es " + totalPages);
     }
 
     public void llenarRecargas(String idAccount, String startDate, String endDate, String page, String max) {
         try {
             httpRecargas recargaHelper = new httpRecargas();
             recargas = recargaHelper.getRecargas(idAccount, page, max, startDate, endDate);
+
+            int noItems = recargaHelper.getTotalCount();
+
+        int divi = (noItems / 15);
+        double diviMod = noItems % 15;
+        System.out.println("\n\n\n modulo residuo =" + diviMod);
+        if (divi <= 1) {
+            totalPages = 1;
+        } else if (diviMod > 0) {
+            totalPages = divi+1;
+        } else {
+            totalPages = divi;
+
+        }
+        System.out.print("\n\n\n\n el numero de paginas a mostrar es " + totalPages);
         } catch (Exception e) {
             System.out.println("No se pudo obtener el historial de recargas");
             e.printStackTrace();
@@ -370,13 +406,13 @@ public class HistorialController {
                     mesAnterior = mes - 1;
                     yearAnterior = year;
                 }
+                
 
                 String fechaAnterior = dia + "/" + mesAnterior + "/" + yearAnterior;
                 System.out.println("La fecha de un mes anterior es " + fechaAnterior);
                 startDate = fechaAnterior;
                 endDate = fechaActual;
-                
-                
+
                 ConvertirFecha convertir = new ConvertirFecha();
                 String startFecha = convertir.StringFecha(startDate);
                 String endFecha = convertir.StringFecha(endDate);
@@ -384,23 +420,23 @@ public class HistorialController {
                 System.out.println("\n\n LAS FECHAS BUSCADAS SON " + startDate + "\n\n " + endDate);
 
                 System.out.println(idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
-                
-                            
 
                 //fin fechas
                 page = 1;
                 pagenext = page + 1;
-                pageprevius = page - 1;
+                pageprevius = page = 1;
                 mav.addObject("pagenext", pagenext);
                 mav.addObject("pageprevius", pageprevius);
                 mav.addObject("page", page);
                 mav.addObject("max", max);
                 String endDate2 = endDate + " 23:59:00";
                 String startDate2 = startDate + " 00:00:00";
-               
 
                 try {
                     this.llenarRecargas(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max));
+                    if (totalPages == 1) {
+                        pagenext = 1;
+                    }
 
                     if (recargas.isEmpty()) {
                         System.out.println("No se encontraron recargas en los ultimos 30 dias");
@@ -525,7 +561,7 @@ public class HistorialController {
                 } else {
                     pageprevius = page - 1;
                 }
-                
+
                 ConvertirFecha convertir = new ConvertirFecha();
                 String startFecha = convertir.StringFecha(startDate);
                 String endFecha = convertir.StringFecha(endDate);
@@ -535,10 +571,6 @@ public class HistorialController {
                 System.out.println(idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
 
                 pagenext = page + 1;
-
-                
-
-
 
                 try {
                     this.llenarRecargas(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max));

@@ -75,11 +75,13 @@ public class PerfilController {
                     mav.addObject("telefono", telefono);
                     mav.addObject("user", usuario);
                     mav.addObject("account", account);
+                    mensaje = "Servidor no disponible";
+                    mav.addObject("mensaje",mensaje);
 
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                         mav.setViewName("viewsAdmin/perfilAdmin");
                     } else {
-                        mav.setViewName("panel/pefil");
+                        mav.setViewName("panel/panel");
                     }
                 }
             }

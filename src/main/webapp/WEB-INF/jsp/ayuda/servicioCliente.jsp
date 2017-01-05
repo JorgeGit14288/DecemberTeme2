@@ -67,11 +67,19 @@
                                         </div>
                                         <!-- /.row -->
                                         <div id="result">
-                                            <div id="Error" class=" alert alert-success">
+                                            <% String msj = (String) request.getAttribute("mensaje");
+                                                if (msj != null) {
+                                            %>
+                                            <div id="Error" class="alert alert-success">
                                                 <center>
-                                                    <strong>${mensaje}</strong>
+                                                    <b> <h4><%= msj%></h4></b>
                                                 </center>
                                             </div>
+
+                                            <%
+                                                } else {
+                                                }
+                                            %>  
 
                                             <!-- /.box-body -->
                                         </div>

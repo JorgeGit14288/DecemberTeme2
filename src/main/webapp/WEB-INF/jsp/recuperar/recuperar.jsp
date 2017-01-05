@@ -41,14 +41,19 @@
                     <br>
                     <center> <h3> <label> <a href="login.htm"><fmt:message key="msg.RegresarLogin" /></a> </label> </h3></center> 
                 </div>
-                <div id="Error">
-                    <Br>
+                <% String msj = (String) request.getAttribute("mensaje");
+                    if (msj != null) {
+                %>
+                <div id="Error" class="alert alert-error">
                     <center>
-                        <h4>
-                            <label> ${mensaje}</label>
-                        </h4>
+                        <b> <h4><%= msj%></h4></b>
                     </center>
                 </div>
+
+                <%
+                    } else {
+                    }
+                %>  
             </form>
         </div>
     </body>

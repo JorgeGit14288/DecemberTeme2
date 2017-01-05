@@ -10,17 +10,33 @@ package com.jsonEntitys;
  * @author intercitydev
  */
 public class Recarga {
-    
-    
-    
-    
-    
+
     private String monto;  //credit
     private String saldoAnterior; //after_balance
     private String saldoPosterior; //before_balance
     private String descripcion;  //descripcion
-  
+    private String horaRecarga;
+    private String fechaRecarga;
     private String fecha;
+    private int no;
+    private int totalCount;
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
+    }
+    
 
     public String getFecha() {
         return fecha;
@@ -29,24 +45,6 @@ public class Recarga {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-    
-    
-    
-
-    public Recarga() {
-    }
-    private int No;
-
-    public int getNo() {
-        return No;
-    }
-
-    public void setNo(int No) {
-        this.No = No;
-    }
-    
-    
-    
 
     public String getMonto() {
         return monto;
@@ -80,6 +78,20 @@ public class Recarga {
         this.descripcion = descripcion;
     }
 
-   
-  
+    public String getHoraRecarga() {
+        return horaRecarga;
+    }
+
+    public void setHoraRecarga(String horaRecarga) {
+        this.horaRecarga = horaRecarga;
+    }
+
+    public String getFechaRecarga() {
+        return fechaRecarga;
+    }
+
+    public void setFechaRecarga(String fechaRecarga) {
+        this.fechaRecarga = fechaRecarga;
+    }
+
 }

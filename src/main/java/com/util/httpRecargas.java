@@ -25,6 +25,16 @@ import org.json.JSONObject;
  */
 public class httpRecargas {
 
+    private int totalCount;
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
+
     public String getHttpString(String idAccount, String page, String max, String startDate, String endDate) {
         String resultado = null;
         //   System.out.println("OBTENER SOLO UN ARRAY DE CADENA JSON");
@@ -97,6 +107,11 @@ public class httpRecargas {
                 System.out.println("\n MENSAJE DEL SERVIDOR " + mensaje);
                 String codigo = objJason.optString("code");
                 if (codigo.compareTo("200") == 0) {
+
+                    this.setTotalCount(objJason.optInt("total_count"));
+                    //total_count =  nume
+
+                    System.out.println("\n\n\n el numero de items es " + this.getTotalCount());
                     //  System.out.println(" el objeto jdata es " + jdata);
                     objJason = new JSONObject(jdata);
                     // System.out.println("objeto normal 1 " + objJason.toString());

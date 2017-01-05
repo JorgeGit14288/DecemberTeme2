@@ -1,7 +1,8 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
-    <strong>Intercity Communications </b>Copyright 2016. Todos los derechos reservados. Visite nuestros <a target="_blank" href="politicas.htm">Acuerdos y condiciones de uso</a> para mayor informacion.
-    reserved.
+    <strong>Intercity Communications. </b> <fmt:message key="msg.DerechosReservados" /> <a target="_blank" href="politicas.htm"> <fmt:message key="msg.Acuerdos" /> </a> <fmt:message key="msg.MayorInformacion" />.
+    <fmt:message key="msg.Reservado" />
   </footer>

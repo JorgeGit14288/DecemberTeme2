@@ -91,11 +91,19 @@
                                                     <input type="password" name="confirmPassword" id="inputPassword" class="form-control" placeholder="<fmt:message key="msg.ConfirmarPassword" />" required>
                                                     <input class="btn btn-lg btn-warning btn-block" type="submit" name="btnenvio"value="<fmt:message key="msg.Confirmar" />" >
                                                 </form>
-                                                <div id="Error" >
-                                                    <center>
-                                                        <strong>${mensaje}</strong>
-                                                    </center>
-                                                </div>
+                                                <% String msj = (String) request.getAttribute("mensaje");
+                                                if (msj != null) {
+                                            %>
+                                            <div id="Error" class="alert alert-success">
+                                                <center>
+                                                    <b> <h4><%= msj%></h4></b>
+                                                </center>
+                                            </div>
+
+                                            <%
+                                                } else {
+                                                }
+                                            %>  
                                             </div>
                                         </div>
                                         <!-- /.box-body -->
