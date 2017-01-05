@@ -561,6 +561,13 @@ public class HistorialController {
                 } else {
                     pageprevius = page - 1;
                 }
+                
+                
+                if (pagenext == totalPages) {
+                    pagenext = totalPages;
+                } else {
+                    pagenext = page + 1;
+                }
 
                 ConvertirFecha convertir = new ConvertirFecha();
                 String startFecha = convertir.StringFecha(startDate);
@@ -570,7 +577,7 @@ public class HistorialController {
 
                 System.out.println(idAccount + " " + page + " " + max + " " + startFecha + " " + endFecha + " " + destination + " ");
 
-                pagenext = page + 1;
+               
 
                 try {
                     this.llenarRecargas(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max));

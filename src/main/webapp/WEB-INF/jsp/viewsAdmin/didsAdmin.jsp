@@ -117,38 +117,45 @@
                                                         <input type="text" name="area" value="${area}"  placeholder="<fmt:message key="msg.Area"/>" >
                                                     </div>            
 
-                                                    <div class="col-xs-2">                                                        <button type="submit" class="btn btn-success"><fmt:message key="msg.Buscar" /></button>
+                                                    <div class="col-xs-2">                                                        <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
                                                     </div> 
                                                 </form>
                                             </div>
-                                        </div><div id="Error" class=" alert alert-success">
+                                        </div>
+                                        <% String msj = (String) request.getAttribute("mensaje");
+                                            if (msj != null) {
+                                        %>
+                                        <div id="Error" class="alert alert-success">
                                             <center>
-                                                <strong>${mensaje}</strong>
+                                                <b> <h4><%= msj%></h4></b>
                                             </center>
                                         </div>
+
+                                        <%
+                                            } else {
+                                            }
+                                        %>  
 
 
                                         <div class="table-striped">
                                             <table class="table table-bordered table-hover table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th><fmt:message key="msg.No" /></th>
-                                                        <th><fmt:message key="msg.Id" /></th>
-                                                        <th><fmt:message key="msg.Telefono" /></th>
-                                                        <th><fmt:message key="msg.Pais" /></th>
+
+                                                        <th><fmt:message key="msg.NumerosAcceso" /></th>                                                        
                                                         <th><fmt:message key="msg.Estado" /></th>
-                                                        <th><fmt:message key="msg.Status" /></th>
+                                                        <th><fmt:message key="msg.Area" /></th>
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <c:forEach items="${dids}" var="did">
                                                         <tr>
-                                                            <td><c:out value="${did.getNo()}" /></td>
-                                                            <td><c:out value="${did.getPhone()}" /></td>
-                                                            <td><c:out value="${did.getCountry()}" /></td>
+
+                                                            <td><c:out value="${did.getPhone()}" /></td>                                                           
                                                             <td><c:out value="${did.getState()}" /></td>
                                                             <td><c:out value="${did.getAreas() }" /></td>
-                                                            <td><c:out value="${did.getStatus() }" /></td>
+
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>

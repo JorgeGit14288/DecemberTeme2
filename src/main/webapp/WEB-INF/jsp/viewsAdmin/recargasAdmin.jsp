@@ -67,82 +67,76 @@
                                         <!-- /.box-header -->
                                         <div class="box-body">
                                             <!-- /.panel-heading -->
-                                            <div class="col-lg-10">
+                                            <div class="col-lg-12">
                                                 <form name="form1"  method="GET" action="getRecargas.htm" role="form">
-                                                    <div class="form-group col-xs-3">
-                                                        <label><fmt:message key="msg.FechaInicio" />:</label>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group col-xs-6">
+                                                            <label><fmt:message key="msg.FechaInicio" />:</label>
 
-                                                        <div class="input-group date ">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i>
+                                                            <div class="input-group date ">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </div>
+                                                                <input  name="startDate" required value="${startDate}" type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                                                             </div>
-                                                            <input  name="startDate" required value="${startDate}" type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                                            <!-- /.input group -->
                                                         </div>
-                                                        <!-- /.input group -->
-                                                    </div>
-                                                    <!-- /.form group -->
-                                                    <div class="form-group col-xs-3">
-                                                        <label><fmt:message key="msg.FechaFin" />:</label>
+                                                        <!-- /.form group -->
+                                                        <div class="form-group col-xs-6">
+                                                            <label><fmt:message key="msg.FechaFin" />:</label>
 
-                                                        <div class="input-group date ">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i>
+                                                            <div class="input-group date ">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </div>
+                                                                <input  name="endDate" value="${endDate}" required type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                                                             </div>
-                                                            <input  name="endDate" value="${endDate}" required type="text"  class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                                                            <!-- /.input group -->
                                                         </div>
-                                                        <!-- /.input group -->
+                                                        <!-- /.form group -->
                                                     </div>
-                                                    <!-- /.form group -->
-                                                    <div class="form-group col-xs-3">
-                                                        <label><fmt:message key="msg.Mostrar" /></label>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group col-xs-6">
+                                                           
 
-                                                        <div class="input-group date ">
+                                                            <div class="input-group date ">
+                                                                <br>
 
-                                                            <select name="max">
-                                                                <option selected value="${max}"> ${max} <fmt:message key="msg.Recargas" /></option>
-
-                                                                <option value="1">1 <fmt:message key="msg.Recarga" /></option> 
-                                                                <option value="5">5 <fmt:message key="msg.Recargas" /></option> 
-                                                                <option value="10">10 <fmt:message key="msg.Recargas" /></option> 
-                                                                <option value="15">15 <fmt:message key="msg.Recargas" /></option> 
-                                                                <option value="25">25 <fmt:message key="msg.Recargas" /></option> 
-                                                                <option value="50">50 <fmt:message key="msg.Recargas" /></option> 
-                                                                <option value="100">100 <fmt:message key="msg.Recargas" /></option> 
-
-                                                            </select>
+                                                                <input type="hidden" name="max" value="15">
+                                                                <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+                                                            </div>
+                                                            <!-- /.input group -->
                                                         </div>
-                                                        <!-- /.input group -->
-                                                    </div>
-                                                    <!-- /.form group -->
-                                                    <div class="form-group col-xs-3">
+                                                        <!-- /.form group -->
+                                                        <div class="form-group col-xs-6">
 
-                                                        <div class="input-group date ">
+                                                            <div class="input-group date ">
+                                                                <br>
 
-                                                            <button type="submit" class="btn btn-success"><fmt:message key="msg.VerHistorial" /></button>
+                                                                <button onclick="imprimir();" class=" btn btn-danger"><fmt:message key="msg.Imprimir" /></button>
 
+                                                            </div>
+                                                            <!-- /.input group -->
                                                         </div>
-                                                        <!-- /.input group -->
+                                                        <!-- /.form group -->
                                                     </div>
-                                                    <!-- /.form group -->
-
-                                                    <div class="form-group col-xs-3">
-                                                        <div class="input-group date ">
-                                                            <button onclick="imprimir();" class=" btn btn-danger"><fmt:message key="msg.Imprimir" /></button>
-                                                        </div>
-                                                        <!-- /.input group -->
-                                                    </div>
-                                                    <!-- /.form group -->
-
-
 
                                                 </form>
                                             </div>
                                         </div>
-                                        <div id="Error" class=" alert alert-success">
+                                        <% String msj = (String) request.getAttribute("mensaje");
+                                            if (msj != null) {
+                                        %>
+                                        <div id="Error" class="alert alert-success">
                                             <center>
-                                                <strong>${mensaje}</strong>
+                                                <b> <h4><%= msj%></h4></b>
                                             </center>
                                         </div>
+
+                                        <%
+                                            } else {
+                                            }
+                                        %>  
                                         <div id="imprimeme">
 
                                             <div class="table-striped">

@@ -58,7 +58,7 @@ public class PanelController {
                 sesionUser = sesion.getAttribute("usuario").toString();
                 mav.addObject("country", detalle.getCiudad());
                 mav.addObject("resultado", resultado);
-                mensaje = "Lista de Cuotas";
+              //  mensaje = "Lista de Cuotas";
                 mav.addObject("mensaje", mensaje);
                 mav.addObject("amount", amount);
                 mav.addObject("country", country);
@@ -109,7 +109,7 @@ public class PanelController {
                 //Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
                 mav.addObject("country", detalle.getCiudad());
                 mav.addObject("resultado", resultado);
-                mensaje = "Lista de Cuotas";
+                //mensaje = "Lista de Cuotas";
                 mav.addObject("mensaje", mensaje);
                 mav.addObject("amount", amount);
                 mav.addObject("country", country);

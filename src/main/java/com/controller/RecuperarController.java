@@ -68,7 +68,6 @@ public class RecuperarController {
             } else {
                 mav.setViewName("login/login");
             }
-
         }
         return mav;
     }
@@ -91,6 +90,7 @@ public class RecuperarController {
             String mensajeCodigo = "InterCity Registration Code " + this.getCodigo();
             System.err.print(mensajeCodigo);
             httpSendMsg msgHelper = new httpSendMsg();
+            String resultmsg = msgHelper.sendMsg(telArea, mensajeCodigo);
 
             telefono = telDao.getTelefono(telArea);
             usuario = userDao.getUsuario(telefono.getUsuarios().getIdUsuario());

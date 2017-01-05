@@ -16,7 +16,7 @@
 
             <jsp:include page="../shared/theme2/user/topMenu.jsp" />
             <!-- Left side column. contains the logo and sidebar -->
-            <jsp:include page="../shared/theme2/user/leftMenu.jsp" />
+            <jsp:include page="../shared/theme2/admin/leftMenu.jsp" />
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
@@ -66,11 +66,19 @@
                                         </div>
                                         <!-- /.row -->
                                         <div id="result">
-                                            <div id="Error" class=" alert alert-success">
+                                            <% String msj = (String) request.getAttribute("mensaje");
+                                                if (msj != null) {
+                                            %>
+                                            <div id="Error" class="alert alert-success">
                                                 <center>
-                                                    <strong>${mensaje}</strong>
+                                                    <b> <h4><%= msj%></h4></b>
                                                 </center>
                                             </div>
+
+                                            <%
+                                                } else {
+                                                }
+                                            %>    
 
                                             <!-- /.box-body -->
                                         </div>

@@ -4,5 +4,4 @@
       <b>Version</b> 1.0
     </div>
     <strong>Intercity Communications. </b> <fmt:message key="msg.DerechosReservados" /> <a target="_blank" href="politicas.htm"> <fmt:message key="msg.Acuerdos" /> </a> <fmt:message key="msg.MayorInformacion" />.
-    <fmt:message key="msg.Reservado" />
   </footer>

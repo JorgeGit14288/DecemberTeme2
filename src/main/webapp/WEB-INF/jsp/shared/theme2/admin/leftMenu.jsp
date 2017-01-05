@@ -14,7 +14,7 @@
             </div>
         </div>
         <!-- search form -->
-        
+
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
@@ -22,7 +22,7 @@
             <li class="active treeview">
                 <a href="panel.htm">
                     <i class="fa fa-dashboard"></i> <span><fmt:message key="msg.Escritorio" /></span>
-                    
+
                 </a>
 
             </li>
@@ -44,11 +44,26 @@
                 <a href="perfil.htm">
                     <i class="fa fa-user"></i>
                     <span> <fmt:message key="msg.PerfilUsuario" /></span>
-                    
+
                 </a>
-                
+
             </li>
-            
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span> <fmt:message key="msg.Ayuda" /></span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="dids.htm"><i class="fa fa-user-plus"></i><fmt:message key="msg.Dids" /></a></li>             
+                    <li><a href="servicioCliente.htm"><i class="fa fa-phone"></i><fmt:message key="msg.ServicioCliente" /></a></li>
+
+
+                </ul>
+            </li>
+
             <li class="treeview">
                 <a href="cuotas.htm">
                     <i class="fa fa-money"></i> <span><fmt:message key="msg.VerCuotas" /></span>  
