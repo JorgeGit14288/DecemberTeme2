@@ -87,7 +87,7 @@ public class PerfilController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -207,7 +207,7 @@ public class PerfilController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {

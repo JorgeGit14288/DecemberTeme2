@@ -17,11 +17,8 @@ import com.entitys.Usuarios;
 import com.util.Cifrar;
 import com.util.GeneradorCodigos;
 import com.util.httpSendMsg;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
  *
@@ -100,14 +97,14 @@ public class RecuperarController {
                 sesion.setAttribute("usuario", sesUser);
                 mav.setViewName("recuperar/recuperarPhone");
             } else {
-                mensaje = "No se encontro ninguna cuenta asociada al telefono " + telArea;
+                mensaje = "No account was found associated with the phone " + telArea;
                 mav.setViewName("recuperar/recuperar");
             }
 
         } catch (Exception e) {
             mensaje = null;
             e.printStackTrace();
-            mensaje = "NO SE PUDO CONTACTAR CON EL SERVIDOR";
+            mensaje = "Sorry, service is not available, try later";
             mav.setViewName("recuperar/recuperar");
         }
         mav.addObject("mensaje", mensaje);
@@ -120,14 +117,14 @@ public class RecuperarController {
         ModelAndView mav = new ModelAndView();
         try {
             String mensaje = null;
-            mensaje = "Ingrese el codigo que recibio en su telefono ";
+            mensaje = "Enter the code you received on your phone";
             mav.addObject("mensaje", mensaje);
             mav.setViewName("recuperar/recuperarPhone");
             mav.addObject("codigo", codigo);
         } catch (Exception e) {
             mensaje = null;
             e.printStackTrace();
-            mensaje = "NO SE PUDO CONTACTAR CON EL SERVIDOR";
+            mensaje = "Sorry, service is not available, try later";
             mav.setViewName("recuperar/recuperarPhone");
         }
 
@@ -159,13 +156,13 @@ public class RecuperarController {
                         mav.setViewName("recuperar/setPassword");
                         //this.setCodigo(null);
                     } else {
-                        mensaje = "El codigo es correcto, pero no se ha podido cargar a su cuenta";
+                        mensaje = "The code is correct but could not be loaded into your account";
                         mav.addObject("mensaje", mensaje);
                         mav.setViewName("telefonos/confirmPhone");
                     }
                 } else {
 
-                    mensaje = "El codigo ingreado no es correcto, por favor intente de nuevo";
+                    mensaje = "The code you entered is not correct, please try again.";
                     mav.addObject("mensaje", mensaje);
                     mav.setViewName("telefonos/confirmPhone");
                 }
@@ -173,7 +170,7 @@ public class RecuperarController {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -195,7 +192,7 @@ public class RecuperarController {
             mav.setViewName("recuperar/recuperarPassword");
         } catch (Exception e) {
             e.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -234,10 +231,10 @@ public class RecuperarController {
                 if (userDao.updateUsuarios(usuario)) {
                     sesion.invalidate();
                     mav.setViewName("logout");
-                    mensaje = "Ingrese sus nuevos datos para ingresar al sistema";
+                    mensaje = "Enter your new data to enter the system";
                     this.createCodigo();
                 } else {
-                    mensaje = "se encontro un error en el servidor";
+                    mensaje = "Sorry, service is not available, try later";
                     mav.addObject("mensaje", mensaje);
                     mav.setViewName("recuperar/setPassword");
                 }
@@ -320,16 +317,16 @@ public class RecuperarController {
                         mav.addObject("mensaje", mensaje);
                         this.createCodigo();
                     } else {
-                        mensaje = "No se ha podido actualizar el password en el servidor";
+                        mensaje = "Failed to update password on server";
                         System.out.print("No se ha podido actualizar el password en el servidor");
                         mav.addObject("mensaje", mensaje);
                         mav.setViewName("panel/cambiarPassword");
                     }
 
                 } else {
-                    System.out.print("Los El password ingresado es invalido");
+                    System.out.print(" El password ingresado es invalido");
                     mav.setViewName("panel/cambiarPassword");
-                    mensaje = "el password Actual es incorrecto";
+                    mensaje = "The current password is incorrect";
                     mav.addObject("mensaje", mensaje);
 
                 }

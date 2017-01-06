@@ -76,7 +76,7 @@ public class RegistrarController {
             mav.setViewName("telefonos/registrar");
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -130,7 +130,7 @@ public class RegistrarController {
         } catch (Exception e) {
             mensaje = null;
             e.printStackTrace();
-            mensaje = "Ocurrio un error al conectar al servidor ";
+            mensaje = "Sorry, service is not available, try later ";
             mav.setViewName("telefonos/registrar");
         }
         mav.addObject("mensaje", mensaje);
@@ -151,7 +151,7 @@ public class RegistrarController {
         ModelAndView mav = new ModelAndView();
         try {
             mensaje = null;
-            mensaje = "Ingrese el codigo que recibio en su telefono " + this.getCodigo();
+            mensaje = "Enter the code you received on your phone " ;
 
             mav.addObject("mensaje", mensaje);
             mav.setViewName("telefonos/confirmPhone");
@@ -203,19 +203,19 @@ public class RegistrarController {
 
                         sesion.setAttribute("usuario", sesUser);
                         sesion.setAttribute("tipoUsuario", usuario.getTipoUsuario());
-                        mensaje = "Bienvenido";
+                        mensaje = "Welcome";
                         this.createCodigo();
                         mav.setViewName("telefonos/confirmPhone");
                         System.out.print("se ha creado un usuario");
                     } else {
                         mensaje = null;
-                        mensaje = "NO SE PUDO REGISTRAR EL TELEFONO";
+                        mensaje = "Could not register the phone number";
                         mav.setViewName("telefonos/registrar");
                         System.out.print("NO SE ha creado un usuario");
                     }
                 } else {
                     mensaje = null;
-                    mensaje = "NO SE PUDO CREAR EL USUARIO";
+                    mensaje = "Could not create user";
                     mav.setViewName("telefonos/registrar");
                 }
 
@@ -229,20 +229,20 @@ public class RegistrarController {
                     }
 
                 } else {
-                    mensaje = "El codigo es correcto, pero no se ha podido cargar a su cuenta";
+                    mensaje = "The code is correct but could not be loaded into your account";
                     mav.addObject("mensaje", mensaje);
                     mav.setViewName("usuarios/confirmPhone");
                 }
             } else {
 
-                mensaje = "El codigo ingreado no es correcto, por favor intente de nuevo";
+                mensaje = "The code you entered is not correct, please try again.";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("telefonos/confirmPhone");
             }
 
         } catch (Exception e) {
           e.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {

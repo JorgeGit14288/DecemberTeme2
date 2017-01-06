@@ -152,7 +152,7 @@ public class RecargarController {
                 Detalles cuenta = new Detalles();
                 cuenta = (Detalles) sesion.getAttribute("cuenta");
                 String amount = request.getParameter("amount");
-                String details = "Relizando una recarga ";
+                String details = "Recharge performed, ammount=$" +amount+" phone "+cuenta.getTelefono()+" Thanks";
                 String accountid = cuenta.getAccountId();
 
                 // System.out.print("Se realizara una recarga a "+cuenta.getAccountId() + " monto "+amount);

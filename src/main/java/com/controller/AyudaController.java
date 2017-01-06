@@ -63,7 +63,7 @@ public class AyudaController {
                 httpServicioCliente help = new httpServicioCliente();
                 String resultado = help.getServicioCliente(idioma);
                 mav.addObject("resultado", resultado);
-                mensaje = "Servicio al Cliente";
+                mensaje = "Customer service";
                 mav.addObject("mensaje", mensaje);
                 
 
@@ -77,7 +77,7 @@ public class AyudaController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "An error occurred while getting the view";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -116,7 +116,7 @@ public class AyudaController {
                 httpHelp help = new httpHelp();
                 String resultado = help.getHelp(idioma);
                 mav.addObject("resultado", resultado);
-                mensaje = "Ayuda";
+                mensaje = "Help";
                 mav.addObject("mensaje", mensaje);
                 
 
@@ -130,7 +130,7 @@ public class AyudaController {
 
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "An error occurred while getting the view";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {

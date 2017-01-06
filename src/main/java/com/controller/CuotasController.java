@@ -6,13 +6,7 @@
 package com.controller;
 
 import com.entitys.Detalles;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.nio.charset.Charset;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -57,7 +51,7 @@ public class CuotasController {
                 //Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
                 mav.addObject("country", detalle.getCiudad());
                 mav.addObject("resultado", resultado);
-                mensaje = "Lista de Cuotas";
+                mensaje = "Rates";
                 mav.addObject("mensaje", mensaje);
                 mav.addObject("amount", amount);
                 mav.addObject("country", country);
@@ -71,7 +65,7 @@ public class CuotasController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -109,7 +103,7 @@ public class CuotasController {
                 //Detalles detalle = (Detalles) sesion.getAttribute("cuenta");
                 mav.addObject("country", detalle.getCiudad());
                 mav.addObject("resultado", resultado);
-                mensaje = "Lista de Cuotas";
+                mensaje = "Rates InterCity";
                 mav.addObject("mensaje", mensaje);
                 mav.addObject("amount", amount);
                 mav.addObject("country", country);
@@ -124,7 +118,7 @@ public class CuotasController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {

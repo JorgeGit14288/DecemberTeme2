@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.entitys.Telefonos;
 import com.entitys.Usuarios;
-import com.util.Cifrar;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
@@ -43,7 +42,7 @@ public class TelefonosController {
             sesion = request.getSession();
 
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "Debe Loguearse para acceder";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
             } else {
@@ -63,7 +62,7 @@ public class TelefonosController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -86,7 +85,7 @@ public class TelefonosController {
         try {
             sesion = request.getSession();
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -114,7 +113,7 @@ public class TelefonosController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -136,7 +135,7 @@ public class TelefonosController {
         try {
             sesion = request.getSession();
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -156,7 +155,7 @@ public class TelefonosController {
 
                 if (telDao.updateTelefono(telefono)) {
                     System.out.println("Se ha acutailzado el estado del telefono");
-                    mensaje = "Se ha actualizado el estado del telefono";
+                    mensaje = "Phone status updated";
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                         mav.addObject("usuario", usuario);
                         mav.addObject("telefono", telefono);
@@ -168,7 +167,7 @@ public class TelefonosController {
                         mav.setViewName("panel/editarPerfil");
                     }
                 } else {
-                    System.out.println("Error, no se actualizo el estado del telefono");
+                    System.out.println("Error, phone status not updated");
                     mensaje = "No se ha realizado el cambio";
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                         mav.addObject("usuario", usuario);
@@ -183,7 +182,7 @@ public class TelefonosController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {

@@ -63,8 +63,8 @@ public class LoginController {
             tel2 = dao.getTelefono(telefonoArea);
 
             if (tel2 == null) {
-                mensaje = "El usuario no existe en la base de datos";
-                System.out.println("ha ocurrido un error");
+                mensaje = "The user is not found";
+                System.out.println("The user is not found");
                 mav.setViewName("login/login");
 
             } else {
@@ -117,26 +117,33 @@ public class LoginController {
                     sesion.setAttribute("usuario", userSesion);
                     sesion.setAttribute("tipoUsuario", tipoUsuario);
                     sesion.setAttribute("cuenta", cuenta);
-                    if (tipoUsuario.compareTo("Administrador") == 0) {
-                        System.out.println("REDIRIGIENDO A VISTAS ADMINISTRADOR");
-                        mensaje = "Bienvenido";
-                        mav.setViewName("viewsAdmin/panelAdmin");
+
+                    if (user.getStatus().compareTo("Activo") == 0) {
+                        if (tipoUsuario.compareTo("Administrador") == 0) {
+                            System.out.println("REDIRIGIENDO A VISTAS ADMINISTRADOR");
+                            mensaje = "Welcome";
+                            mav.setViewName("viewsAdmin/panelAdmin");
+                        } else {
+                            System.out.println("REDIRIGIENDO A VISTAS USUARIOS");
+                            mensaje = "Welcome";
+                            mav.setViewName("panel/panel");
+                        }
                     } else {
-                        System.out.println("REDIRIGIENDO A VISTAS USUARIOS");
-                        mensaje = "Bienvenido";
-                        mav.setViewName("panel/panel");
+                        System.out.println("Your account is Disabled");
+                        mensaje = "Your account is inactive";
+                        mav.setViewName("login/login");
                     }
 
                 } else {
-                    mensaje = "LOS DATOS NO SON CORRECTOS";
-                    System.out.println("ha ocurrido un error");
+                    mensaje = "Data does not match";
+                    System.out.println("Data does not match");
                     mav.setViewName("login/login");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
             //System.out.println("ha ocurrido un error");
-            mensaje = "Lo sentimos, ha ocurrido un error";
+            mensaje = "Sorry, the server is not responding";
             mav.setViewName("login/login");
         }
         mav.addObject("mensaje", mensaje);

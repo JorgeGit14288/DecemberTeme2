@@ -7,7 +7,6 @@ package com.controller;
 
 import com.dao.TelefonosDao;
 import com.dao.UsuariosDao;
-import com.entitys.Detalles;
 import com.entitys.Telefonos;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -39,7 +38,7 @@ public class UsuariosController {
         try {
             sesion = request.getSession();
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -57,7 +56,7 @@ public class UsuariosController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -77,7 +76,7 @@ public class UsuariosController {
         try {
             sesion = request.getSession();
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -102,7 +101,7 @@ public class UsuariosController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -122,7 +121,7 @@ public class UsuariosController {
         try {
             sesion = request.getSession();
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -157,7 +156,7 @@ public class UsuariosController {
                 telUser = telDao.getTelUser(userId);
 
                 if (userDao.updateUsuarios(usuario)) {
-                    System.out.println("Se ha actualizado el usuario");
+                    System.out.println("User updated");
                     mensaje = "Se ha realizado la actualizacion";
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                         mav.addObject("usuario", usuario);
@@ -169,7 +168,7 @@ public class UsuariosController {
                     }
                 } else {
                     System.out.println("No se ha podido realizar la actualizacion");
-                    mensaje = "No se ha realizado la actualizacion";
+                    mensaje = "Error, user not updated";
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                         mav.addObject("usuario", usuario);
                         mav.addObject("telUser", telUser);
@@ -191,7 +190,7 @@ public class UsuariosController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {

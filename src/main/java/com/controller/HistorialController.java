@@ -113,7 +113,7 @@ public class HistorialController {
                         pagenext = 1;
                     }
                     if (llamadas.isEmpty()) {
-                        mensaje = "No se realizaron llamadas en los ultimos 30 dias";
+                        mensaje = "There is no call log for the last 30 days";
                         mav.addObject("startDate", startDate);
                         mav.addObject("endDate", endDate);
                         mav.addObject("page", page);
@@ -131,7 +131,7 @@ public class HistorialController {
 
                     } else {
 
-                        mensaje = "HISTORIAL DE LLAMADAS DE LOS ULTIMOS 30 DIAS ";
+                        mensaje = "Call history for the last 30 days";
                         mav.addObject("startDate", startDate);
                         mav.addObject("endDate", endDate);
                         mav.addObject("pagenext", pagenext);
@@ -150,7 +150,7 @@ public class HistorialController {
                     }
                 } catch (Exception e) {
 
-                    mensaje = "LO SENTIMOS, NO SE HA PODIO CONECTAR CON EL SERVIDOR";
+                    mensaje = "Sorry, service is not available, try later";
                     mav.addObject("startDate", startDate);
                     mav.addObject("endDate", endDate);
                     mav.addObject("page", page);
@@ -172,7 +172,7 @@ public class HistorialController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -194,7 +194,7 @@ public class HistorialController {
             sesion = request.getSession();
 
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "No esta logeado para obtener las vistas";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -255,7 +255,7 @@ public class HistorialController {
                 try {
                     this.llenarHistorial(idAccount, startFecha, endFecha, String.valueOf(page), String.valueOf(max), destination);
                     if (llamadas.isEmpty()) {
-                        mensaje = "No Existe registro de llamadas en las fechas comprendidas";
+                        mensaje = "There is no call log on the dates included";
                         mav.addObject("startDate", startDate);
                         mav.addObject("endDate", endDate);
                         mav.addObject("page", page);
@@ -272,7 +272,7 @@ public class HistorialController {
                         }
 
                     } else {
-                        mensaje = "Llamadas Realizadas en las fechas comprendidas ";
+                        mensaje = "Calls made on the dates entered";
                         mav.addObject("startDate", startDate);
                         mav.addObject("endDate", endDate);
                         mav.addObject("pagenext", pagenext);
@@ -291,7 +291,7 @@ public class HistorialController {
                     }
                 } catch (Exception e) {
 
-                    mensaje = "LO SENTIMOS, NO SE HA PODIO CONECTAR CON EL SERVIDOR";
+                    mensaje = "Sorry, service is not available, try later";
                     mav.addObject("startDate", startDate);
                     mav.addObject("endDate", endDate);
                     mav.addObject("page", page);
@@ -313,7 +313,7 @@ public class HistorialController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -380,7 +380,7 @@ public class HistorialController {
             sesion = request.getSession();
 
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "No esta logeado para obtener las vistas";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -440,7 +440,7 @@ public class HistorialController {
 
                     if (recargas.isEmpty()) {
                         System.out.println("No se encontraron recargas en los ultimos 30 dias");
-                        mensaje = "No se encontraron recargas en los ultimos 30 dias";
+                        mensaje = "No recharges were made in the last 30 days";
                         mav.addObject("startDate", startDate);
                         mav.addObject("endDate", endDate);
                         mav.addObject("page", page);
@@ -458,7 +458,7 @@ public class HistorialController {
                         }
 
                     } else {
-                        System.out.println("Recargas realizadas en los ultimos 30 dias");
+                        System.out.println("Refills from the last 30 days");
                         mensaje = "Recargas realizadas en los ultimos 30 dias";
 
                         mav.addObject("startDate", startDate);
@@ -478,7 +478,7 @@ public class HistorialController {
                     }
 
                 } catch (Exception e) {
-                    mensaje = "LO SENTIMOS, NO SE HA PODIDO CONECTAR CON EL SERVIDOR";
+                    mensaje = "Sorry, service is not available, try later";
                     mav.addObject("startDate", startDate);
                     mav.addObject("endDate", endDate);
                     mav.addObject("page", page);
@@ -498,7 +498,7 @@ public class HistorialController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
@@ -520,7 +520,7 @@ public class HistorialController {
             sesion = request.getSession();
 
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "No esta logeado para obtener las vistas";
+                mensaje = "Please login to the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -584,7 +584,7 @@ public class HistorialController {
 
                     if (recargas.isEmpty()) {
                         System.out.println("No se encontraron recargas en las fechas comprendidas");
-                        mensaje = "No Existe historial de llamadas en las fechas comprendidas";
+                        mensaje = "No refills found";
                         mav.addObject("startDate", startDate);
                         mav.addObject("endDate", endDate);
                         mav.addObject("page", page);
@@ -603,7 +603,7 @@ public class HistorialController {
 
                     } else {
                         System.out.println("Recargas realizadas en las fechas comprendidas");
-                        mensaje = "Recargas realizadas en las fechas comprendidas";
+                        mensaje = "List of refills";
 
                         mav.addObject("startDate", startDate);
                         mav.addObject("endDate", endDate);
@@ -622,7 +622,7 @@ public class HistorialController {
                     }
 
                 } catch (Exception e) {
-                    mensaje = "LO SENTIMOS, NO SE HA PODIDO CONECTAR CON EL SERVIDOR";
+                    mensaje = "Sorry, service is not available, try later";
                     mav.addObject("startDate", startDate);
                     mav.addObject("endDate", endDate);
                     mav.addObject("page", page);
@@ -643,7 +643,7 @@ public class HistorialController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje = "Ha ocurrido un error al obtener la vista";
+            mensaje = "Sorry, view unavailable at this time";
             mav.addObject("mensaje", mensaje);
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
                 mav.setViewName("viewsAdmin/recargasAdmin");

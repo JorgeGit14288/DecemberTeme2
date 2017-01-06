@@ -41,7 +41,7 @@ public class AdminController {
 
             sesion = request.getSession();
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "Ingrese sus datos para poder ingresar al sistema";
+                mensaje = "Enter your data to enter the system";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -54,7 +54,7 @@ public class AdminController {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            mensaje ="Ha ocurrido un error al obtener la vista"  ;   
+            mensaje ="An error occurred while getting the view"  ;   
              mav.addObject("mensaje", mensaje);
             mav.setViewName("login/login");
 
