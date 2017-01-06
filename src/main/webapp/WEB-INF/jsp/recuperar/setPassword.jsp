@@ -18,14 +18,14 @@
             function validar() {
                 if (document.form.password.value != document.form.confirmPassword.value)
                 {
-                    alert('¡los datos de los campos no coinciden, intente de nuevo');
+                    alert('¡The passwords do not match, please try again');
                     document.form.password.focus();
                     return false;
                     // 
                 } else
                 {
                     /* Si todo está OK se prosigue con lo que sea: */
-                    alert('¡Cambio exitoso, se redigira a la pantalla de  login para que ingrese sus nuevos datos!');
+                    alert('Successful change, enter the system with your new data');
                     document.form.submit;
                     return true;
                 }

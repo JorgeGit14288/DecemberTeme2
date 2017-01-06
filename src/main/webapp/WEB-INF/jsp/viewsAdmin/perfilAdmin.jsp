@@ -174,9 +174,9 @@
                                                             <label for="lenguaje" class="col-sm-2 control-label"><fmt:message key="msg.LenguajeOperador" />:</label>
                                                             <div class="col-sm-10">
                                                                 <select name="languaje" id="languaje" disabled="true"  required  class="form-control" >
-                                                                    <option value="${account.getLanguaje_id()}"><fmt:message key="msg.Actual" /> ${account.getLanguaje_id()}</option>
-                                                                    <option value="Es"><fmt:message key="msg.Espa" /></option> 
-                                                                    <option value="En"><fmt:message key="msg.Ingles" /></option> 
+                                                                    <option value="${idioma}"><fmt:message key="msg.Actual" /> ${idioma}</option>
+                                                                    <option value="1"><fmt:message key="msg.Espa" /></option> 
+                                                                    <option value="2"><fmt:message key="msg.Ingles" /></option> 
                                                                 </select>
                                                             </div>
                                                         </div>

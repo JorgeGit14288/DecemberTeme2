@@ -17,14 +17,14 @@
             function validar() {
                 if (document.form.password.value != document.form.confirmPassword.value)
                 {
-                    alert('¡Debe escribir el mismo password');
+                    alert('Passwords do not match, try again');
                     document.form.password.focus();
                     return false;
                     // 
                 } else
                 {
                     /* Si todo está OK se prosigue con lo que sea: */
-                    alert('¡Usuario Valido!');
+                   
                     document.form.submit;
                     return true;
                 }

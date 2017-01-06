@@ -5,7 +5,7 @@
 <html lang="en">
     <head>
         
-        <title>Phones </title>
+        <title><fmt:message key="msg.TituloPaginaTelefonos" /> </title>
 
       <jsp:include page="../shared/theme2/user/headDashboardTables.jsp" />
 
@@ -79,7 +79,7 @@
 
                                                             <td><c:out value="${telefono.getStatus()}" /></td>
 
-                                                            <td><a href="editarTelefonos.htm?idTelefono=${telefono.getTelefonoArea()}">editar</a></td>         
+                                                            <td><a href="editarTelefonos.htm?idTelefono=${telefono.getTelefonoArea()}">Edit Phone</a></td>         
                                                         </tr>
                                                     </c:forEach>
 

@@ -55,25 +55,35 @@
                         <div id="page-wrapper">
                             <div class="row">
                                 <!-- /.col -->
-                                <div class="col-md-8">
+                                <div class="col-md-12">
+                                    <div id="result">
+                                        <% String msj = (String) request.getAttribute("mensaje");
+                                            if (msj != null) {
+                                        %>
+                                        <div id="Error" class="alert alert-danger">
+                                            <center>
+                                                <b> <h4><%= msj%></h4></b>
+                                            </center>
+                                        </div>
+
+                                        <%
+                                            } else {
+                                            }
+                                        %>  
+                                    </div>
                                     <div class="box box-success box-solid">
                                         <div class="box-header with-border">
                                             <h3 class="box-title"><fmt:message key="msg.TituloVentanaRecargar" /></h3>
-
-                                            <div class="box-tools pull-right">
-                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                                </button>
-                                            </div>
                                             <!-- /.box-tools -->
                                         </div>
                                         <!-- /.box-header -->
                                         <div class="box-body">
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-8">
                                                 <div id ="imprimeme">
 
 
                                                     <div class="table-responsive">
-                                                        <table class="table table-striped">
+                                                        <table class="table table-striped table-bordered">
                                                             <thead>
                                                                 <tr> 
                                                                     <th> <fmt:message key="msg.Detalle" /></th>
@@ -82,30 +92,31 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td> <fmt:message key="msg.Token" /></td>
+                                                                    <td> <fmt:message key="msg.Token" />:</td>
                                                                     <td>${resRecarga.getToken()}</td>
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td> <fmt:message key="msg.MontoRecarga" /></td>
+                                                                    <td> <fmt:message key="msg.MontoRecarga" />:</td>
                                                                     <td>${resRecarga.getAmount()}</td>
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td> <fmt:message key="msg.Fecha" /></td>
+                                                                    <td> <fmt:message key="msg.Fecha" />:</td>
                                                                     <td>${resRecarga.getRs_datetime()}</td>
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td> <fmt:message key="msg.EstadoRecarga" /></td>
+                                                                    <td> <fmt:message key="msg.EstadoRecarga" />:</td>
                                                                     <td>${resRecarga.getRs_status()}</td>
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td> <fmt:message key="msg.Detalles" /></td>
+                                                                    <td> <fmt:message key="msg.Detalles" />:</td>
                                                                     <td>${resRecarga.getDetails()}</td>
 
                                                                 </tr>
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -114,21 +125,15 @@
                                                 </div>
 
                                             </div>
-                                            <center>
-                                                <button onclick="imprimir();" class=" btn btn-danger">
-                                                    <fmt:message key="msg.Imprimir" />
-                                                </button>
-                                            </center>
-                                            <!-- /.row -->
-                                            <div id="result" >
-                                                <div id="Error" class=" col-xs-12 alert alert-success">
-                                                    <center>
-                                                        <strong>${mensaje}</strong>
-                                                    </center>
-                                                </div>
-
-                                                <!-- /.box-body -->
+                                            <div class="col-lg-8">
+                                                <center>
+                                                    <button onclick="imprimir();" class=" btn btn-danger">
+                                                        <fmt:message key="msg.Imprimir" />
+                                                    </button>
+                                                </center>
                                             </div>
+                                            <!-- /.row -->
+
 
                                         </div>
 

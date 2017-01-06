@@ -97,7 +97,7 @@
                                                             <td><c:out value="${usuario.getStatus()}" /></td>
                                                             <td><c:out value="${usuario.getTipoUsuario() }" /></td>
                                                             <td><c:out value="${usuario.getIdAccount() }" /></td>
-                                                            <td><a href="editarUsuarios.htm?idUsuario=${usuario.getIdUsuario()}">editar</a></td>         
+                                                            <td><a href="editarUsuarios.htm?idUsuario=${usuario.getIdUsuario()}">Edit User</a></td>         
                                                         </tr>
                                                     </c:forEach>
 

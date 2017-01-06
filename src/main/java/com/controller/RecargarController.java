@@ -39,7 +39,7 @@ public class RecargarController {
             sesion = request.getSession();
 
             if (sesion.getAttribute("usuario") == null) {
-                mensaje = "No esta logeado para obtener las vistas";
+                mensaje = "Please log in";
                 mav.addObject("mensaje", mensaje);
                 mav.setViewName("login/login");
 
@@ -67,29 +67,24 @@ public class RecargarController {
                         sesion.setAttribute("cuenta", cuenta);
 
                         if (rsStatus.compareTo("COMPLETED") == 0) {
-                            mensaje = "Transaccion Completa";
+                            mensaje = "Transaction successfully completed";
                             //cuenta.setSaldo(resRecarga.getAmount());
 
                         } else if (rsStatus.compareTo("REGISTERED") == 0) {
-                            mensaje = "La Transacion aun esta en proceso";
+                            mensaje = "The Transaction is still in process";
                         } else if (rsStatus.compareTo("VERIFYING") == 0) {
-                            mensaje = "La transaccion ha sido procesada en pagadito, pero ha quedado en "
-                                    + "verificacion, en este punto el cobro ha quedado en validacion administrativa"
-                                    + "Posteriormente la transaccion puede marcarse como valida o denegada< por lo que se debe de "
-                                    + "monitorear mediante esta funcion hasta que su estado cambie a completado o revocado, \n "
-                                    + "el dodigo de la transaccion es " + resRecarga.getToken();
+                            mensaje = " "
+                                    + "The transaction has been processed in the payment server, but has remained pending administrative validation of the same, then the transaction can be validated or denied, so it should be monitored by this means, the code of the transaction is: " + resRecarga.getToken();
                         } else if (rsStatus.compareTo("REVOKED") == 0) {
-                            mensaje = "Lo sentimos, la transaccion de su recarga ha sido deneada en pagadito, consulete al "
-                                    + "administrador del sistema, Gracias";
-                        } else if (rsStatus.compareTo("FAILED") == 0) {
-                            mensaje = "La Transaccion ha fallado, por favor intente de nuevo";
+                            mensaje = "Sorry, the transaction of your recharge has been denied in paid, consulete, contact us for more information ";                        } else if (rsStatus.compareTo("FAILED") == 0) {
+                            mensaje = "Transaction has failed, please try again";
                         } else if (rsStatus.compareTo("null") == 0) {
-                            mensaje = "El servidor no ha respondido correctamente, vuelva a intentar en otro momento a verificar su transaccion";
+                            mensaje = "The server did not respond correctly, try again at another time to verify your transaction";
                         }
 
                     } else {
 
-                        mensaje = "No se ha encontrado informacion a cerca de la recarga";
+                        mensaje = "No information found about the recharge";
                         mav.setViewName("panel/panel");
 
                     }
@@ -105,21 +100,21 @@ public class RecargarController {
                     }
                 } else {
 
-                    mensaje = "No se ha recibido el token del servidor de pago";
+                    mensaje = "Payment server token was not received";
                     mav.addObject("mensaje", mensaje);
 
                     if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
 
-                        mav.setViewName("viewsAdmin/panelAdmin");
+                        mav.setViewName("viewsAdmin/recargarAdmin");
                         System.out.println("El usuario es administrador ");
                     } else {
 
-                        mav.setViewName("panel/panel");
+                        mav.setViewName("recargar/recargar");
                     }
                 }
             }
         } catch (Exception e) {
-            System.out.println("Ha ocurrido un error de validacion en el servidor ");
+            System.out.println("A validation error has occurred on the server ");
             mav.addObject("mensaje", mensaje);
 
             if (sesion.getAttribute("tipoUsuario").toString().compareTo("Administrador") == 0) {
