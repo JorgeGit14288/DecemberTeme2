@@ -127,10 +127,23 @@ public class httpRecargas {
                         Recarga recarga = new Recarga();
                         recarga.setNo(i + 1);
                         recarga.setFecha(jsonArray.getJSONObject(i).getString("created_date"));
+                        recarga.setFechaRecarga(jsonArray.getJSONObject(i).getString("call_date"));
+                        recarga.setHoraRecarga(jsonArray.getJSONObject(i).getString("call_time"));
                         recarga.setDescripcion(jsonArray.getJSONObject(i).getString("description"));
                         recarga.setMonto(String.valueOf(jsonArray.getJSONObject(i).getInt("credit")));
-                        recarga.setSaldoAnterior(jsonArray.getJSONObject(i).getString("before_balance"));
-                        recarga.setSaldoPosterior(jsonArray.getJSONObject(i).getString("after_balance"));
+                        
+    
+                        
+                        String before = jsonArray.getJSONObject(i).getString("before_balance");
+                        double numero = Double.parseDouble(before);
+                        recarga.setSaldoAnterior(this.redondearDecimales(numero));
+                        
+
+                        
+                        String after = jsonArray.getJSONObject(i).getString("after_balance");
+                        numero = Double.parseDouble(after);
+                        recarga.setSaldoPosterior(this.redondearDecimales(numero));
+              
 
                         recargas.add(recarga);
                     }
@@ -138,6 +151,8 @@ public class httpRecargas {
                     for (int i = 0; i < recargas.size(); i++) {
                         System.out.print("\n\nNo" + recargas.get(i).getNo());
                         System.out.print("\nFecna " + recargas.get(i).getFecha());
+                        System.out.print("\nFecha " + recargas.get(i).getFechaRecarga());
+                        System.out.print("\nHora " + recargas.get(i).getHoraRecarga());
                         System.out.print("\nDescripcion " + recargas.get(i).getDescripcion());
                         System.out.print("\nMonto " + recargas.get(i).getMonto());
                         System.out.print("\nSaldo Anterior " + recargas.get(i).getSaldoAnterior());
@@ -158,6 +173,17 @@ public class httpRecargas {
 
         return recargas;
 
+    }
+     public  String redondearDecimales(double valorInicial) {
+        double parteEntera, resultado;
+        resultado = valorInicial;
+        parteEntera = Math.floor(resultado);
+        resultado = (resultado - parteEntera) * Math.pow(10, 2);
+        resultado = Math.round(resultado);
+        resultado = (resultado / Math.pow(10, 2)) + parteEntera;
+        String result = String.valueOf(resultado);
+        System.out.println("se convirtio a dos decimales"+resultado);
+        return result;
     }
 
 }

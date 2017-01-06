@@ -50,7 +50,7 @@
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-question-circle"></i>
                     <span> <fmt:message key="msg.Ayuda" /></span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>

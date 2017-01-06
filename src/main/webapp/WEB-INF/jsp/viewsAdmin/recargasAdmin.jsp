@@ -145,6 +145,7 @@
                                                         <tr>
                                                             <th><fmt:message key="msg.No" /></th>
                                                             <th><fmt:message key="msg.Fecha" /></th>
+                                                            <th><fmt:message key="msg.Hora" /></th>
                                                             <th><fmt:message key="msg.Monto" /></th>
                                                             <th><fmt:message key="msg.SaldoAnterior" /></th>
                                                             <th><fmt:message key="msg.SaldoPosterior" /></th>
@@ -155,7 +156,8 @@
                                                         <c:forEach items="${recargas}" var="recarga">
                                                             <tr>
                                                                 <td><c:out value="${recarga.getNo()}" /></td>
-                                                                <td><c:out value="${recarga.getFecha()}" /></td>
+                                                                <td><c:out value="${recarga.getFechaRecarga()}" /></td>
+                                                                <td><c:out value="${recarga.getHoraRecarga()}" /></td>
                                                                 <td><c:out value="${recarga.getMonto()}" /></td>
                                                                 <td><c:out value="${recarga.getSaldoAnterior()}" /></td>
                                                                 <td><c:out value="${recarga.getSaldoPosterior() }" /></td>

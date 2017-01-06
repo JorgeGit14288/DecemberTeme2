@@ -64,6 +64,25 @@ public class PerfilController {
                     String idAccount = account.getId();
                     String idLenguaje = account.getLanguaje_id();
                     String idioma;
+                    String notMail = null;
+                    String idiomaActual = RequestContextUtils.getLocale(request).getLanguage();
+                    
+                    if (idiomaActual.compareTo("es") == 0) {
+                        if ((account.getNotify_email().compareTo("true") == 0)) {
+                            notMail = "Si";
+                        } else {
+                            notMail = "No";
+                        }
+
+                    } else {
+
+                        if ((account.getNotify_email().compareTo("true") == 0)) {
+                            notMail = "yes";
+                        } else {
+                            notMail = "false";
+                        }
+                    }
+                    mav.addObject("notMail", notMail);
 
                     if (account.getLanguaje_id().compareTo("1") == 0) {
                         idioma = "Español";
@@ -75,6 +94,7 @@ public class PerfilController {
                     mav.addObject("idioma", idioma);
 
                     mav.addObject("telefono", telefono);
+
                     mav.addObject("user", usuario);
                     mav.addObject("account", account);
 
@@ -148,9 +168,15 @@ public class PerfilController {
                 boolean notifyFlag = false;
                 String notmail = request.getParameter("notifyEmail");
                 String notflag = request.getParameter("notifyFlag");
-
-                
-
+                if (notmail.compareTo("true")==0)
+                {
+                    notifyEmail=true;
+                }
+                else
+                {
+                    notifyEmail=false;
+                }
+                    
 
                 AccountLight accountL = new AccountLight();
                 Usuarios usuario = new Usuarios();
@@ -198,7 +224,7 @@ public class PerfilController {
                     System.out.print("El balance de la cuenta es " + cuenta.getSaldo());
 
                     String idAccount = account.getId();
-                                      String idioma;
+                    String idioma;
 
                     if (account.getLanguaje_id().compareTo("1") == 0) {
                         idioma = "Español";
@@ -207,7 +233,7 @@ public class PerfilController {
                     } else {
                         idioma = "English";
                     }
-                    
+
                     mav.addObject("idioma", idioma);
                     mav.addObject("telefono", telefono);
                     mav.addObject("user", usuario);
@@ -219,12 +245,48 @@ public class PerfilController {
                         System.out.println("No se ha enontrado el accountId del usuario se buscara");
                         usuario.setIdAccount(accountHelper.getIdAccount(TelArea));
                         account = accountHelper.getAccountObject(sesUser);
+                        String notMail = null;
+                        String idiomaActual = RequestContextUtils.getLocale(request).getLanguage();
+                        if (idiomaActual.compareTo("es") == 0) {
+                            if ((account.getNotify_email().compareTo("true") == 0)) {
+                                notMail = "Si";
+                            } else {
+                                notMail = "No";
+                            }
+
+                        } else {
+
+                            if ((account.getNotify_email().compareTo("true") == 0)) {
+                                notMail = "yes";
+                            } else {
+                                notMail = "false";
+                            }
+                        }
+                        mav.addObject("notMail", notMail);
                         userDao.updateUsuarios(usuario);
                         System.out.println("Se ha registrado el usuario con el servidor en linea ");
                     } else {
                         System.out.println("Se encontro el accountId del usuario ");
                         accountHelper.setAccountObject(accountL, usuario.getIdAccount());
                         account = accountHelper.getAccountObject(sesUser);
+                        String notMail = null;
+                        String idiomaActual = RequestContextUtils.getLocale(request).getLanguage();
+                        if (idiomaActual.compareTo("es") == 0) {
+                            if ((account.getNotify_email().compareTo("true") == 0)) {
+                                notMail = "Si";
+                            } else {
+                                notMail = "No";
+                            }
+
+                        } else {
+
+                            if ((account.getNotify_email().compareTo("true") == 0)) {
+                                notMail = "yes";
+                            } else {
+                                notMail = "false";
+                            }
+                        }
+                        mav.addObject("notMail", notMail);
                         System.out.println("se ha actualizado el usuario al servidor ");
                     }
 

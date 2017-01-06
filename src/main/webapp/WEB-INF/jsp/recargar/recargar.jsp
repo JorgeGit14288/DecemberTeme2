@@ -83,7 +83,7 @@
 
 
                                                     <div class="table-responsive">
-                                                        <table  class="table table-striped table-bordered ">
+                                                        <table class="table table-striped table-bordered">
                                                             <thead>
                                                                 <tr> 
                                                                     <th> <fmt:message key="msg.Detalle" /></th>
@@ -92,8 +92,8 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td> <fmt:message key="msg.Token" />:</td>
-                                                                    <td>${resRecarga.getToken()}</td>
+                                                                    <td> <fmt:message key="msg.TransactionCode" />:</td>
+                                                                     <td>${resRecarga.getId()} - ${resRecarga.getCode()} </td>
 
                                                                 </tr>
                                                                 <tr>
@@ -107,8 +107,8 @@
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td> <fmt:message key="msg.EstadoRecarga" />:</td>
-                                                                    <td>${resRecarga.getRs_status()}</td>
+                                                                    <td> <fmt:message key="msg.EstadoRecarga" />: </td>
+                                                            <b> <td class="text-red">${resRecarga.getRs_status()}</td> </b>
 
                                                                 </tr>
                                                                 <tr>
@@ -127,7 +127,7 @@
                                             </div>
                                             <div class="col-lg-8">
                                                 <center>
-                                                    <button onclick="imprimir();" class=" btn btn-danger">
+                                                    <button onclick="imprimir();" class=" btn btn-primary">
                                                         <fmt:message key="msg.Imprimir" />
                                                     </button>
                                                 </center>

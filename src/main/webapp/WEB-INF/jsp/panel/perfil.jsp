@@ -185,7 +185,7 @@
 
                                                             <div class="col-sm-10">
                                                                 <select name="notifyEmail" id="notifyEmail" disabled="true" required  class="form-control" >
-                                                                    <option value="${account.getNotify_email()}"><fmt:message key="msg.Actual" /> ${account.getNotify_email()}</option>
+                                                                    <option value="${account.getNotify_email()}"><fmt:message key="msg.Actual" /> ${notMail}</option>
                                                                     <option value="false"><fmt:message key="msg.False" /></option> 
                                                                     <option value="true"><fmt:message key="msg.True" /></option> 
                                                                 </select>
